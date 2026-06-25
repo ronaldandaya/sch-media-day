@@ -1,32 +1,341 @@
 {
   "season": "2026",
-  "baseUrl": ".",
-  "generatedAt": "2026-06-25T15:00:00",
+  "generatedAt": "2026-06-25T21:51:47.471460",
+  "lookups": {
+    "brayden_tique_11": "brayden_tique",
+    "jayce_legaspi_34": "jayce_legaspi",
+    "jeilani_young_30": "jeilani_young",
+    "jonah_hanley_24": "jonah_hanley",
+    "logan_chiu_5": "logan_chiu",
+    "sidak_singh_10": "sidak_singh",
+    "vincent_ha_4": "vincent_ha",
+    "zayan_shreyom_0": "zayan_shreyom"
+  },
   "players": {
-    "sidak_singh_10": {
-      "displayName": "Sidak Singh",
-      "team": "Boys 8th Grade",
-      "jerseyNumber": "10",
-      "poses": [
-        { "id": "pose1", "label": "Hero",     "thumb": "previews/8th_boys/sidak_singh_10/pose1.jpg", "full": "previews/8th_boys/sidak_singh_10/pose1.jpg" },
-        { "id": "pose2", "label": "Action",   "thumb": "previews/8th_boys/sidak_singh_10/pose2.jpg", "full": "previews/8th_boys/sidak_singh_10/pose2.jpg" },
-        { "id": "pose3", "label": "Portrait", "thumb": "previews/8th_boys/sidak_singh_10/pose3.jpg", "full": "previews/8th_boys/sidak_singh_10/pose3.jpg" }
+    "brayden_tique": {
+      "displayName": "Brayden Tique",
+      "teams": [
+        {
+          "name": "Boys 8th Grade",
+          "jersey": "11",
+          "groupPhotos": [
+            {
+              "id": "g_8th_boys_team_pose",
+              "label": "Team Pose",
+              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
+              "full": "./previews/_groups/8th_boys/team_pose.jpg"
+            }
+          ]
+        }
       ],
-      "groupPhotos": [
-        { "id": "g_8th_boys_team", "label": "Team", "thumb": "previews/_groups/8th_boys_team.jpg", "full": "previews/_groups/8th_boys_team.jpg" }
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/brayden_tique/pose1_thumb.jpg",
+          "full": "./previews/players/brayden_tique/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/brayden_tique/pose2_thumb.jpg",
+          "full": "./previews/players/brayden_tique/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/brayden_tique/pose3_thumb.jpg",
+          "full": "./previews/players/brayden_tique/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/brayden_tique/pose4_thumb.jpg",
+          "full": "./previews/players/brayden_tique/pose4.jpg"
+        }
       ]
     },
-    "jeilani_young_30": {
-      "displayName": "Jeilani Young",
-      "team": "Girls JV (9th–10th)",
-      "jerseyNumber": "30",
-      "poses": [
-        { "id": "pose1", "label": "Hero",     "thumb": "https://placehold.co/400x600/0d2a30/00b4c8?text=Jeilani+Pose+1", "full": "https://placehold.co/1200x1800/0d2a30/00b4c8?text=Jeilani+Pose+1" },
-        { "id": "pose2", "label": "Action",   "thumb": "https://placehold.co/400x600/0d2a30/00b4c8?text=Jeilani+Pose+2", "full": "https://placehold.co/1200x1800/0d2a30/00b4c8?text=Jeilani+Pose+2" },
-        { "id": "pose3", "label": "Portrait", "thumb": "https://placehold.co/400x600/0d2a30/00b4c8?text=Jeilani+Pose+3", "full": "https://placehold.co/1200x1800/0d2a30/00b4c8?text=Jeilani+Pose+3" }
+    "jayce_legaspi": {
+      "displayName": "Jayce Legaspi",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "34",
+          "groupPhotos": []
+        }
       ],
-      "groupPhotos": [
-        { "id": "g_jv_girls_team", "label": "Team", "thumb": "https://placehold.co/600x400/0d2a30/f0a500?text=JV+Girls+Team", "full": "https://placehold.co/1600x1066/0d2a30/f0a500?text=JV+Girls+Team" }
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/jayce_legaspi/pose1_thumb.jpg",
+          "full": "./previews/players/jayce_legaspi/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/jayce_legaspi/pose2_thumb.jpg",
+          "full": "./previews/players/jayce_legaspi/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/jayce_legaspi/pose3_thumb.jpg",
+          "full": "./previews/players/jayce_legaspi/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/jayce_legaspi/pose4_thumb.jpg",
+          "full": "./previews/players/jayce_legaspi/pose4.jpg"
+        },
+        {
+          "id": "pose5",
+          "label": "Pose 5",
+          "thumb": "./previews/players/jayce_legaspi/pose5_thumb.jpg",
+          "full": "./previews/players/jayce_legaspi/pose5.jpg"
+        },
+        {
+          "id": "pose6",
+          "label": "Pose 6",
+          "thumb": "./previews/players/jayce_legaspi/pose6_thumb.jpg",
+          "full": "./previews/players/jayce_legaspi/pose6.jpg"
+        }
+      ]
+    },
+    "jeilani_young": {
+      "displayName": "Jeilani Young",
+      "teams": [
+        {
+          "name": "Girls 5th Grade",
+          "jersey": "30",
+          "groupPhotos": []
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/jeilani_young/pose1_thumb.jpg",
+          "full": "./previews/players/jeilani_young/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/jeilani_young/pose2_thumb.jpg",
+          "full": "./previews/players/jeilani_young/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/jeilani_young/pose3_thumb.jpg",
+          "full": "./previews/players/jeilani_young/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/jeilani_young/pose4_thumb.jpg",
+          "full": "./previews/players/jeilani_young/pose4.jpg"
+        }
+      ]
+    },
+    "jonah_hanley": {
+      "displayName": "Jonah Hanley",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "24",
+          "groupPhotos": []
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/jonah_hanley/pose1_thumb.jpg",
+          "full": "./previews/players/jonah_hanley/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/jonah_hanley/pose2_thumb.jpg",
+          "full": "./previews/players/jonah_hanley/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/jonah_hanley/pose3_thumb.jpg",
+          "full": "./previews/players/jonah_hanley/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/jonah_hanley/pose4_thumb.jpg",
+          "full": "./previews/players/jonah_hanley/pose4.jpg"
+        },
+        {
+          "id": "pose5",
+          "label": "Pose 5",
+          "thumb": "./previews/players/jonah_hanley/pose5_thumb.jpg",
+          "full": "./previews/players/jonah_hanley/pose5.jpg"
+        },
+        {
+          "id": "pose6",
+          "label": "Pose 6",
+          "thumb": "./previews/players/jonah_hanley/pose6_thumb.jpg",
+          "full": "./previews/players/jonah_hanley/pose6.jpg"
+        }
+      ]
+    },
+    "logan_chiu": {
+      "displayName": "Logan Chiu",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "5",
+          "groupPhotos": []
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/logan_chiu/pose1_thumb.jpg",
+          "full": "./previews/players/logan_chiu/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/logan_chiu/pose2_thumb.jpg",
+          "full": "./previews/players/logan_chiu/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/logan_chiu/pose3_thumb.jpg",
+          "full": "./previews/players/logan_chiu/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/logan_chiu/pose4_thumb.jpg",
+          "full": "./previews/players/logan_chiu/pose4.jpg"
+        }
+      ]
+    },
+    "sidak_singh": {
+      "displayName": "Sidak Singh",
+      "teams": [
+        {
+          "name": "Boys 8th Grade",
+          "jersey": "10",
+          "groupPhotos": [
+            {
+              "id": "g_8th_boys_team_pose",
+              "label": "Team Pose",
+              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
+              "full": "./previews/_groups/8th_boys/team_pose.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/sidak_singh/pose1.jpg",
+          "full": "./previews/players/sidak_singh/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/sidak_singh/pose2.jpg",
+          "full": "./previews/players/sidak_singh/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/sidak_singh/pose3.jpg",
+          "full": "./previews/players/sidak_singh/pose3.jpg"
+        }
+      ]
+    },
+    "vincent_ha": {
+      "displayName": "Vincent Ha",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "4",
+          "groupPhotos": []
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/vincent_ha/pose1_thumb.jpg",
+          "full": "./previews/players/vincent_ha/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/vincent_ha/pose2_thumb.jpg",
+          "full": "./previews/players/vincent_ha/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/vincent_ha/pose3_thumb.jpg",
+          "full": "./previews/players/vincent_ha/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/vincent_ha/pose4_thumb.jpg",
+          "full": "./previews/players/vincent_ha/pose4.jpg"
+        }
+      ]
+    },
+    "zayan_shreyom": {
+      "displayName": "Zayan Shreyom",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "0",
+          "groupPhotos": []
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/zayan_shreyom/pose1_thumb.jpg",
+          "full": "./previews/players/zayan_shreyom/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/zayan_shreyom/pose2_thumb.jpg",
+          "full": "./previews/players/zayan_shreyom/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/zayan_shreyom/pose3_thumb.jpg",
+          "full": "./previews/players/zayan_shreyom/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/zayan_shreyom/pose4_thumb.jpg",
+          "full": "./previews/players/zayan_shreyom/pose4.jpg"
+        },
+        {
+          "id": "pose5",
+          "label": "Pose 5",
+          "thumb": "./previews/players/zayan_shreyom/pose5_thumb.jpg",
+          "full": "./previews/players/zayan_shreyom/pose5.jpg"
+        }
       ]
     }
   }
