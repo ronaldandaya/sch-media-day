@@ -1346,25 +1346,34 @@
       try {
         const m = await loadManifest();
         const key = slugify(first) + '_' + slugify(last) + '_' + slugify(jersey);
-        const player = m.players && m.players[key];
+        // Lookup table maps key → player id (handles multi-team & multi-jersey)
+        const playerId = m.lookups && m.lookups[key];
+        const player = playerId ? m.players[playerId] : null;
         if (!player) {
           showLookupStatus(`😕 We couldn't find photos for "${first} ${last}" #${jersey}. Double-check spelling and jersey number — or contact us if you think this is a mistake.`, 'error');
           document.getElementById('preview-section').classList.remove('visible');
           return;
         }
-        CURRENT_PLAYER = { key, ...player };
+        CURRENT_PLAYER = { key, id: playerId, lookupJersey: jersey, ...player };
         selectedPoses.player.clear();
         selectedPoses.group.clear();
         renderPreview();
-        showLookupStatus(`✓ Found photos for ${player.displayName}.`, 'success');
+        const teamCount = (player.teams || []).length;
+        showLookupStatus(
+          `✓ Found photos for ${player.displayName}` +
+          (teamCount > 1 ? ` (${teamCount} teams).` : '.'),
+          'success'
+        );
 
         // Auto-fill the contact-info section
         document.getElementById('player-name').value = player.displayName;
-        if (player.team) {
+        // Pick the team that matched this jersey lookup if possible, else first team
+        const matchTeam = (player.teams || []).find(t => String(t.jersey) === jersey) || (player.teams || [])[0];
+        if (matchTeam && matchTeam.name) {
           const teamSel = document.getElementById('team');
           for (const opt of teamSel.options) {
-            if (opt.value.toLowerCase().includes(player.team.toLowerCase()) ||
-                player.team.toLowerCase().includes(opt.value.toLowerCase())) {
+            if (opt.value.toLowerCase().includes(matchTeam.name.toLowerCase()) ||
+                matchTeam.name.toLowerCase().includes(opt.value.toLowerCase())) {
               teamSel.value = opt.value; break;
             }
           }
@@ -1384,11 +1393,15 @@
       const sec = document.getElementById('preview-section');
       sec.classList.add('visible');
 
-      // Player info banner
+      const teams = CURRENT_PLAYER.teams || [];
+      const totalGroup = teams.reduce((acc, t) => acc + (t.groupPhotos || []).length, 0);
+
+      // Player info banner — show all teams
+      const teamTags = teams.map(t => `<span class="team-tag">${t.name} · #${t.jersey}</span>`).join(' ');
       document.getElementById('preview-player-info').innerHTML = `
         <strong>${CURRENT_PLAYER.displayName}</strong>
-        ${CURRENT_PLAYER.team ? `<span class="team-tag">${CURRENT_PLAYER.team}</span>` : ''}
-        <span style="color: var(--muted); margin-left: 8px;">· ${(CURRENT_PLAYER.poses||[]).length} poses · ${(CURRENT_PLAYER.groupPhotos||[]).length} group photos</span>
+        ${teamTags}
+        <span style="color: var(--muted); margin-left: 8px; display: inline-block; margin-top: 4px;">· ${(CURRENT_PLAYER.poses||[]).length} poses · ${totalGroup} group photos</span>
       `;
 
       // Player poses
@@ -1399,15 +1412,26 @@
         pGrid.appendChild(tile);
       });
 
-      // Group photos
+      // Group photos — one sub-section per team
       const gLabel = document.getElementById('group-section-label');
       const gGrid = document.getElementById('group-pose-grid');
       gGrid.innerHTML = '';
-      if ((CURRENT_PLAYER.groupPhotos || []).length > 0) {
+      if (totalGroup > 0) {
         gLabel.style.display = 'flex';
-        (CURRENT_PLAYER.groupPhotos || []).forEach(p => {
-          const tile = makeTile(p, 'group');
-          gGrid.appendChild(tile);
+        teams.forEach(team => {
+          const groupPhotos = team.groupPhotos || [];
+          if (groupPhotos.length === 0) return;
+          if (teams.length > 1) {
+            const header = document.createElement('div');
+            header.className = 'group-team-header';
+            header.textContent = team.name;
+            header.style.cssText = 'grid-column: 1/-1; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--teal-light); padding: 8px 0 4px;';
+            gGrid.appendChild(header);
+          }
+          groupPhotos.forEach(p => {
+            const tile = makeTile({ ...p, team: team.name }, 'group');
+            gGrid.appendChild(tile);
+          });
         });
       } else {
         gLabel.style.display = 'none';
