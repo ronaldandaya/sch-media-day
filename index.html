@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shark City Hoops – Digital Photo Order Form</title>
+  <style>
+    :root {
+      --teal: #00b4c8;
+      --teal-dark: #008fa0;
+      --teal-light: #00d4ea;
+      --bg: #111418;
+      --card: #1a1f26;
+      --card2: #222830;
+      --border: #2e3540;
+      --text: #e8edf2;
+      --muted: #7a8a9a;
+      --white: #ffffff;
+      --accent: #f0a500;
+      --success: #2ecc71;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 16px 48px;
+    }
+
+    /* ── Header ── */
+    .header { text-align: center; margin-bottom: 32px; }
+    .logo-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #0d2a30 0%, #0a3a42 100%);
+      border: 2px solid var(--teal);
+      border-radius: 16px;
+      padding: 20px 32px;
+      margin-bottom: 16px;
+    }
+    .logo-badge h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1;
+    }
+    .logo-badge h1 span { color: var(--teal); }
+    .logo-badge .sub {
+      font-size: 0.85rem;
+      color: var(--teal-light);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .header h2 { font-size: 1.1rem; font-weight: 500; color: var(--muted); margin-top: 8px; }
+    .season-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #111;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      padding: 4px 14px;
+      margin-top: 10px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .card-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Form fields ── */
+    .field { margin-bottom: 18px; }
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 7px;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], select {
+      width: 100%;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0, 180, 200, 0.15);
+    }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .row-3 { display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 14px; }
+    @media (max-width: 480px) {
+      .row-2, .row-3 { grid-template-columns: 1fr; }
+    }
+
+    /* ── Package selector ── */
+    .package-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .package-option { position: relative; }
+    .package-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+    .package-card {
+      background: var(--card2);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .package-option input[type="radio"]:checked + .package-card {
+      border-color: var(--teal);
+      background: #0d2a30;
+    }
+    .package-option input[type="radio"]:checked + .package-card .pkg-radio-dot {
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+    .package-option input[type="radio"]:checked + .package-card .pkg-radio-dot::after {
+      transform: scale(1);
+    }
+    .pkg-radio-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      margin-top: 2px;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .pkg-radio-dot::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      background: var(--white);
+      transform: scale(0);
+      transition: transform 0.15s;
+    }
+    .pkg-info { flex: 1; }
+    .pkg-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .pkg-price {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--teal-light);
+      margin-bottom: 8px;
+    }
+    .pkg-includes {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .pkg-includes li {
+      list-style: none;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+    .pkg-includes li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: 700;
+    }
+    .pkg-includes .bonus { color: var(--accent); font-style: italic; }
+
+    /* ── Add-on rows (icon + name + stepper) ── */
+    .addon-row {
+      display: grid;
+      grid-template-columns: 1fr 130px;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .addon-row:last-child { border-bottom: none; }
+    .addon-info { display: flex; flex-direction: column; gap: 2px; }
+    .addon-name { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .addon-desc { font-size: 0.75rem; color: var(--muted); }
+    .addon-price { font-size: 0.85rem; color: var(--teal-light); font-weight: 600; }
+
+    /* stepper */
+    .stepper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+    .stepper.active { border-color: var(--teal); background: #0d2a30; }
+    .step-btn {
+      background: none;
+      border: none;
+      color: var(--teal);
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      cursor: pointer;
+      line-height: 1;
+      transition: background 0.15s;
+      flex-shrink: 0;
+    }
+    .step-btn:hover { background: rgba(0,180,200,0.12); }
+    .step-btn:active { background: rgba(0,180,200,0.25); }
+    .step-val {
+      flex: 1;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      min-width: 22px;
+      user-select: none;
+    }
+
+    /* ── Specials banner ── */
+    .specials-banner {
+      background: linear-gradient(135deg, #1a1208, #2d1f0a);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+    }
+    .specials-banner .title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .specials-banner .tiers {
+      font-size: 0.8rem;
+      color: var(--text);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+    .specials-banner .tier { text-align: center; }
+    .specials-banner .tier strong { display: block; color: var(--accent); font-weight: 800; }
+    @media (max-width: 480px) {
+      .specials-banner .tiers { grid-template-columns: 1fr; }
+    }
+    .discount-active {
+      display: inline-block;
+      background: var(--success);
+      color: #06180e;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-left: 6px;
+    }
+
+    /* ── Order summary ── */
+    .summary-card {
+      background: linear-gradient(135deg, #0d2a30 0%, #0a3a42 100%);
+      border: 2px solid var(--teal);
+      border-radius: 14px;
+      padding: 24px;
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+    .summary-rows { margin-bottom: 16px; }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row .qty { color: var(--text); font-weight: 600; }
+    .summary-row.discount { color: var(--success); }
+    .summary-row.discount .qty { color: var(--success); }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 2px solid var(--teal);
+      margin-top: 8px;
+    }
+    .total-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal-light);
+    }
+    .total-amount { font-size: 2rem; font-weight: 900; color: var(--white); }
+
+    /* ── Payment ── */
+    .payment-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .payment-option { position: relative; }
+    .payment-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+    .payment-option label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--card2);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: none;
+      letter-spacing: 0;
+      margin: 0;
+    }
+    .payment-option input[type="radio"]:checked + label {
+      border-color: var(--teal);
+      background: #0d2a30;
+      color: var(--teal-light);
+    }
+
+    /* ── Notes ── */
+    textarea {
+      width: 100%;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      padding: 11px 14px;
+      outline: none;
+      resize: vertical;
+      min-height: 90px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    /* ── Submit ── */
+    .submit-btn {
+      width: 100%;
+      max-width: 680px;
+      display: block;
+      margin: 0 auto 12px;
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 12px;
+      padding: 18px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .submit-btn:hover { opacity: 0.9; }
+    .submit-btn:active { transform: scale(0.99); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Status ── */
+    #status-msg {
+      display: none;
+      max-width: 680px;
+      margin: 0 auto 16px;
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    #status-msg.error { background: #3a0d0d; color: #ff8a8a; border: 1px solid #ff8a8a; }
+
+    /* ── Preview Gallery ── */
+    .lookup-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 120px auto;
+      gap: 10px;
+      align-items: end;
+    }
+    @media (max-width: 600px) {
+      .lookup-row { grid-template-columns: 1fr; }
+    }
+    .lookup-btn {
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 18px;
+      cursor: pointer;
+      height: 43px;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .lookup-btn:hover { opacity: 0.9; }
+    .lookup-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .lookup-status {
+      font-size: 0.85rem;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-top: 14px;
+      display: none;
+    }
+    .lookup-status.error { background: #3a0d0d; color: #ff8a8a; border: 1px solid #ff8a8a; display: block; }
+    .lookup-status.success { background: #0d3a20; color: #9ce6b8; border: 1px solid var(--success); display: block; }
+    .lookup-status.loading { background: var(--card2); color: var(--muted); display: block; }
+
+    .preview-section { display: none; margin-top: 18px; }
+    .preview-section.visible { display: block; }
+    .preview-player-info {
+      background: var(--card2);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    .preview-player-info strong { color: var(--white); }
+    .preview-player-info .team-tag {
+      display: inline-block;
+      background: var(--teal-dark);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+
+    .pose-section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 18px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pose-section-label .count-hint {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      text-transform: none;
+      font-weight: 500;
+    }
+
+    .pose-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+    }
+    .pose-tile {
+      position: relative;
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 3px solid var(--border);
+      transition: border-color 0.15s, transform 0.1s;
+      background: var(--card2);
+    }
+    .pose-tile:hover { border-color: var(--teal-dark); }
+    .pose-tile.selected {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0, 180, 200, 0.25);
+    }
+    .pose-tile img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .pose-tile .pose-label {
+      padding: 6px 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      background: var(--card);
+    }
+    .pose-tile .pose-check {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.55);
+      border: 2px solid var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 800;
+      opacity: 0;
+      transition: opacity 0.15s, background 0.15s;
+    }
+    .pose-tile.selected .pose-check {
+      opacity: 1;
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+    .pose-tile.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .pose-tile.disabled:hover { border-color: var(--border); }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-overlay img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-size: 1.3rem;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .zoom-btn {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-in;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .pose-tile:hover .zoom-btn { opacity: 1; }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--card);
+      border: 2px solid var(--teal);
+      border-radius: 16px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .modal-header {
+      padding: 24px 24px 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-check { font-size: 2.5rem; margin-bottom: 8px; }
+    .modal-header h2 { font-size: 1.25rem; color: var(--white); margin-bottom: 4px; }
+    .modal-header p { font-size: 0.85rem; color: var(--muted); }
+    .modal-body { padding: 20px 24px; }
+    .modal-section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .modal-order-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .modal-order-line:last-child { border-bottom: none; }
+    .modal-order-line .line-price { color: var(--teal-light); font-weight: 600; }
+    .modal-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-top: 2px solid var(--teal);
+      margin-top: 8px;
+    }
+    .modal-total-label { font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal-light); }
+    .modal-total-amount { font-size: 1.7rem; font-weight: 900; color: var(--white); }
+    .modal-payment-note {
+      background: var(--card2);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-top: 14px;
+    }
+    .modal-payment-note strong { color: var(--text); }
+    .modal-close-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      cursor: pointer;
+      margin: 16px 24px 24px;
+      width: calc(100% - 48px);
+    }
+    .modal-close-btn:hover { opacity: 0.88; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo-badge">
+      <h1>SHARK CITY <span>HOOPS</span></h1>
+      <div class="sub">Digital Photo Packages</div>
+    </div>
+    <h2>2026 Media Day Order Form</h2>
+    <div class="season-tag">2026 Season</div>
+  </div>
+
+  <div id="status-msg"></div>
+
+  <form id="order-form" novalidate>
+
+    <!-- ── Contact Info ── -->
+    <div class="card">
+      <div class="card-title">👤 Contact Info</div>
+      <div class="row-2">
+        <div class="field">
+          <label for="parent-name">Parent / Guardian Name *</label>
+          <input type="text" id="parent-name" name="parentName" placeholder="First Last" required />
+        </div>
+        <div class="field">
+          <label for="player-name">Player Name *</label>
+          <input type="text" id="player-name" name="playerName" placeholder="First Last" required />
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" name="phone" placeholder="(408) 555-0100" required />
+        </div>
+      </div>
+      <div class="row-3">
+        <div class="field">
+          <label for="team">Team *</label>
+          <select id="team" name="team" required>
+            <option value="">— Select team —</option>
+            <option>Boys 3rd Grade</option>
+            <option>Boys 4th Grade</option>
+            <option>Boys 5th Grade</option>
+            <option>Boys 6th Grade</option>
+            <option>Boys 7th Grade</option>
+            <option>Boys 8th Grade</option>
+            <option>Boys JV (9th–10th)</option>
+            <option>Girls 3rd Grade</option>
+            <option>Girls 4th Grade</option>
+            <option>Girls 5th Grade</option>
+            <option>Girls 6th Grade</option>
+            <option>Girls 7th Grade</option>
+            <option>Girls 8th Grade</option>
+            <option>Girls JV (9th–10th)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="jersey">Jersey #</label>
+          <input type="text" id="jersey" name="jerseyNumber" placeholder="e.g. 23" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Preview Your Photos ── -->
+    <div class="card">
+      <div class="card-title">🔍 Preview Your Photos</div>
+      <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; line-height: 1.5;">
+        Look up your player's photos by name and jersey number. Previews are watermarked — final orders are delivered clean. <strong style="color: var(--text);">Select your poses below, then choose a package.</strong>
+      </p>
+      <div class="lookup-row">
+        <div class="field" style="margin-bottom: 0;">
+          <label for="lookup-first">Player First Name</label>
+          <input type="text" id="lookup-first" placeholder="e.g. Jeilani" autocomplete="off" />
+        </div>
+        <div class="field" style="margin-bottom: 0;">
+          <label for="lookup-last">Last Name</label>
+          <input type="text" id="lookup-last" placeholder="e.g. Young" autocomplete="off" />
+        </div>
+        <div class="field" style="margin-bottom: 0;">
+          <label for="lookup-jersey">Jersey #</label>
+          <input type="text" id="lookup-jersey" placeholder="30" autocomplete="off" />
+        </div>
+        <button type="button" class="lookup-btn" id="lookup-btn">Find Photos</button>
+      </div>
+      <div class="lookup-status" id="lookup-status"></div>
+
+      <div class="preview-section" id="preview-section">
+        <div class="preview-player-info" id="preview-player-info"></div>
+
+        <div class="pose-section-label">
+          📸 Player Poses
+          <span class="count-hint" id="player-count-hint">Select a package to see how many poses you can pick</span>
+        </div>
+        <div class="pose-grid" id="player-pose-grid"></div>
+
+        <div class="pose-section-label" id="group-section-label" style="display: none;">
+          👥 Team Group Photos
+          <span class="count-hint" id="group-count-hint"></span>
+        </div>
+        <div class="pose-grid" id="group-pose-grid"></div>
+      </div>
+    </div>
+
+    <!-- ── Digital Package ── -->
+    <div class="card">
+      <div class="card-title">📸 Choose a Digital Package</div>
+      <div class="package-grid">
+        <div class="package-option">
+          <input type="radio" name="package" id="pkg-none" value="None" checked />
+          <label class="package-card" for="pkg-none">
+            <span class="pkg-radio-dot"></span>
+            <div class="pkg-info">
+              <div class="pkg-name">No Package</div>
+              <div class="pkg-price" style="color: var(--muted); font-size: 1rem;">Add-ons only</div>
+              <div class="pkg-includes">Skip the package and just order add-ons / buddy photos.</div>
+            </div>
+          </label>
+        </div>
+        <div class="package-option">
+          <input type="radio" name="package" id="pkg-starter" value="Starter" data-price="55" />
+          <label class="package-card" for="pkg-starter">
+            <span class="pkg-radio-dot"></span>
+            <div class="pkg-info">
+              <div class="pkg-name">Starter Package</div>
+              <div class="pkg-price">$55</div>
+              <ul class="pkg-includes">
+                <li>1 Digital Player Photo</li>
+                <li>1 Digital Group Photo</li>
+              </ul>
+            </div>
+          </label>
+        </div>
+        <div class="package-option">
+          <input type="radio" name="package" id="pkg-allstar" value="All-Star" data-price="95" />
+          <label class="package-card" for="pkg-allstar">
+            <span class="pkg-radio-dot"></span>
+            <div class="pkg-info">
+              <div class="pkg-name">All-Star Package 🏅</div>
+              <div class="pkg-price">$95</div>
+              <ul class="pkg-includes">
+                <li>2–3 Poses · Digital Player Photos</li>
+                <li>2 Digital Group Photos</li>
+                <li class="bonus">FREE Player Photo Luggage Tag</li>
+              </ul>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Buddy Add-On ── -->
+    <div class="card">
+      <div class="card-title">👯 Buddy Photos</div>
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Digital Buddy Photo</div>
+          <div class="addon-desc">Siblings &amp; friends · $7 each</div>
+        </div>
+        <div class="stepper" data-price="7" data-name="buddy_photo" data-label="Digital Buddy Photo" data-type="buddy">
+          <button type="button" class="step-btn minus">−</button>
+          <span class="step-val">0</span>
+          <button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+      <div class="field" style="margin-top: 14px; margin-bottom: 0;">
+        <label for="buddy-names">Buddy Photo Names (siblings / friends)</label>
+        <input type="text" id="buddy-names" name="buddyNames" placeholder="e.g. Jordan Lee, Maya Chen" />
+      </div>
+    </div>
+
+    <!-- ── Keepsake Add-Ons ── -->
+    <div class="card">
+      <div class="card-title">🎁 Keepsake Add-Ons</div>
+      <div class="specials-banner">
+        <div class="title">💰 Bundle &amp; Save</div>
+        <div class="tiers">
+          <div class="tier"><strong>Any 2</strong>Save 10%</div>
+          <div class="tier"><strong>Any 3</strong>Save 15%</div>
+          <div class="tier"><strong>$100+</strong>Save 20%</div>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Round Keychain (set of 2)</div>
+          <div class="addon-desc">Double-sided · $12</div>
+        </div>
+        <div class="stepper" data-price="12" data-name="round_keychain" data-label="Round Keychain (set of 2)" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Rectangle Keychain (set of 2)</div>
+          <div class="addon-desc">Double-sided · $12</div>
+        </div>
+        <div class="stepper" data-price="12" data-name="rect_keychain" data-label="Rectangle Keychain (set of 2)" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">White 11 oz Mug</div>
+          <div class="addon-desc">White handle &amp; interior · $12</div>
+        </div>
+        <div class="stepper" data-price="12" data-name="mug_11oz" data-label="White 11 oz Mug" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">20 oz Straight Sublimation Tumbler</div>
+          <div class="addon-desc">$18</div>
+        </div>
+        <div class="stepper" data-price="18" data-name="tumbler_20oz" data-label="20 oz Tumbler" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Mouse Pad</div>
+          <div class="addon-desc">$18</div>
+        </div>
+        <div class="stepper" data-price="18" data-name="mouse_pad" data-label="Mouse Pad" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Magnet</div>
+          <div class="addon-desc">$8</div>
+        </div>
+        <div class="stepper" data-price="8" data-name="magnet" data-label="Magnet" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Neoprene Can Sleeve</div>
+          <div class="addon-desc">$16</div>
+        </div>
+        <div class="stepper" data-price="16" data-name="can_sleeve" data-label="Neoprene Can Sleeve" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Metal Sign</div>
+          <div class="addon-desc">$30</div>
+        </div>
+        <div class="stepper" data-price="30" data-name="metal_sign" data-label="Metal Sign" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Frosted Shot Glass</div>
+          <div class="addon-desc">$12</div>
+        </div>
+        <div class="stepper" data-price="12" data-name="shot_glass" data-label="Frosted Shot Glass" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Christmas Ornament</div>
+          <div class="addon-desc">$8</div>
+        </div>
+        <div class="stepper" data-price="8" data-name="ornament" data-label="Christmas Ornament" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+
+      <div class="addon-row">
+        <div class="addon-info">
+          <div class="addon-name">Car Coasters (set of 2)</div>
+          <div class="addon-desc">$12</div>
+        </div>
+        <div class="stepper" data-price="12" data-name="car_coasters" data-label="Car Coasters (set of 2)" data-type="keepsake">
+          <button type="button" class="step-btn minus">−</button><span class="step-val">0</span><button type="button" class="step-btn plus">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Photo Selection Notes ── -->
+    <div class="card">
+      <div class="card-title">📝 Photo Selection / Pose Notes</div>
+      <div class="field" style="margin-bottom: 0;">
+        <label for="notes">Tell us your photo preferences</label>
+        <textarea name="notes" id="notes" placeholder="e.g. Prefer photos with basketball pose; please include team huddle shot; specific IMG numbers if known..."></textarea>
+      </div>
+    </div>
+
+    <!-- ── Payment ── -->
+    <div class="card">
+      <div class="card-title">💳 Payment Method</div>
+      <div class="payment-options">
+        <div class="payment-option">
+          <input type="radio" name="payment" id="pay-venmo" value="Venmo" required />
+          <label for="pay-venmo">💸 Venmo</label>
+        </div>
+        <div class="payment-option">
+          <input type="radio" name="payment" id="pay-zelle" value="Zelle" />
+          <label for="pay-zelle">🏦 Zelle</label>
+        </div>
+        <div class="payment-option">
+          <input type="radio" name="payment" id="pay-paypal" value="PayPal" />
+          <label for="pay-paypal">🅿️ PayPal</label>
+        </div>
+        <div class="payment-option">
+          <input type="radio" name="payment" id="pay-cash" value="Cash/Check" />
+          <label for="pay-cash">💵 Cash / Check</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Order Summary ── -->
+    <div class="summary-card">
+      <div class="card-title" style="color: var(--teal-light); padding-bottom: 14px;">🧾 Order Summary</div>
+      <div class="summary-rows" id="summary-rows">
+        <div class="summary-row" style="color:var(--muted);font-style:italic;">Select a package or add-ons to see your order.</div>
+      </div>
+      <div class="total-row">
+        <span class="total-label">Total</span>
+        <span class="total-amount" id="total-display">$0.00</span>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submit-btn">Submit Order 🦈</button>
+
+  </form>
+
+  <!-- ── Lightbox ── -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button type="button" class="lightbox-close" id="lightbox-close">✕</button>
+    <img id="lightbox-img" src="" alt="Preview" />
+  </div>
+
+  <!-- ── Confirmation Modal ── -->
+  <div class="modal-overlay" id="confirm-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-check">✅</div>
+        <h2>Order Received!</h2>
+        <p>Thank you for ordering from Shark City Hoops 📸</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section-label">Your Order</div>
+        <div class="modal-order-lines" id="modal-order-lines"></div>
+        <div class="modal-total-row">
+          <span class="modal-total-label">Total Due</span>
+          <span class="modal-total-amount" id="modal-total"></span>
+        </div>
+        <div class="modal-payment-note" id="modal-payment-note"></div>
+      </div>
+      <button type="button" class="modal-close-btn" id="modal-close-btn">Done 🦈</button>
+    </div>
+  </div>
+
+  <script>
+    // ── CONFIG ──────────────────────────────────────────────
+    const APPS_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+    // Same-origin when deployed to the sch-media-day GH Pages repo.
+    // For local testing, the loader falls back to ./sample-manifest.json if this still says YOUR_USERNAME.
+    const MANIFEST_URL = './manifest.json';
+    // ────────────────────────────────────────────────────────
+
+    // Package → pose allotments
+    const PACKAGE_RULES = {
+      'None':    { playerMax: 0, playerMin: 0, groupMax: 0 },
+      'Starter': { playerMax: 1, playerMin: 1, groupMax: 1 },
+      'All-Star':{ playerMax: 3, playerMin: 2, groupMax: 2 },
+    };
+
+    const steppers = document.querySelectorAll('.stepper');
+    const pkgRadios = document.querySelectorAll('input[name="package"]');
+    const totalDisplay = document.getElementById('total-display');
+    const summaryRows = document.getElementById('summary-rows');
+
+    // Stepper state
+    const state = {};
+    steppers.forEach(s => { state[s.dataset.name] = 0; });
+
+    function calculateOrder() {
+      let pkgPrice = 0;
+      let pkgName = '';
+      const selPkg = document.querySelector('input[name="package"]:checked');
+      if (selPkg && selPkg.dataset.price) {
+        pkgPrice = parseInt(selPkg.dataset.price);
+        pkgName = selPkg.value + ' Package';
+      }
+
+      const lines = [];
+      if (pkgPrice > 0) lines.push({ label: pkgName, qty: 1, price: pkgPrice, subtotal: pkgPrice, kind: 'package' });
+
+      let keepsakeSubtotal = 0;
+      let keepsakeCount = 0;
+      let buddySubtotal = 0;
+
+      steppers.forEach(s => {
+        const qty = state[s.dataset.name] || 0;
+        if (qty <= 0) return;
+        const price = parseInt(s.dataset.price);
+        const subtotal = qty * price;
+        const type = s.dataset.type;
+        lines.push({ label: s.dataset.label, qty, price, subtotal, kind: type });
+        if (type === 'keepsake') {
+          keepsakeSubtotal += subtotal;
+          keepsakeCount += qty;
+        } else if (type === 'buddy') {
+          buddySubtotal += subtotal;
+        }
+      });
+
+      // Discount tiers (apply to keepsakes only)
+      let discountPct = 0;
+      let discountLabel = '';
+      if (keepsakeSubtotal >= 100) { discountPct = 0.20; discountLabel = '20% off ($100+ keepsakes)'; }
+      else if (keepsakeCount >= 3) { discountPct = 0.15; discountLabel = '15% off (3+ keepsakes)'; }
+      else if (keepsakeCount >= 2) { discountPct = 0.10; discountLabel = '10% off (2+ keepsakes)'; }
+
+      const discountAmt = keepsakeSubtotal * discountPct;
+      const total = pkgPrice + buddySubtotal + keepsakeSubtotal - discountAmt;
+
+      return { lines, pkgPrice, keepsakeSubtotal, keepsakeCount, buddySubtotal, discountPct, discountLabel, discountAmt, total };
+    }
+
+    function updateSummary() {
+      const order = calculateOrder();
+      totalDisplay.textContent = '$' + order.total.toFixed(2);
+
+      if (order.lines.length === 0) {
+        summaryRows.innerHTML = '<div class="summary-row" style="color:var(--muted);font-style:italic;">Select a package or add-ons to see your order.</div>';
+        return;
+      }
+
+      let html = order.lines.map(l => `
+        <div class="summary-row">
+          <span>${l.label}</span>
+          <span class="qty">${l.qty} × $${l.price} = <strong style="color:var(--text)">$${l.subtotal.toFixed(2)}</strong></span>
+        </div>
+      `).join('');
+
+      if (order.discountAmt > 0) {
+        html += `
+          <div class="summary-row discount">
+            <span>🎉 ${order.discountLabel}</span>
+            <span class="qty">−$${order.discountAmt.toFixed(2)}</span>
+          </div>`;
+      }
+
+      summaryRows.innerHTML = html;
+    }
+
+    // ── Stepper wiring ──
+    steppers.forEach(stepper => {
+      const name = stepper.dataset.name;
+      const valEl = stepper.querySelector('.step-val');
+      stepper.querySelector('.plus').addEventListener('click', () => {
+        if ((state[name] || 0) < 20) {
+          state[name] = (state[name] || 0) + 1;
+          valEl.textContent = state[name];
+          stepper.classList.toggle('active', state[name] > 0);
+          updateSummary();
+        }
+      });
+      stepper.querySelector('.minus').addEventListener('click', () => {
+        if ((state[name] || 0) > 0) {
+          state[name] -= 1;
+          valEl.textContent = state[name];
+          stepper.classList.toggle('active', state[name] > 0);
+          updateSummary();
+        }
+      });
+    });
+
+    // ── Package selector ──
+    pkgRadios.forEach(r => r.addEventListener('change', updateSummary));
+
+    // ── Form submit ──
+    const form = document.getElementById('order-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const statusMsg = document.getElementById('status-msg');
+
+    function showStatus(msg, type) {
+      statusMsg.textContent = msg;
+      statusMsg.className = type;
+      statusMsg.style.display = 'block';
+      statusMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function buildPayload() {
+      const data = {};
+      const fd = new FormData(form);
+      fd.forEach((val, key) => { data[key] = val; });
+      steppers.forEach(s => { data[s.dataset.name] = state[s.dataset.name] || 0; });
+      const order = calculateOrder();
+      data.packagePrice = order.pkgPrice;
+      data.keepsakeSubtotal = order.keepsakeSubtotal;
+      data.buddySubtotal = order.buddySubtotal;
+      data.discountPct = order.discountPct;
+      data.discountAmt = order.discountAmt;
+      data.orderTotal = order.total.toFixed(2);
+      data.timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+      // Selected poses
+      if (CURRENT_PLAYER) {
+        data.playerKey = CURRENT_PLAYER.key;
+        data.selectedPlayerPoses = Array.from(selectedPoses.player).join(', ');
+        data.selectedGroupPhotos = Array.from(selectedPoses.group).join(', ');
+      }
+      return data;
+    }
+
+    function validateForm(data) {
+      if (!data.parentName?.trim()) return 'Please enter a parent / guardian name.';
+      if (!data.playerName?.trim()) return "Please enter the player's name.";
+      if (!data.email?.trim() || !data.email.includes('@')) return 'Please enter a valid email address.';
+      if (!data.phone?.trim()) return 'Please enter a phone number.';
+      if (!data.team) return 'Please select a team.';
+      if (!data.payment) return 'Please select a payment method.';
+      const order = calculateOrder();
+      if (order.total <= 0) return 'Please select a package or at least one add-on.';
+      // If a package is selected and a player has been looked up, require pose selection
+      const pkg = data.package;
+      if (pkg && pkg !== 'None' && CURRENT_PLAYER) {
+        const rules = PACKAGE_RULES[pkg];
+        if (selectedPoses.player.size < rules.playerMin) {
+          return `Please select at least ${rules.playerMin} player pose${rules.playerMin === 1 ? '' : 's'} for your ${pkg} package.`;
+        }
+        if (rules.groupMax > 0 && selectedPoses.group.size < 1) {
+          return `Please select at least 1 group photo for your ${pkg} package.`;
+        }
+      }
+      return null;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      statusMsg.style.display = 'none';
+      const data = buildPayload();
+      const err = validateForm(data);
+      if (err) { showStatus('⚠️ ' + err, 'error'); return; }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      // Show confirmation modal
+      const order = calculateOrder();
+      let linesHTML = order.lines.map(l =>
+        `<div class="modal-order-line"><span>${l.label} × ${l.qty}</span><span class="line-price">$${l.subtotal.toFixed(2)}</span></div>`
+      ).join('');
+      if (order.discountAmt > 0) {
+        linesHTML += `<div class="modal-order-line"><span style="color:var(--success)">🎉 ${order.discountLabel}</span><span class="line-price" style="color:var(--success)">−$${order.discountAmt.toFixed(2)}</span></div>`;
+      }
+      document.getElementById('modal-order-lines').innerHTML = linesHTML;
+      document.getElementById('modal-total').textContent = '$' + order.total.toFixed(2);
+      document.getElementById('modal-payment-note').innerHTML =
+        `<strong>Payment:</strong> ${data.payment}<br>We'll send payment instructions to <strong>${data.email}</strong> shortly. Please don't send payment until you hear from us.`;
+      document.getElementById('confirm-modal').classList.add('open');
+
+      // Reset
+      form.reset();
+      steppers.forEach(s => {
+        state[s.dataset.name] = 0;
+        s.querySelector('.step-val').textContent = '0';
+        s.classList.remove('active');
+      });
+      document.getElementById('pkg-none').checked = true;
+      updateSummary();
+      submitBtn.textContent = 'Order Submitted ✓';
+
+      // Backend
+      if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        }).catch(() => {});
+      }
+    });
+
+    // ── Preview Gallery & Lookup ─────────────────────────────
+    let MANIFEST = null;
+    let CURRENT_PLAYER = null;
+    const selectedPoses = { player: new Set(), group: new Set() };
+
+    function slugify(s) {
+      return s.toLowerCase().trim().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+    }
+
+    function getCurrentPackage() {
+      const r = document.querySelector('input[name="package"]:checked');
+      return r ? r.value : 'None';
+    }
+
+    async function loadManifest() {
+      if (MANIFEST) return MANIFEST;
+      // Try the configured manifest first; fall back to sample for local dev
+      const candidates = [MANIFEST_URL, './sample-manifest.json'];
+      let lastErr;
+      for (const url of candidates) {
+        try {
+          const res = await fetch(url, { cache: 'no-cache' });
+          if (res.ok) {
+            MANIFEST = await res.json();
+            return MANIFEST;
+          }
+          lastErr = new Error(`Fetch ${url} → ${res.status}`);
+        } catch (e) { lastErr = e; }
+      }
+      throw lastErr || new Error('No manifest available');
+    }
+
+    function showLookupStatus(msg, type) {
+      const el = document.getElementById('lookup-status');
+      el.textContent = msg;
+      el.className = 'lookup-status ' + (type || '');
+    }
+
+    async function doLookup() {
+      const first = document.getElementById('lookup-first').value.trim();
+      const last = document.getElementById('lookup-last').value.trim();
+      const jersey = document.getElementById('lookup-jersey').value.trim();
+      if (!first || !last || !jersey) {
+        showLookupStatus('⚠️ Please enter first name, last name, and jersey #.', 'error');
+        return;
+      }
+
+      const btn = document.getElementById('lookup-btn');
+      btn.disabled = true;
+      btn.textContent = 'Searching…';
+      showLookupStatus('Loading photos…', 'loading');
+
+      try {
+        const m = await loadManifest();
+        const key = slugify(first) + '_' + slugify(last) + '_' + slugify(jersey);
+        const player = m.players && m.players[key];
+        if (!player) {
+          showLookupStatus(`😕 We couldn't find photos for "${first} ${last}" #${jersey}. Double-check spelling and jersey number — or contact us if you think this is a mistake.`, 'error');
+          document.getElementById('preview-section').classList.remove('visible');
+          return;
+        }
+        CURRENT_PLAYER = { key, ...player };
+        selectedPoses.player.clear();
+        selectedPoses.group.clear();
+        renderPreview();
+        showLookupStatus(`✓ Found photos for ${player.displayName}.`, 'success');
+
+        // Auto-fill the contact-info section
+        document.getElementById('player-name').value = player.displayName;
+        if (player.team) {
+          const teamSel = document.getElementById('team');
+          for (const opt of teamSel.options) {
+            if (opt.value.toLowerCase().includes(player.team.toLowerCase()) ||
+                player.team.toLowerCase().includes(opt.value.toLowerCase())) {
+              teamSel.value = opt.value; break;
+            }
+          }
+        }
+        document.getElementById('jersey').value = jersey;
+      } catch (e) {
+        console.error(e);
+        showLookupStatus('⚠️ Could not load photo gallery. Please try again or contact us.', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Find Photos';
+      }
+    }
+
+    function renderPreview() {
+      if (!CURRENT_PLAYER) return;
+      const sec = document.getElementById('preview-section');
+      sec.classList.add('visible');
+
+      // Player info banner
+      document.getElementById('preview-player-info').innerHTML = `
+        <strong>${CURRENT_PLAYER.displayName}</strong>
+        ${CURRENT_PLAYER.team ? `<span class="team-tag">${CURRENT_PLAYER.team}</span>` : ''}
+        <span style="color: var(--muted); margin-left: 8px;">· ${(CURRENT_PLAYER.poses||[]).length} poses · ${(CURRENT_PLAYER.groupPhotos||[]).length} group photos</span>
+      `;
+
+      // Player poses
+      const pGrid = document.getElementById('player-pose-grid');
+      pGrid.innerHTML = '';
+      (CURRENT_PLAYER.poses || []).forEach(p => {
+        const tile = makeTile(p, 'player');
+        pGrid.appendChild(tile);
+      });
+
+      // Group photos
+      const gLabel = document.getElementById('group-section-label');
+      const gGrid = document.getElementById('group-pose-grid');
+      gGrid.innerHTML = '';
+      if ((CURRENT_PLAYER.groupPhotos || []).length > 0) {
+        gLabel.style.display = 'flex';
+        (CURRENT_PLAYER.groupPhotos || []).forEach(p => {
+          const tile = makeTile(p, 'group');
+          gGrid.appendChild(tile);
+        });
+      } else {
+        gLabel.style.display = 'none';
+      }
+
+      updateCountHints();
+    }
+
+    function makeTile(p, kind) {
+      const tile = document.createElement('div');
+      tile.className = 'pose-tile';
+      tile.dataset.id = p.id;
+      tile.dataset.kind = kind;
+      tile.innerHTML = `
+        <img src="${p.thumb || p.full}" alt="${p.label || p.id}" loading="lazy" />
+        <button type="button" class="zoom-btn" title="Zoom">🔍</button>
+        <div class="pose-check">✓</div>
+        <div class="pose-label">${p.label || p.id}</div>
+      `;
+      tile.querySelector('.zoom-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(p.full || p.thumb);
+      });
+      tile.addEventListener('click', () => togglePose(p.id, kind, tile));
+      return tile;
+    }
+
+    function togglePose(id, kind, tile) {
+      const rules = PACKAGE_RULES[getCurrentPackage()];
+      const max = kind === 'player' ? rules.playerMax : rules.groupMax;
+      const set = selectedPoses[kind];
+      if (max === 0) {
+        showLookupStatus('⚠️ Select a package first to choose poses.', 'error');
+        return;
+      }
+      if (set.has(id)) {
+        set.delete(id);
+        tile.classList.remove('selected');
+      } else {
+        if (set.size >= max) {
+          showLookupStatus(`⚠️ Your package allows up to ${max} ${kind === 'player' ? 'player pose' : 'group photo'}${max === 1 ? '' : 's'}. Deselect one first.`, 'error');
+          return;
+        }
+        set.add(id);
+        tile.classList.add('selected');
+      }
+      updateCountHints();
+      updateSummary();
+    }
+
+    function updateCountHints() {
+      const rules = PACKAGE_RULES[getCurrentPackage()];
+      const pHint = document.getElementById('player-count-hint');
+      const gHint = document.getElementById('group-count-hint');
+      if (rules.playerMax === 0) {
+        pHint.textContent = 'Select a package above to enable pose selection';
+        pHint.style.color = 'var(--muted)';
+      } else {
+        const sel = selectedPoses.player.size;
+        const txt = rules.playerMin === rules.playerMax
+          ? `Pick ${rules.playerMax}`
+          : `Pick ${rules.playerMin}–${rules.playerMax}`;
+        pHint.textContent = `${txt} · Selected: ${sel}/${rules.playerMax}`;
+        pHint.style.color = sel >= rules.playerMin && sel <= rules.playerMax ? 'var(--success)' : 'var(--accent)';
+      }
+      const sel = selectedPoses.group.size;
+      gHint.textContent = `Pick up to ${rules.groupMax} · Selected: ${sel}/${rules.groupMax}`;
+      gHint.style.color = sel === rules.groupMax || rules.groupMax === 0 ? 'var(--success)' : 'var(--muted)';
+    }
+
+    function clearSelectionsBeyondPackage() {
+      const rules = PACKAGE_RULES[getCurrentPackage()];
+      // Trim down to max
+      while (selectedPoses.player.size > rules.playerMax) {
+        const first = selectedPoses.player.values().next().value;
+        selectedPoses.player.delete(first);
+      }
+      while (selectedPoses.group.size > rules.groupMax) {
+        const first = selectedPoses.group.values().next().value;
+        selectedPoses.group.delete(first);
+      }
+      // Re-render selection state on tiles
+      document.querySelectorAll('.pose-tile').forEach(tile => {
+        const set = selectedPoses[tile.dataset.kind];
+        tile.classList.toggle('selected', set.has(tile.dataset.id));
+      });
+    }
+
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    document.getElementById('lookup-btn').addEventListener('click', doLookup);
+    ['lookup-first', 'lookup-last', 'lookup-jersey'].forEach(id => {
+      document.getElementById(id).addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); doLookup(); }
+      });
+    });
+
+    // Re-validate selections when package changes
+    pkgRadios.forEach(r => r.addEventListener('change', () => {
+      clearSelectionsBeyondPackage();
+      updateCountHints();
+      updateSummary();
+    }));
+
+    updateSummary();
+
+    // Modal close
+    document.getElementById('modal-close-btn').addEventListener('click', () => {
+      document.getElementById('confirm-modal').classList.remove('open');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Order 🦈';
+    });
+    document.getElementById('confirm-modal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        e.currentTarget.classList.remove('open');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Order 🦈';
+      }
+    });
+
+    // Lightbox close
+    document.getElementById('lightbox-close').addEventListener('click', () => {
+      document.getElementById('lightbox').classList.remove('open');
+    });
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Originals — never commit raws or unwatermarked exports
+*.CR3
+*.CR2
+*.DNG
+*.RAF
+*_unwatermarked/
+_originals/
+
+# Working files
+*.psd
+*.psb
+*.tmp
