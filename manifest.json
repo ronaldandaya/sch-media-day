@@ -1,8 +1,21 @@
 {
   "season": "2026",
-  "baseUrl": "https://placehold.co",
-  "generatedAt": "2026-06-24T12:00:00",
+  "baseUrl": ".",
+  "generatedAt": "2026-06-25T15:00:00",
   "players": {
+    "sidak_singh_10": {
+      "displayName": "Sidak Singh",
+      "team": "Boys 8th Grade",
+      "jerseyNumber": "10",
+      "poses": [
+        { "id": "pose1", "label": "Hero",     "thumb": "previews/8th_boys/sidak_singh_10/pose1.jpg", "full": "previews/8th_boys/sidak_singh_10/pose1.jpg" },
+        { "id": "pose2", "label": "Action",   "thumb": "previews/8th_boys/sidak_singh_10/pose2.jpg", "full": "previews/8th_boys/sidak_singh_10/pose2.jpg" },
+        { "id": "pose3", "label": "Portrait", "thumb": "previews/8th_boys/sidak_singh_10/pose3.jpg", "full": "previews/8th_boys/sidak_singh_10/pose3.jpg" }
+      ],
+      "groupPhotos": [
+        { "id": "g_8th_boys_team", "label": "Team", "thumb": "previews/_groups/8th_boys_team.jpg", "full": "previews/_groups/8th_boys_team.jpg" }
+      ]
+    },
     "jeilani_young_30": {
       "displayName": "Jeilani Young",
       "team": "Girls JV (9th–10th)",
@@ -13,20 +26,7 @@
         { "id": "pose3", "label": "Portrait", "thumb": "https://placehold.co/400x600/0d2a30/00b4c8?text=Jeilani+Pose+3", "full": "https://placehold.co/1200x1800/0d2a30/00b4c8?text=Jeilani+Pose+3" }
       ],
       "groupPhotos": [
-        { "id": "g_jv_girls_team",   "label": "Team",   "thumb": "https://placehold.co/600x400/0d2a30/f0a500?text=JV+Girls+Team",   "full": "https://placehold.co/1600x1066/0d2a30/f0a500?text=JV+Girls+Team" },
-        { "id": "g_jv_girls_action", "label": "Action", "thumb": "https://placehold.co/600x400/0d2a30/f0a500?text=JV+Girls+Action", "full": "https://placehold.co/1600x1066/0d2a30/f0a500?text=JV+Girls+Action" }
-      ]
-    },
-    "sidak_singh_10": {
-      "displayName": "Sidak Singh",
-      "team": "Boys 8th Grade",
-      "jerseyNumber": "10",
-      "poses": [
-        { "id": "pose1", "label": "Hero",   "thumb": "https://placehold.co/400x600/0d2a30/00b4c8?text=Sidak+Pose+1", "full": "https://placehold.co/1200x1800/0d2a30/00b4c8?text=Sidak+Pose+1" },
-        { "id": "pose2", "label": "Action", "thumb": "https://placehold.co/400x600/0d2a30/00b4c8?text=Sidak+Pose+2", "full": "https://placehold.co/1200x1800/0d2a30/00b4c8?text=Sidak+Pose+2" }
-      ],
-      "groupPhotos": [
-        { "id": "g_8th_boys_team", "label": "Team", "thumb": "https://placehold.co/600x400/0d2a30/f0a500?text=8th+Boys+Team", "full": "https://placehold.co/1600x1066/0d2a30/f0a500?text=8th+Boys+Team" }
+        { "id": "g_jv_girls_team", "label": "Team", "thumb": "https://placehold.co/600x400/0d2a30/f0a500?text=JV+Girls+Team", "full": "https://placehold.co/1600x1066/0d2a30/f0a500?text=JV+Girls+Team" }
       ]
     }
   }
