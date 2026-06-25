@@ -769,6 +769,15 @@
       <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; line-height: 1.5;">
         Look up your player's photos by name and jersey number. Previews are watermarked — final orders are delivered clean. <strong style="color: var(--text);">Select your poses below, then choose a package.</strong>
       </p>
+      <div class="field" style="margin-bottom: 14px;">
+        <label for="lookup-player-pick">Start typing your player's last name…</label>
+        <input type="text" id="lookup-player-pick" list="player-suggestions"
+               placeholder="e.g. Young, Jeilani #30" autocomplete="off" />
+        <datalist id="player-suggestions"></datalist>
+        <div style="font-size: 0.7rem; color: var(--muted); margin-top: 4px;">
+          Pick from the list — first name and jersey # will autofill. Or fill the boxes below manually.
+        </div>
+      </div>
       <div class="lookup-row">
         <div class="field" style="margin-bottom: 0;">
           <label for="lookup-first">Player First Name</label>
@@ -1531,6 +1540,61 @@
       document.getElementById(id).addEventListener('keydown', e => {
         if (e.key === 'Enter') { e.preventDefault(); doLookup(); }
       });
+    });
+
+    // ── Combobox: populate datalist from manifest, autofill on selection ─────
+    async function populatePlayerSuggestions() {
+      try {
+        const m = await loadManifest();
+        const datalist = document.getElementById('player-suggestions');
+        datalist.innerHTML = '';
+        // Build entry per lookup key (multi-team players with different jerseys appear once each)
+        const entries = [];
+        for (const [key, playerId] of Object.entries(m.lookups || {})) {
+          const player = m.players[playerId];
+          if (!player) continue;
+          // Find which team this jersey corresponds to
+          const parts = key.split('_');
+          const jersey = parts[parts.length - 1];
+          const team = (player.teams || []).find(t => String(t.jersey) === jersey);
+          const teamName = team ? team.name : '';
+          // Last name = last word of displayName, first name = the rest
+          const nameParts = player.displayName.trim().split(/\s+/);
+          const last = nameParts[nameParts.length - 1];
+          const first = nameParts.slice(0, -1).join(' ');
+          entries.push({
+            value: `${last}, ${first} #${jersey}${teamName ? ' (' + teamName + ')' : ''}`,
+            first, last, jersey,
+          });
+        }
+        entries.sort((a, b) => a.value.localeCompare(b.value));
+        entries.forEach(e => {
+          const opt = document.createElement('option');
+          opt.value = e.value;
+          datalist.appendChild(opt);
+        });
+        window.__PLAYER_ENTRIES = entries;
+      } catch (e) {
+        console.warn('Could not populate player suggestions:', e);
+      }
+    }
+
+    // Run on load (don't block)
+    populatePlayerSuggestions();
+
+    const pickEl = document.getElementById('lookup-player-pick');
+    pickEl.addEventListener('input', () => {
+      const v = pickEl.value;
+      const entry = (window.__PLAYER_ENTRIES || []).find(e => e.value === v);
+      if (entry) {
+        document.getElementById('lookup-first').value = entry.first;
+        document.getElementById('lookup-last').value = entry.last;
+        document.getElementById('lookup-jersey').value = entry.jersey;
+        doLookup();
+      }
+    });
+    pickEl.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); doLookup(); }
     });
 
     // Re-validate selections when package changes
