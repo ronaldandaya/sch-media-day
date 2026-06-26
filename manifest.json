@@ -1,6 +1,6 @@
 {
   "season": "2026",
-  "generatedAt": "2026-06-26T00:22:49.452643",
+  "generatedAt": "2026-06-26T00:24:21.443033",
   "lookups": {
     "adniel_rajan_30": "adniel_rajan",
     "alel_santos_45": "alel_santos",
@@ -18,7 +18,6 @@
     "michael_corpuz_8": "michael_corpuz",
     "rohit_saggi_11": "rohit_saggi",
     "sean_mooney_12": "sean_mooney",
-    "sidak_singh_10": "sidak_singh",
     "vincent_ha_4": "vincent_ha",
     "zayan_shreyom_0": "zayan_shreyom"
   },
@@ -78,14 +77,7 @@
         {
           "name": "Boys 8th Grade",
           "jersey": "45",
-          "groupPhotos": [
-            {
-              "id": "g_8th_boys_team_pose",
-              "label": "Team Pose",
-              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
-              "full": "./previews/_groups/8th_boys/team_pose.jpg"
-            }
-          ]
+          "groupPhotos": []
         }
       ],
       "poses": [
@@ -121,14 +113,7 @@
         {
           "name": "Boys 8th Grade",
           "jersey": "4",
-          "groupPhotos": [
-            {
-              "id": "g_8th_boys_team_pose",
-              "label": "Team Pose",
-              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
-              "full": "./previews/_groups/8th_boys/team_pose.jpg"
-            }
-          ]
+          "groupPhotos": []
         }
       ],
       "poses": [
@@ -164,14 +149,7 @@
         {
           "name": "Boys 8th Grade",
           "jersey": "11",
-          "groupPhotos": [
-            {
-              "id": "g_8th_boys_team_pose",
-              "label": "Team Pose",
-              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
-              "full": "./previews/_groups/8th_boys/team_pose.jpg"
-            }
-          ]
+          "groupPhotos": []
         }
       ],
       "poses": [
@@ -207,14 +185,7 @@
         {
           "name": "Boys 8th Grade",
           "jersey": "17",
-          "groupPhotos": [
-            {
-              "id": "g_8th_boys_team_pose",
-              "label": "Team Pose",
-              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
-              "full": "./previews/_groups/8th_boys/team_pose.jpg"
-            }
-          ]
+          "groupPhotos": []
         }
       ],
       "poses": [
@@ -408,14 +379,7 @@
         {
           "name": "Boys 8th Grade",
           "jersey": "7",
-          "groupPhotos": [
-            {
-              "id": "g_8th_boys_team_pose",
-              "label": "Team Pose",
-              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
-              "full": "./previews/_groups/8th_boys/team_pose.jpg"
-            }
-          ]
+          "groupPhotos": []
         }
       ],
       "poses": [
@@ -500,14 +464,7 @@
         {
           "name": "Boys 8th Grade",
           "jersey": "0",
-          "groupPhotos": [
-            {
-              "id": "g_8th_boys_team_pose",
-              "label": "Team Pose",
-              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
-              "full": "./previews/_groups/8th_boys/team_pose.jpg"
-            }
-          ]
+          "groupPhotos": []
         }
       ],
       "poses": [
@@ -791,43 +748,6 @@
           "label": "Pose 4",
           "thumb": "./previews/players/sean_mooney/pose4_thumb.jpg",
           "full": "./previews/players/sean_mooney/pose4.jpg"
-        }
-      ]
-    },
-    "sidak_singh": {
-      "displayName": "Sidak Singh",
-      "teams": [
-        {
-          "name": "Boys 8th Grade",
-          "jersey": "10",
-          "groupPhotos": [
-            {
-              "id": "g_8th_boys_team_pose",
-              "label": "Team Pose",
-              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
-              "full": "./previews/_groups/8th_boys/team_pose.jpg"
-            }
-          ]
-        }
-      ],
-      "poses": [
-        {
-          "id": "pose1",
-          "label": "Pose 1",
-          "thumb": "./previews/players/sidak_singh/pose1.jpg",
-          "full": "./previews/players/sidak_singh/pose1.jpg"
-        },
-        {
-          "id": "pose2",
-          "label": "Pose 2",
-          "thumb": "./previews/players/sidak_singh/pose2.jpg",
-          "full": "./previews/players/sidak_singh/pose2.jpg"
-        },
-        {
-          "id": "pose3",
-          "label": "Pose 3",
-          "thumb": "./previews/players/sidak_singh/pose3.jpg",
-          "full": "./previews/players/sidak_singh/pose3.jpg"
         }
       ]
     },
