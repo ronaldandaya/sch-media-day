@@ -1,17 +1,163 @@
 {
   "season": "2026",
-  "generatedAt": "2026-06-25T21:51:47.471460",
+  "generatedAt": "2026-06-26T00:22:49.452643",
   "lookups": {
+    "adniel_rajan_30": "adniel_rajan",
+    "alel_santos_45": "alel_santos",
+    "anik_prakash_4": "anik_prakash",
     "brayden_tique_11": "brayden_tique",
+    "chris_cheng_17": "chris_cheng",
     "jayce_legaspi_34": "jayce_legaspi",
     "jeilani_young_30": "jeilani_young",
     "jonah_hanley_24": "jonah_hanley",
+    "joshua_flores_7": "joshua_flores",
+    "kai_yen_21": "kai_yen",
+    "kameron_conyers_0": "kameron_conyers",
+    "khoa_ngo_10": "khoa_ngo",
     "logan_chiu_5": "logan_chiu",
+    "michael_corpuz_8": "michael_corpuz",
+    "rohit_saggi_11": "rohit_saggi",
+    "sean_mooney_12": "sean_mooney",
     "sidak_singh_10": "sidak_singh",
     "vincent_ha_4": "vincent_ha",
     "zayan_shreyom_0": "zayan_shreyom"
   },
   "players": {
+    "adniel_rajan": {
+      "displayName": "Adniel Rajan",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "30",
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/adniel_rajan/pose1_thumb.jpg",
+          "full": "./previews/players/adniel_rajan/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/adniel_rajan/pose2_thumb.jpg",
+          "full": "./previews/players/adniel_rajan/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/adniel_rajan/pose3_thumb.jpg",
+          "full": "./previews/players/adniel_rajan/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/adniel_rajan/pose4_thumb.jpg",
+          "full": "./previews/players/adniel_rajan/pose4.jpg"
+        }
+      ]
+    },
+    "alel_santos": {
+      "displayName": "Alel Santos",
+      "teams": [
+        {
+          "name": "Boys 8th Grade",
+          "jersey": "45",
+          "groupPhotos": [
+            {
+              "id": "g_8th_boys_team_pose",
+              "label": "Team Pose",
+              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
+              "full": "./previews/_groups/8th_boys/team_pose.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/alel_santos/pose1_thumb.jpg",
+          "full": "./previews/players/alel_santos/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/alel_santos/pose2_thumb.jpg",
+          "full": "./previews/players/alel_santos/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/alel_santos/pose3_thumb.jpg",
+          "full": "./previews/players/alel_santos/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/alel_santos/pose4_thumb.jpg",
+          "full": "./previews/players/alel_santos/pose4.jpg"
+        }
+      ]
+    },
+    "anik_prakash": {
+      "displayName": "Anik Prakash",
+      "teams": [
+        {
+          "name": "Boys 8th Grade",
+          "jersey": "4",
+          "groupPhotos": [
+            {
+              "id": "g_8th_boys_team_pose",
+              "label": "Team Pose",
+              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
+              "full": "./previews/_groups/8th_boys/team_pose.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/anik_prakash/pose1_thumb.jpg",
+          "full": "./previews/players/anik_prakash/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/anik_prakash/pose2_thumb.jpg",
+          "full": "./previews/players/anik_prakash/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/anik_prakash/pose3_thumb.jpg",
+          "full": "./previews/players/anik_prakash/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/anik_prakash/pose4_thumb.jpg",
+          "full": "./previews/players/anik_prakash/pose4.jpg"
+        }
+      ]
+    },
     "brayden_tique": {
       "displayName": "Brayden Tique",
       "teams": [
@@ -55,13 +201,69 @@
         }
       ]
     },
+    "chris_cheng": {
+      "displayName": "Chris Cheng",
+      "teams": [
+        {
+          "name": "Boys 8th Grade",
+          "jersey": "17",
+          "groupPhotos": [
+            {
+              "id": "g_8th_boys_team_pose",
+              "label": "Team Pose",
+              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
+              "full": "./previews/_groups/8th_boys/team_pose.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/chris_cheng/pose1_thumb.jpg",
+          "full": "./previews/players/chris_cheng/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/chris_cheng/pose2_thumb.jpg",
+          "full": "./previews/players/chris_cheng/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/chris_cheng/pose3_thumb.jpg",
+          "full": "./previews/players/chris_cheng/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/chris_cheng/pose4_thumb.jpg",
+          "full": "./previews/players/chris_cheng/pose4.jpg"
+        }
+      ]
+    },
     "jayce_legaspi": {
       "displayName": "Jayce Legaspi",
       "teams": [
         {
           "name": "Boys 7th Grade",
           "jersey": "34",
-          "groupPhotos": []
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
         }
       ],
       "poses": [
@@ -145,7 +347,20 @@
         {
           "name": "Boys 7th Grade",
           "jersey": "24",
-          "groupPhotos": []
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
         }
       ],
       "poses": [
@@ -187,13 +402,222 @@
         }
       ]
     },
+    "joshua_flores": {
+      "displayName": "Joshua Flores",
+      "teams": [
+        {
+          "name": "Boys 8th Grade",
+          "jersey": "7",
+          "groupPhotos": [
+            {
+              "id": "g_8th_boys_team_pose",
+              "label": "Team Pose",
+              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
+              "full": "./previews/_groups/8th_boys/team_pose.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/joshua_flores/pose1_thumb.jpg",
+          "full": "./previews/players/joshua_flores/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/joshua_flores/pose2_thumb.jpg",
+          "full": "./previews/players/joshua_flores/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/joshua_flores/pose3_thumb.jpg",
+          "full": "./previews/players/joshua_flores/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/joshua_flores/pose4_thumb.jpg",
+          "full": "./previews/players/joshua_flores/pose4.jpg"
+        }
+      ]
+    },
+    "kai_yen": {
+      "displayName": "Kai Yen",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "21",
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/kai_yen/pose1_thumb.jpg",
+          "full": "./previews/players/kai_yen/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/kai_yen/pose2_thumb.jpg",
+          "full": "./previews/players/kai_yen/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/kai_yen/pose3_thumb.jpg",
+          "full": "./previews/players/kai_yen/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/kai_yen/pose4_thumb.jpg",
+          "full": "./previews/players/kai_yen/pose4.jpg"
+        }
+      ]
+    },
+    "kameron_conyers": {
+      "displayName": "Kameron Conyers",
+      "teams": [
+        {
+          "name": "Boys 8th Grade",
+          "jersey": "0",
+          "groupPhotos": [
+            {
+              "id": "g_8th_boys_team_pose",
+              "label": "Team Pose",
+              "thumb": "./previews/_groups/8th_boys/team_pose.jpg",
+              "full": "./previews/_groups/8th_boys/team_pose.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/kameron_conyers/pose1_thumb.jpg",
+          "full": "./previews/players/kameron_conyers/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/kameron_conyers/pose2_thumb.jpg",
+          "full": "./previews/players/kameron_conyers/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/kameron_conyers/pose3_thumb.jpg",
+          "full": "./previews/players/kameron_conyers/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/kameron_conyers/pose4_thumb.jpg",
+          "full": "./previews/players/kameron_conyers/pose4.jpg"
+        },
+        {
+          "id": "pose5",
+          "label": "Pose 5",
+          "thumb": "./previews/players/kameron_conyers/pose5_thumb.jpg",
+          "full": "./previews/players/kameron_conyers/pose5.jpg"
+        },
+        {
+          "id": "pose6",
+          "label": "Pose 6",
+          "thumb": "./previews/players/kameron_conyers/pose6_thumb.jpg",
+          "full": "./previews/players/kameron_conyers/pose6.jpg"
+        }
+      ]
+    },
+    "khoa_ngo": {
+      "displayName": "Khoa Ngo",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "10",
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/khoa_ngo/pose1_thumb.jpg",
+          "full": "./previews/players/khoa_ngo/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/khoa_ngo/pose2_thumb.jpg",
+          "full": "./previews/players/khoa_ngo/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/khoa_ngo/pose3_thumb.jpg",
+          "full": "./previews/players/khoa_ngo/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/khoa_ngo/pose4_thumb.jpg",
+          "full": "./previews/players/khoa_ngo/pose4.jpg"
+        }
+      ]
+    },
     "logan_chiu": {
       "displayName": "Logan Chiu",
       "teams": [
         {
           "name": "Boys 7th Grade",
           "jersey": "5",
-          "groupPhotos": []
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
         }
       ],
       "poses": [
@@ -220,6 +644,153 @@
           "label": "Pose 4",
           "thumb": "./previews/players/logan_chiu/pose4_thumb.jpg",
           "full": "./previews/players/logan_chiu/pose4.jpg"
+        }
+      ]
+    },
+    "michael_corpuz": {
+      "displayName": "Michael Corpuz",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "8",
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/michael_corpuz/pose1_thumb.jpg",
+          "full": "./previews/players/michael_corpuz/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/michael_corpuz/pose2_thumb.jpg",
+          "full": "./previews/players/michael_corpuz/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/michael_corpuz/pose3_thumb.jpg",
+          "full": "./previews/players/michael_corpuz/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/michael_corpuz/pose4_thumb.jpg",
+          "full": "./previews/players/michael_corpuz/pose4.jpg"
+        }
+      ]
+    },
+    "rohit_saggi": {
+      "displayName": "Rohit Saggi",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "11",
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/rohit_saggi/pose1_thumb.jpg",
+          "full": "./previews/players/rohit_saggi/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/rohit_saggi/pose2_thumb.jpg",
+          "full": "./previews/players/rohit_saggi/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/rohit_saggi/pose3_thumb.jpg",
+          "full": "./previews/players/rohit_saggi/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/rohit_saggi/pose4_thumb.jpg",
+          "full": "./previews/players/rohit_saggi/pose4.jpg"
+        }
+      ]
+    },
+    "sean_mooney": {
+      "displayName": "Sean Mooney",
+      "teams": [
+        {
+          "name": "Boys 7th Grade",
+          "jersey": "12",
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/sean_mooney/pose1_thumb.jpg",
+          "full": "./previews/players/sean_mooney/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/sean_mooney/pose2_thumb.jpg",
+          "full": "./previews/players/sean_mooney/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/sean_mooney/pose3_thumb.jpg",
+          "full": "./previews/players/sean_mooney/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/sean_mooney/pose4_thumb.jpg",
+          "full": "./previews/players/sean_mooney/pose4.jpg"
         }
       ]
     },
@@ -266,7 +837,20 @@
         {
           "name": "Boys 7th Grade",
           "jersey": "4",
-          "groupPhotos": []
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
         }
       ],
       "poses": [
@@ -302,7 +886,20 @@
         {
           "name": "Boys 7th Grade",
           "jersey": "0",
-          "groupPhotos": []
+          "groupPhotos": [
+            {
+              "id": "g_7th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/7th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_7th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/7th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/7th_boys/team_pose_2.jpg"
+            }
+          ]
         }
       ],
       "poses": [
