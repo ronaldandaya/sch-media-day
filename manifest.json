@@ -1,6 +1,6 @@
 {
   "season": "2026",
-  "generatedAt": "2026-06-26T21:11:20.659710",
+  "generatedAt": "2026-06-26T21:20:11.856646",
   "lookups": {
     "adniel_rajan_30": "adniel_rajan",
     "alel_santos_45": "alel_santos",
@@ -382,7 +382,14 @@
         {
           "name": "Boys 4th Grade Under",
           "jersey": "11",
-          "groupPhotos": []
+          "groupPhotos": [
+            {
+              "id": "g_4th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/4th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/4th_boys/team_pose_1.jpg"
+            }
+          ]
         }
       ],
       "poses": [
@@ -448,7 +455,14 @@
         {
           "name": "Boys 4th Grade Under",
           "jersey": "23",
-          "groupPhotos": []
+          "groupPhotos": [
+            {
+              "id": "g_4th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/4th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/4th_boys/team_pose_1.jpg"
+            }
+          ]
         }
       ],
       "poses": [
@@ -776,7 +790,14 @@
         {
           "name": "Boys 4th Grade Under",
           "jersey": "16",
-          "groupPhotos": []
+          "groupPhotos": [
+            {
+              "id": "g_4th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/4th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/4th_boys/team_pose_1.jpg"
+            }
+          ]
         }
       ],
       "poses": [
@@ -1197,7 +1218,14 @@
         {
           "name": "Boys 4th Grade Under",
           "jersey": "30",
-          "groupPhotos": []
+          "groupPhotos": [
+            {
+              "id": "g_4th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/4th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/4th_boys/team_pose_1.jpg"
+            }
+          ]
         }
       ],
       "poses": [
