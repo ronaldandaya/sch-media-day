@@ -740,20 +740,13 @@
           <label for="team">Team *</label>
           <select id="team" name="team" required>
             <option value="">— Select team —</option>
-            <option>Boys 3rd Grade</option>
-            <option>Boys 4th Grade</option>
-            <option>Boys 5th Grade</option>
-            <option>Boys 6th Grade</option>
+            <option>Boys 4th Grade Under</option>
+            <option>Boys 5th/6th Grade</option>
             <option>Boys 7th Grade</option>
             <option>Boys 8th Grade</option>
-            <option>Boys JV (9th–10th)</option>
-            <option>Girls 3rd Grade</option>
-            <option>Girls 4th Grade</option>
+            <option>JV Boys</option>
             <option>Girls 5th Grade</option>
-            <option>Girls 6th Grade</option>
-            <option>Girls 7th Grade</option>
-            <option>Girls 8th Grade</option>
-            <option>Girls JV (9th–10th)</option>
+            <option>JV Girls</option>
           </select>
         </div>
         <div class="field">
@@ -1546,38 +1539,58 @@
     async function populatePlayerSuggestions() {
       try {
         const m = await loadManifest();
-        const datalist = document.getElementById('player-suggestions');
-        datalist.innerHTML = '';
         // Build entry per lookup key (multi-team players with different jerseys appear once each)
         const entries = [];
         for (const [key, playerId] of Object.entries(m.lookups || {})) {
           const player = m.players[playerId];
           if (!player) continue;
-          // Find which team this jersey corresponds to
           const parts = key.split('_');
           const jersey = parts[parts.length - 1];
           const team = (player.teams || []).find(t => String(t.jersey) === jersey);
           const teamName = team ? team.name : '';
-          // Last name = last word of displayName, first name = the rest
           const nameParts = player.displayName.trim().split(/\s+/);
           const last = nameParts[nameParts.length - 1];
           const first = nameParts.slice(0, -1).join(' ');
           entries.push({
             value: `${last}, ${first} #${jersey}${teamName ? ' (' + teamName + ')' : ''}`,
-            first, last, jersey,
+            first, last, jersey, teamName,
           });
         }
         entries.sort((a, b) => a.value.localeCompare(b.value));
-        entries.forEach(e => {
-          const opt = document.createElement('option');
-          opt.value = e.value;
-          datalist.appendChild(opt);
-        });
         window.__PLAYER_ENTRIES = entries;
+        renderPlayerSuggestions();
       } catch (e) {
         console.warn('Could not populate player suggestions:', e);
       }
     }
+
+    function renderPlayerSuggestions() {
+      const datalist = document.getElementById('player-suggestions');
+      if (!datalist) return;
+      const entries = window.__PLAYER_ENTRIES || [];
+      const selectedTeam = (document.getElementById('team')?.value || '').trim();
+      const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const wanted = norm(selectedTeam);
+      const filtered = selectedTeam
+        ? entries.filter(e => norm(e.teamName) === wanted)
+        : entries;
+      datalist.innerHTML = '';
+      filtered.forEach(e => {
+        const opt = document.createElement('option');
+        opt.value = e.value;
+        datalist.appendChild(opt);
+      });
+      // Also update the placeholder hint if a team is picked
+      const pick = document.getElementById('lookup-player-pick');
+      if (pick) {
+        pick.placeholder = selectedTeam
+          ? `Showing ${filtered.length} player${filtered.length===1?'':'s'} on ${selectedTeam}`
+          : 'e.g. Young, Jeilani #30';
+      }
+    }
+
+    // Re-render when team changes
+    document.getElementById('team')?.addEventListener('change', renderPlayerSuggestions);
 
     // Run on load (don't block)
     populatePlayerSuggestions();
