@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCH Media Day — Orders Admin</title>
+  <style>
+    :root {
+      --teal: #00b4c8;
+      --teal-dark: #008fa0;
+      --teal-light: #00d4ea;
+      --bg: #111418;
+      --card: #1a1f26;
+      --card2: #222830;
+      --border: #2e3540;
+      --text: #e8edf2;
+      --muted: #7a8a9a;
+      --accent: #f0a500;
+      --success: #2ecc71;
+      --danger: #ff6b6b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px 16px 48px;
+    }
+    .header { text-align: center; margin-bottom: 24px; }
+    .logo-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #0d2a30 0%, #0a3a42 100%);
+      border: 2px solid var(--teal); border-radius: 16px; padding: 16px 28px;
+    }
+    .logo-badge h1 {
+      font-size: 1.6rem; font-weight: 900; letter-spacing: 2px;
+      text-transform: uppercase; color: #fff; line-height: 1;
+    }
+    .logo-badge h1 span { color: var(--teal); }
+    .logo-badge .sub {
+      font-size: 0.75rem; color: var(--teal-light); letter-spacing: 3px;
+      text-transform: uppercase; margin-top: 4px;
+    }
+
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px; margin: 0 auto 20px; max-width: 1400px;
+    }
+
+    .gate { max-width: 420px; }
+    .gate label {
+      display: block; font-size: 0.75rem; font-weight: 700;
+      color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .gate input {
+      width: 100%; background: var(--card2); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); padding: 12px 14px; font-size: 0.95rem; outline: none;
+    }
+    .gate input:focus { border-color: var(--teal); }
+    .gate button {
+      width: 100%; background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+      color: #fff; border: none; padding: 12px; border-radius: 8px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase; margin-top: 12px; cursor: pointer;
+    }
+    .gate .hint { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px; margin-bottom: 20px;
+    }
+    .stat {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px; text-align: center;
+    }
+    .stat .value { font-size: 1.6rem; font-weight: 900; color: var(--teal-light); }
+    .stat .label { font-size: 0.7rem; font-weight: 700; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+    .toolbar { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .toolbar input, .toolbar select {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); padding: 8px 12px; font-size: 0.9rem; outline: none;
+    }
+    .toolbar input { flex: 1; min-width: 200px; }
+    .toolbar button {
+      background: var(--card2); border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px; padding: 8px 14px; font-size: 0.85rem;
+      cursor: pointer; font-weight: 600;
+    }
+    .toolbar button:hover { border-color: var(--teal); }
+
+    table {
+      width: 100%; border-collapse: collapse; font-size: 0.85rem;
+    }
+    thead th {
+      background: var(--card2); color: var(--muted); font-weight: 700;
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;
+      padding: 10px 8px; text-align: left; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+    }
+    tbody td {
+      padding: 10px 8px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top;
+    }
+    tbody tr:hover { background: rgba(0,180,200,0.05); }
+    .total { color: var(--teal-light); font-weight: 700; }
+    .status-pill {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .status-New { background: var(--accent); color: #111; }
+    .status-Paid { background: var(--success); color: #06180e; }
+    .status-Delivered { background: var(--teal-dark); color: #fff; }
+
+    .scroll-wrap { overflow-x: auto; }
+    .loading, .error { text-align: center; padding: 40px; color: var(--muted); }
+    .error { color: var(--danger); }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo-badge">
+      <h1>SHARK CITY <span>HOOPS</span></h1>
+      <div class="sub">Orders Admin</div>
+    </div>
+  </div>
+
+  <!-- Gate -->
+  <div class="card gate" id="gate">
+    <label for="admin-key">Admin key</label>
+    <input type="password" id="admin-key" placeholder="Paste admin key…" autocomplete="off" />
+    <button type="button" id="unlock-btn">Unlock 🔓</button>
+    <div class="hint">The admin key is set inside the Apps Script (<code>ADMIN_KEY</code>).</div>
+    <div class="hint" id="gate-error" style="color: var(--danger); display: none;"></div>
+  </div>
+
+  <!-- Dashboard (hidden until unlocked) -->
+  <div id="dashboard" style="display:none;">
+    <div class="card">
+      <div class="stats" id="stats"></div>
+      <div class="toolbar">
+        <input type="text" id="search" placeholder="Search parent / player / team / order ID…" />
+        <select id="status-filter">
+          <option value="">All statuses</option>
+          <option>New</option>
+          <option>Paid</option>
+          <option>Delivered</option>
+        </select>
+        <button type="button" id="refresh-btn">↻ Refresh</button>
+        <button type="button" id="csv-btn">⬇ CSV</button>
+      </div>
+      <div class="scroll-wrap">
+        <table id="orders-table">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── CONFIG ─────────────────────────────────────
+    const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';  // same /exec URL as index.html
+    // ────────────────────────────────────────────────
+
+    let ORDERS = [];
+    let ADMIN_KEY = '';
+
+    // Try to restore saved key from URL hash
+    if (location.hash.startsWith('#key=')) {
+      document.getElementById('admin-key').value = decodeURIComponent(location.hash.slice(5));
+    }
+
+    document.getElementById('unlock-btn').addEventListener('click', unlock);
+    document.getElementById('admin-key').addEventListener('keydown', e => {
+      if (e.key === 'Enter') unlock();
+    });
+
+    async function unlock() {
+      const key = document.getElementById('admin-key').value.trim();
+      if (!key) return;
+      ADMIN_KEY = key;
+      document.getElementById('gate-error').style.display = 'none';
+      try {
+        await loadOrders();
+        document.getElementById('gate').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        // Persist key in URL hash (client-only, not shared with server logs)
+        location.hash = 'key=' + encodeURIComponent(key);
+      } catch (e) {
+        document.getElementById('gate-error').textContent = '⚠️ ' + e.message;
+        document.getElementById('gate-error').style.display = 'block';
+      }
+    }
+
+    async function loadOrders() {
+      if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+        throw new Error('Apps Script URL not configured yet. Edit admin.html.');
+      }
+      const url = APPS_SCRIPT_URL + '?key=' + encodeURIComponent(ADMIN_KEY);
+      const res = await fetch(url, { cache: 'no-cache' });
+      if (!res.ok) throw new Error('Fetch failed: HTTP ' + res.status);
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || 'Unauthorized');
+      ORDERS = data.orders || [];
+      render();
+    }
+
+    function render() {
+      const searchVal = document.getElementById('search').value.trim().toLowerCase();
+      const statusVal = document.getElementById('status-filter').value;
+      let filtered = ORDERS;
+      if (searchVal) {
+        filtered = filtered.filter(o =>
+          Object.values(o).some(v => String(v).toLowerCase().includes(searchVal))
+        );
+      }
+      if (statusVal) {
+        filtered = filtered.filter(o => o.Status === statusVal);
+      }
+      renderStats(filtered);
+      renderTable(filtered);
+    }
+
+    function renderStats(filtered) {
+      const total = filtered.reduce((sum, o) => sum + Number(o['Order Total'] || 0), 0);
+      const paid = filtered.filter(o => o.Status === 'Paid' || o.Status === 'Delivered')
+                           .reduce((sum, o) => sum + Number(o['Order Total'] || 0), 0);
+      const outstanding = total - paid;
+      const packageCounts = {};
+      filtered.forEach(o => {
+        const p = o.Package || 'None';
+        packageCounts[p] = (packageCounts[p] || 0) + 1;
+      });
+      const stats = document.getElementById('stats');
+      stats.innerHTML = `
+        <div class="stat"><div class="value">${filtered.length}</div><div class="label">Orders</div></div>
+        <div class="stat"><div class="value">$${total.toFixed(0)}</div><div class="label">Total</div></div>
+        <div class="stat"><div class="value" style="color: var(--success)">$${paid.toFixed(0)}</div><div class="label">Paid</div></div>
+        <div class="stat"><div class="value" style="color: var(--accent)">$${outstanding.toFixed(0)}</div><div class="label">Outstanding</div></div>
+        <div class="stat"><div class="value">${packageCounts['All-Star'] || 0}</div><div class="label">All-Star</div></div>
+        <div class="stat"><div class="value">${packageCounts['Starter'] || 0}</div><div class="label">Starter</div></div>
+      `;
+    }
+
+    function renderTable(filtered) {
+      if (filtered.length === 0) {
+        document.getElementById('orders-table').innerHTML =
+          '<tbody><tr><td class="loading">No orders match this filter.</td></tr></tbody>';
+        return;
+      }
+      // Choose which columns to show (a curated subset)
+      const cols = [
+        'Timestamp', 'Order ID', 'Status', 'Player Name', 'Team', 'Jersey #',
+        'Package', 'Player Poses Selected', 'Group Photos Selected',
+        'Parent Name', 'Parent Email',
+        'Payment Method', 'Order Total', 'Notes'
+      ];
+      const thead = cols.map(c => `<th>${c}</th>`).join('');
+      const tbody = filtered.map(o => {
+        return '<tr>' + cols.map(c => {
+          const v = o[c] ?? '';
+          if (c === 'Status') {
+            return `<td><span class="status-pill status-${v || 'New'}">${v || 'New'}</span></td>`;
+          }
+          if (c === 'Order Total') {
+            return `<td class="total">$${Number(v || 0).toFixed(2)}</td>`;
+          }
+          if (c === 'Parent Email' && v) {
+            return `<td><a href="mailto:${v}" style="color:var(--teal-light);">${v}</a></td>`;
+          }
+          if (c === 'Timestamp' && v) {
+            const d = new Date(v);
+            return `<td>${d.toLocaleDateString()} ${d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</td>`;
+          }
+          return `<td>${String(v).replace(/[<>&"]/g, s => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'})[s])}</td>`;
+        }).join('') + '</tr>';
+      }).join('');
+      document.getElementById('orders-table').innerHTML =
+        `<thead><tr>${thead}</tr></thead><tbody>${tbody}</tbody>`;
+    }
+
+    document.getElementById('search').addEventListener('input', render);
+    document.getElementById('status-filter').addEventListener('change', render);
+    document.getElementById('refresh-btn').addEventListener('click', () => loadOrders().catch(e => alert(e.message)));
+    document.getElementById('csv-btn').addEventListener('click', () => {
+      if (ORDERS.length === 0) return;
+      const cols = Object.keys(ORDERS[0]);
+      const rows = [cols.join(','), ...ORDERS.map(o =>
+        cols.map(c => `"${String(o[c] || '').replace(/"/g, '""')}"`).join(',')
+      )];
+      const blob = new Blob([rows.join('\n')], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'sch-media-day-orders-' + new Date().toISOString().slice(0,10) + '.csv';
+      a.click();
+    });
+
+    // Auto-unlock if key came in URL hash
+    if (document.getElementById('admin-key').value) unlock();
+  </script>
+
+</body>
+</html>
