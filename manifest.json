@@ -1,12 +1,14 @@
 {
   "season": "2026",
-  "generatedAt": "2026-07-03T16:15:23.253721",
+  "generatedAt": "2026-07-03T17:20:52.971903",
   "lookups": {
     "adniel_rajan_30": "adniel_rajan",
     "alel_santos_45": "alel_santos",
     "andrew_sayson_23": "andrew_sayson",
     "anik_prakash_4": "anik_prakash",
+    "aria_alvendia_13": "aria_alvendia",
     "arthur_sanez_3": "arthur_sanez",
+    "audrey_romero_11": "audrey_romero",
     "benjamin_chen_27": "benjamin_chen",
     "brayden_tique_11": "brayden_tique",
     "cadence_aquino_2": "cadence_aquino",
@@ -14,6 +16,7 @@
     "chris_cheng_17": "chris_cheng",
     "curtis_huang_11": "curtis_huang",
     "devin_chiu_67": "devin_chiu",
+    "doris_chen_18": "doris_chen",
     "ellycia_peralta_11": "ellycia_peralta",
     "emma_robertson_": "emma_robertson",
     "ethan_lam_1": "ethan_lam",
@@ -42,6 +45,8 @@
     "ryan_chiu_10": "ryan_chiu",
     "sean_mooney_12": "sean_mooney",
     "sidak_sethi_10": "sidak_sethi",
+    "vegas_ventura_2": "vegas_ventura",
+    "verena_saric_p": "verena_saric",
     "vincent_ha_4": "vincent_ha",
     "vivianne_llavore_13": "vivianne_llavore",
     "yamileth_hernandez_p": "yamileth_hernandez",
@@ -244,6 +249,67 @@
         }
       ]
     },
+    "aria_alvendia": {
+      "displayName": "Aria Alvendia",
+      "teams": [
+        {
+          "name": "JV Girls",
+          "jersey": "13",
+          "groupPhotos": [
+            {
+              "id": "g_jv_girls_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/jv_girls/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_1.jpg"
+            },
+            {
+              "id": "g_jv_girls_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/jv_girls/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/aria_alvendia/pose1_thumb.jpg",
+          "full": "./previews/players/aria_alvendia/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/aria_alvendia/pose2_thumb.jpg",
+          "full": "./previews/players/aria_alvendia/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/aria_alvendia/pose3_thumb.jpg",
+          "full": "./previews/players/aria_alvendia/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/aria_alvendia/pose4_thumb.jpg",
+          "full": "./previews/players/aria_alvendia/pose4.jpg"
+        },
+        {
+          "id": "pose5",
+          "label": "Pose 5",
+          "thumb": "./previews/players/aria_alvendia/pose5_thumb.jpg",
+          "full": "./previews/players/aria_alvendia/pose5.jpg"
+        },
+        {
+          "id": "pose6",
+          "label": "Pose 6",
+          "thumb": "./previews/players/aria_alvendia/pose6_thumb.jpg",
+          "full": "./previews/players/aria_alvendia/pose6.jpg"
+        }
+      ]
+    },
     "arthur_sanez": {
       "displayName": "Arthur Sanez",
       "teams": [
@@ -302,6 +368,55 @@
           "label": "Pose 6",
           "thumb": "./previews/players/arthur_sanez/pose6_thumb.jpg",
           "full": "./previews/players/arthur_sanez/pose6.jpg"
+        }
+      ]
+    },
+    "audrey_romero": {
+      "displayName": "Audrey Romero",
+      "teams": [
+        {
+          "name": "JV Girls",
+          "jersey": "11",
+          "groupPhotos": [
+            {
+              "id": "g_jv_girls_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/jv_girls/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_1.jpg"
+            },
+            {
+              "id": "g_jv_girls_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/jv_girls/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/audrey_romero/pose1_thumb.jpg",
+          "full": "./previews/players/audrey_romero/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/audrey_romero/pose2_thumb.jpg",
+          "full": "./previews/players/audrey_romero/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/audrey_romero/pose3_thumb.jpg",
+          "full": "./previews/players/audrey_romero/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/audrey_romero/pose4_thumb.jpg",
+          "full": "./previews/players/audrey_romero/pose4.jpg"
         }
       ]
     },
@@ -615,6 +730,61 @@
           "label": "Pose 3",
           "thumb": "./previews/players/devin_chiu/pose3_thumb.jpg",
           "full": "./previews/players/devin_chiu/pose3.jpg"
+        }
+      ]
+    },
+    "doris_chen": {
+      "displayName": "Doris Chen",
+      "teams": [
+        {
+          "name": "JV Girls",
+          "jersey": "18",
+          "groupPhotos": [
+            {
+              "id": "g_jv_girls_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/jv_girls/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_1.jpg"
+            },
+            {
+              "id": "g_jv_girls_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/jv_girls/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/doris_chen/pose1_thumb.jpg",
+          "full": "./previews/players/doris_chen/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/doris_chen/pose2_thumb.jpg",
+          "full": "./previews/players/doris_chen/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/doris_chen/pose3_thumb.jpg",
+          "full": "./previews/players/doris_chen/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/doris_chen/pose4_thumb.jpg",
+          "full": "./previews/players/doris_chen/pose4.jpg"
+        },
+        {
+          "id": "pose5",
+          "label": "Pose 5",
+          "thumb": "./previews/players/doris_chen/pose5_thumb.jpg",
+          "full": "./previews/players/doris_chen/pose5.jpg"
         }
       ]
     },
@@ -2035,6 +2205,104 @@
           "label": "Pose 4",
           "thumb": "./previews/players/sidak_sethi/pose4_thumb.jpg",
           "full": "./previews/players/sidak_sethi/pose4.jpg"
+        }
+      ]
+    },
+    "vegas_ventura": {
+      "displayName": "Vegas Ventura",
+      "teams": [
+        {
+          "name": "JV Girls",
+          "jersey": "2",
+          "groupPhotos": [
+            {
+              "id": "g_jv_girls_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/jv_girls/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_1.jpg"
+            },
+            {
+              "id": "g_jv_girls_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/jv_girls/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/vegas_ventura/pose1_thumb.jpg",
+          "full": "./previews/players/vegas_ventura/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/vegas_ventura/pose2_thumb.jpg",
+          "full": "./previews/players/vegas_ventura/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/vegas_ventura/pose3_thumb.jpg",
+          "full": "./previews/players/vegas_ventura/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/vegas_ventura/pose4_thumb.jpg",
+          "full": "./previews/players/vegas_ventura/pose4.jpg"
+        }
+      ]
+    },
+    "verena_saric": {
+      "displayName": "Verena Saric",
+      "teams": [
+        {
+          "name": "JV Girls",
+          "jersey": "P",
+          "groupPhotos": [
+            {
+              "id": "g_jv_girls_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/jv_girls/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_1.jpg"
+            },
+            {
+              "id": "g_jv_girls_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/jv_girls/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/verena_saric/pose1_thumb.jpg",
+          "full": "./previews/players/verena_saric/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/verena_saric/pose2_thumb.jpg",
+          "full": "./previews/players/verena_saric/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/verena_saric/pose3_thumb.jpg",
+          "full": "./previews/players/verena_saric/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/verena_saric/pose4_thumb.jpg",
+          "full": "./previews/players/verena_saric/pose4.jpg"
         }
       ]
     },
