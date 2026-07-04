@@ -1043,6 +1043,18 @@
 
   </form>
 
+  <!-- ── Footer ── -->
+  <div style="max-width: 680px; margin: 24px auto 0; text-align: center; color: var(--muted); font-size: 0.8rem; line-height: 1.6;">
+    <div style="color: var(--text); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 8px;">Questions?</div>
+    <a href="mailto:info@sharkcityhoops.com" style="color: var(--teal-light); text-decoration: none; font-weight: 600;">info@sharkcityhoops.com</a>
+    <div style="margin-top: 14px; opacity: 0.7;">
+      Photos previewed here are watermarked. Purchased digital photos are delivered <strong style="color:var(--text)">clean and print-ready</strong> within 2 weeks of payment confirmation.
+    </div>
+    <div style="margin-top: 8px; opacity: 0.55; font-size: 0.7rem;">
+      © 2026 Shark City Hoops · All orders final once payment is received.
+    </div>
+  </div>
+
   <!-- ── Lightbox ── -->
   <div class="lightbox-overlay" id="lightbox">
     <button type="button" class="lightbox-close" id="lightbox-close">✕</button>
@@ -1267,8 +1279,21 @@
       }
       document.getElementById('modal-order-lines').innerHTML = linesHTML;
       document.getElementById('modal-total').textContent = '$' + order.total.toFixed(2);
-      document.getElementById('modal-payment-note').innerHTML =
-        `<strong>Payment:</strong> ${data.payment}<br>We'll send payment instructions to <strong>${data.email}</strong> shortly. Please don't send payment until you hear from us.`;
+      // Payment instructions vary by method
+      const payNote = (function () {
+        const total = '$' + order.total.toFixed(2);
+        if (data.payment === 'Zelle') {
+          return `<strong>Zelle payment:</strong> ${total} to <strong>sharkcityhoops@gmail.com</strong><br>Please include the player's name in the memo. We'll confirm your order at <strong>${data.email}</strong> within 24 hours.`;
+        }
+        if (data.payment === 'Venmo') {
+          return `<strong>Venmo:</strong> ${total} — we'll send our handle to <strong>${data.email}</strong> along with your confirmation within 24 hours. Please don't send payment until you hear from us.`;
+        }
+        if (data.payment === 'PayPal') {
+          return `<strong>PayPal:</strong> ${total} — we'll send instructions to <strong>${data.email}</strong> within 24 hours. Please don't send payment until you hear from us.`;
+        }
+        return `<strong>Cash / Check:</strong> ${total} — we'll follow up at <strong>${data.email}</strong> with drop-off details within 24 hours.`;
+      })();
+      document.getElementById('modal-payment-note').innerHTML = payNote;
       document.getElementById('confirm-modal').classList.add('open');
 
       // Reset
@@ -1329,6 +1354,20 @@
       const el = document.getElementById('lookup-status');
       el.textContent = msg;
       el.className = 'lookup-status ' + (type || '');
+    }
+    function clearLookupStatus() {
+      const el = document.getElementById('lookup-status');
+      // Only clear if it's currently showing an error (leave success/loading alone)
+      if (el && el.classList.contains('error')) {
+        el.className = 'lookup-status';
+        el.textContent = '';
+      }
+    }
+    function clearTopStatus() {
+      const el = document.getElementById('status-msg');
+      if (el && el.style.display !== 'none') {
+        el.style.display = 'none';
+      }
     }
 
     async function doLookup() {
@@ -1472,6 +1511,7 @@
       if (set.has(id)) {
         set.delete(id);
         tile.classList.remove('selected');
+        clearLookupStatus();  // "deselect one first" no longer applies
       } else {
         if (set.size >= max) {
           showLookupStatus(`⚠️ Your package allows up to ${max} ${kind === 'player' ? 'player pose' : 'group photo'}${max === 1 ? '' : 's'}. Deselect one first.`, 'error');
@@ -1479,6 +1519,7 @@
         }
         set.add(id);
         tile.classList.add('selected');
+        clearLookupStatus();  // successful selection clears prior warnings
       }
       updateCountHints();
       updateSummary();
@@ -1615,7 +1656,23 @@
       clearSelectionsBeyondPackage();
       updateCountHints();
       updateSummary();
+      clearLookupStatus();  // "select a package first" no longer applies
+      clearTopStatus();     // any submit-time errors about missing package
     }));
+
+    // Clear lookup error while parent types name/jersey
+    ['lookup-first', 'lookup-last', 'lookup-jersey', 'lookup-player-pick'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', clearLookupStatus);
+    });
+
+    // Clear top status error when parent edits any required contact field or payment
+    ['parent-name', 'player-name', 'email', 'phone', 'jersey', 'team'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', clearTopStatus);
+      document.getElementById(id)?.addEventListener('change', clearTopStatus);
+    });
+    document.querySelectorAll('input[name="payment"]').forEach(r =>
+      r.addEventListener('change', clearTopStatus)
+    );
 
     updateSummary();
 
