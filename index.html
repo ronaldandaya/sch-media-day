@@ -1013,23 +1013,12 @@
 
     <!-- ── Payment ── -->
     <div class="card">
-      <div class="card-title">💳 Payment Method</div>
-      <div class="payment-options">
-        <div class="payment-option">
-          <input type="radio" name="payment" id="pay-venmo" value="Venmo" required />
-          <label for="pay-venmo">💸 Venmo</label>
-        </div>
-        <div class="payment-option">
-          <input type="radio" name="payment" id="pay-zelle" value="Zelle" />
-          <label for="pay-zelle">🏦 Zelle</label>
-        </div>
-        <div class="payment-option">
-          <input type="radio" name="payment" id="pay-paypal" value="PayPal" />
-          <label for="pay-paypal">🅿️ PayPal</label>
-        </div>
-        <div class="payment-option">
-          <input type="radio" name="payment" id="pay-cash" value="Cash/Check" />
-          <label for="pay-cash">💵 Cash / Check</label>
+      <div class="card-title">💳 Payment</div>
+      <input type="hidden" name="payment" value="Zelle" />
+      <div style="background: var(--card2); border: 1px solid var(--border); border-left: 3px solid var(--teal); border-radius: 8px; padding: 16px 18px;">
+        <div style="font-weight: 800; color: var(--text); font-size: 1rem; margin-bottom: 8px;">🏦 Zelle to <span style="color: var(--teal-light);">sharkcityhoops@gmail.com</span></div>
+        <div style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">
+          After submitting, please send your total via Zelle. <strong style="color: var(--text);">Include the player's name in the memo</strong> so we can match it to your order. Digital photos are released once payment clears.
         </div>
       </div>
     </div>
@@ -1286,21 +1275,11 @@
       }
       document.getElementById('modal-order-lines').innerHTML = linesHTML;
       document.getElementById('modal-total').textContent = '$' + order.total.toFixed(2);
-      // Payment instructions vary by method
-      const payNote = (function () {
-        const total = '$' + order.total.toFixed(2);
-        if (data.payment === 'Zelle') {
-          return `<strong>Zelle payment:</strong> ${total} to <strong>sharkcityhoops@gmail.com</strong><br>Please include the player's name in the memo. We'll confirm your order at <strong>${data.email}</strong> within 24 hours.`;
-        }
-        if (data.payment === 'Venmo') {
-          return `<strong>Venmo:</strong> ${total} — we'll send our handle to <strong>${data.email}</strong> along with your confirmation within 24 hours. Please don't send payment until you hear from us.`;
-        }
-        if (data.payment === 'PayPal') {
-          return `<strong>PayPal:</strong> ${total} — we'll send instructions to <strong>${data.email}</strong> within 24 hours. Please don't send payment until you hear from us.`;
-        }
-        return `<strong>Cash / Check:</strong> ${total} — we'll follow up at <strong>${data.email}</strong> with drop-off details within 24 hours.`;
-      })();
-      document.getElementById('modal-payment-note').innerHTML = payNote;
+      const total = '$' + order.total.toFixed(2);
+      document.getElementById('modal-payment-note').innerHTML =
+        `<strong>💳 Send ${total} via Zelle to sharkcityhoops@gmail.com</strong><br>` +
+        `Include <strong>${data.playerName}</strong> in the memo so we can match it to your order. ` +
+        `A confirmation copy has been emailed to <strong>${data.email}</strong>.`;
       document.getElementById('confirm-modal').classList.add('open');
 
       // Reset
@@ -1646,12 +1625,43 @@
 
     const pickEl = document.getElementById('lookup-player-pick');
     pickEl.addEventListener('input', () => {
-      const v = pickEl.value;
-      const entry = (window.__PLAYER_ENTRIES || []).find(e => e.value === v);
-      if (entry) {
-        document.getElementById('lookup-first').value = entry.first;
-        document.getElementById('lookup-last').value = entry.last;
-        document.getElementById('lookup-jersey').value = entry.jersey;
+      const raw = pickEl.value.trim();
+      if (!raw) return;
+      const entries = window.__PLAYER_ENTRIES || [];
+      const selectedTeam = (document.getElementById('team')?.value || '').trim();
+      const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const teamNorm = norm(selectedTeam);
+
+      // 1) Exact match against the datalist "Last, First #N (Team)" value (dropdown pick)
+      let match = entries.find(e => e.value === raw);
+
+      // 2) Fuzzy — match any entry whose first/last name contains all typed tokens
+      if (!match) {
+        const q = norm(raw);
+        if (q.length >= 3) {
+          const candidates = entries.filter(e => {
+            const hay = norm(e.first + ' ' + e.last);
+            const teamOk = !selectedTeam || norm(e.teamName) === teamNorm;
+            return teamOk && hay.includes(q);
+          });
+          if (candidates.length === 1) match = candidates[0];
+        }
+      }
+
+      if (match) {
+        // Autofill lookup fields
+        document.getElementById('lookup-first').value = match.first;
+        document.getElementById('lookup-last').value = match.last;
+        document.getElementById('lookup-jersey').value = match.jersey;
+        // Also autofill Contact Info immediately (in case doLookup gallery load is delayed)
+        document.getElementById('player-name').value = `${match.first} ${match.last}`;
+        document.getElementById('jersey').value = match.jersey;
+        if (!document.getElementById('team').value && match.teamName) {
+          const teamSel = document.getElementById('team');
+          for (const opt of teamSel.options) {
+            if (opt.value === match.teamName) { teamSel.value = opt.value; break; }
+          }
+        }
         doLookup();
       }
     });
@@ -1677,6 +1687,35 @@
     ['parent-name', 'player-name', 'email', 'phone', 'jersey', 'team'].forEach(id => {
       document.getElementById(id)?.addEventListener('input', clearTopStatus);
       document.getElementById(id)?.addEventListener('change', clearTopStatus);
+    });
+
+    // If parent types in the Player Name field (Contact Info section),
+    // try to match against manifest players and autofill jersey + team
+    document.getElementById('player-name')?.addEventListener('input', () => {
+      const raw = document.getElementById('player-name').value.trim();
+      if (raw.length < 3) return;
+      const entries = window.__PLAYER_ENTRIES || [];
+      const selectedTeam = (document.getElementById('team')?.value || '').trim();
+      const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const teamNorm = norm(selectedTeam);
+      const q = norm(raw);
+      const candidates = entries.filter(e => {
+        const hay = norm(e.first + ' ' + e.last);
+        const teamOk = !selectedTeam || norm(e.teamName) === teamNorm;
+        return teamOk && hay.includes(q);
+      });
+      if (candidates.length === 1) {
+        const m = candidates[0];
+        if (!document.getElementById('jersey').value) {
+          document.getElementById('jersey').value = m.jersey;
+        }
+        if (!document.getElementById('team').value && m.teamName) {
+          const teamSel = document.getElementById('team');
+          for (const opt of teamSel.options) {
+            if (opt.value === m.teamName) { teamSel.value = opt.value; break; }
+          }
+        }
+      }
     });
     document.querySelectorAll('input[name="payment"]').forEach(r =>
       r.addEventListener('change', clearTopStatus)
