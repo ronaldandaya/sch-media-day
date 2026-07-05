@@ -1314,14 +1314,15 @@
       updateSummary();
       submitBtn.textContent = 'Order Submitted ✓';
 
-      // Backend
+      // Backend — no-cors requires we NOT set application/json content-type
+      // (browser silently blocks the request). Apps Script's e.postData.contents
+      // reads the raw body regardless of Content-Type.
       if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
         fetch(APPS_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
-        }).catch(() => {});
+        }).catch(err => console.warn('Order backend fetch failed:', err));
       }
     });
 
