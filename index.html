@@ -1601,9 +1601,6 @@
       });
       return candidates.length === 1 ? candidates[0] : null;
     }
-    pickEl.addEventListener('keydown', e => {
-      if (e.key === 'Enter') { e.preventDefault(); doLookup(); }
-    });
 
     // Re-validate selections when package changes
     pkgRadios.forEach(r => r.addEventListener('change', () => {
