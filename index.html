@@ -1223,9 +1223,16 @@
       data.discountAmt = order.discountAmt;
       data.orderTotal = order.total.toFixed(2);
       data.timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
-      // Selected poses
+      // Selected poses + canonical player name/team/jersey from the matched player
+      // (overrides whatever the parent typed, in case of typos)
       if (CURRENT_PLAYER) {
         data.playerKey = CURRENT_PLAYER.key;
+        data.playerName = CURRENT_PLAYER.displayName;
+        const jersey = CURRENT_PLAYER.lookupJersey || (CURRENT_PLAYER.teams?.[0]?.jersey ?? '');
+        if (jersey) data.jerseyNumber = String(jersey);
+        const teamName = (CURRENT_PLAYER.teams || []).find(t => String(t.jersey) === String(jersey))?.name
+                       || CURRENT_PLAYER.teams?.[0]?.name;
+        if (teamName) data.team = teamName;
         data.selectedPlayerPoses = Array.from(selectedPoses.player).join(', ');
         data.selectedGroupPhotos = Array.from(selectedPoses.group).join(', ');
       }
@@ -1690,9 +1697,10 @@
     });
 
     // If parent types in the Player Name field (Contact Info section),
-    // try to match against manifest players → autofill jersey/team AND load previews
+    // try to match against manifest players → autofill everything AND load previews
     document.getElementById('player-name')?.addEventListener('input', () => {
-      const raw = document.getElementById('player-name').value.trim();
+      const nameEl = document.getElementById('player-name');
+      const raw = nameEl.value.trim();
       if (raw.length < 3) return;
       const entries = window.__PLAYER_ENTRIES || [];
       const selectedTeam = (document.getElementById('team')?.value || '').trim();
@@ -1706,21 +1714,51 @@
       });
       if (candidates.length === 1) {
         const m = candidates[0];
-        if (!document.getElementById('jersey').value) document.getElementById('jersey').value = m.jersey;
-        if (!document.getElementById('team').value && m.teamName) {
+        const canonical = `${m.first} ${m.last}`;
+        // Snap Player Name to canonical only when it's the whole match — avoids
+        // fighting the user mid-word for names like "Sidak" that match early
+        if (norm(raw) === norm(canonical) && raw !== canonical) {
+          nameEl.value = canonical;
+        }
+        document.getElementById('jersey').value = m.jersey;
+        if (m.teamName) {
           const teamSel = document.getElementById('team');
           for (const opt of teamSel.options) {
-            if (opt.value === m.teamName) { teamSel.value = opt.value; break; }
+            if (opt.value === m.teamName) { teamSel.value = opt.value; renderPlayerSuggestions(); break; }
           }
         }
-        // Also fill the lookup fields + trigger gallery load — but only if the parent
-        // hasn't already loaded a different player (avoid clobbering their choice)
-        if (!CURRENT_PLAYER || CURRENT_PLAYER.id !== `${m.first.toLowerCase().replace(/\s/g,'_')}_${m.last.toLowerCase().replace(/\s/g,'_')}`) {
+        if (!CURRENT_PLAYER || CURRENT_PLAYER.displayName !== canonical) {
           document.getElementById('lookup-first').value = m.first;
           document.getElementById('lookup-last').value = m.last;
           document.getElementById('lookup-jersey').value = m.jersey;
           document.getElementById('lookup-player-pick').value = m.value;
           doLookup();
+        }
+      }
+    });
+
+    // On blur, if the typed name matches a player fuzzy but isn't canonical form,
+    // snap to canonical
+    document.getElementById('player-name')?.addEventListener('blur', () => {
+      const nameEl = document.getElementById('player-name');
+      const raw = nameEl.value.trim();
+      if (!raw) return;
+      const entries = window.__PLAYER_ENTRIES || [];
+      const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const q = norm(raw);
+      const candidates = entries.filter(e => {
+        const hay = norm(e.first + ' ' + e.last);
+        return hay.includes(q) || q.includes(hay);
+      });
+      if (candidates.length === 1) {
+        const m = candidates[0];
+        nameEl.value = `${m.first} ${m.last}`;
+        document.getElementById('jersey').value = m.jersey;
+        if (m.teamName) {
+          const teamSel = document.getElementById('team');
+          for (const opt of teamSel.options) {
+            if (opt.value === m.teamName) { teamSel.value = opt.value; break; }
+          }
         }
       }
     });
