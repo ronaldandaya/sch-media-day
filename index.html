@@ -1690,7 +1690,7 @@
     });
 
     // If parent types in the Player Name field (Contact Info section),
-    // try to match against manifest players and autofill jersey + team
+    // try to match against manifest players → autofill jersey/team AND load previews
     document.getElementById('player-name')?.addEventListener('input', () => {
       const raw = document.getElementById('player-name').value.trim();
       if (raw.length < 3) return;
@@ -1706,14 +1706,21 @@
       });
       if (candidates.length === 1) {
         const m = candidates[0];
-        if (!document.getElementById('jersey').value) {
-          document.getElementById('jersey').value = m.jersey;
-        }
+        if (!document.getElementById('jersey').value) document.getElementById('jersey').value = m.jersey;
         if (!document.getElementById('team').value && m.teamName) {
           const teamSel = document.getElementById('team');
           for (const opt of teamSel.options) {
             if (opt.value === m.teamName) { teamSel.value = opt.value; break; }
           }
+        }
+        // Also fill the lookup fields + trigger gallery load — but only if the parent
+        // hasn't already loaded a different player (avoid clobbering their choice)
+        if (!CURRENT_PLAYER || CURRENT_PLAYER.id !== `${m.first.toLowerCase().replace(/\s/g,'_')}_${m.last.toLowerCase().replace(/\s/g,'_')}`) {
+          document.getElementById('lookup-first').value = m.first;
+          document.getElementById('lookup-last').value = m.last;
+          document.getElementById('lookup-jersey').value = m.jersey;
+          document.getElementById('lookup-player-pick').value = m.value;
+          doLookup();
         }
       }
     });
