@@ -765,35 +765,9 @@
 
     <!-- ── Preview Your Photos ── -->
     <div class="card">
-      <div class="card-title">🔍 Preview Your Photos</div>
-      <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; line-height: 1.5;">
-        Look up your player's photos by name and jersey number. Previews are watermarked — final orders are delivered clean. <strong style="color: var(--text);">Select your poses below, then choose a package.</strong>
-      </p>
-      <div class="field" style="margin-bottom: 14px;">
-        <label for="lookup-player-pick">Start typing your player's last name…</label>
-        <input type="text" id="lookup-player-pick" list="player-suggestions"
-               placeholder="e.g. Young, Jeilani #30" autocomplete="off" />
-        <datalist id="player-suggestions"></datalist>
-        <div style="font-size: 0.7rem; color: var(--muted); margin-top: 4px;">
-          Pick from the list — first name and jersey # will autofill. Or fill the boxes below manually.
-        </div>
-      </div>
-      <div class="lookup-row">
-        <div class="field" style="margin-bottom: 0;">
-          <label for="lookup-first">Player First Name</label>
-          <input type="text" id="lookup-first" placeholder="e.g. Jeilani" autocomplete="off" />
-        </div>
-        <div class="field" style="margin-bottom: 0;">
-          <label for="lookup-last">Last Name</label>
-          <input type="text" id="lookup-last" placeholder="e.g. Young" autocomplete="off" />
-        </div>
-        <div class="field" style="margin-bottom: 0;">
-          <label for="lookup-jersey">Jersey #</label>
-          <input type="text" id="lookup-jersey" placeholder="30" autocomplete="off" />
-        </div>
-        <button type="button" class="lookup-btn" id="lookup-btn">Find Photos</button>
-      </div>
-      <div class="lookup-status" id="lookup-status"></div>
+      <div class="card-title">📸 Your Player's Photos</div>
+      <datalist id="player-suggestions"></datalist>
+      <div class="lookup-status" id="lookup-status" style="margin-top: 0;"></div>
 
       <div class="preview-section" id="preview-section">
         <div class="preview-player-info" id="preview-player-info"></div>
@@ -810,6 +784,10 @@
         </div>
         <div class="pose-grid" id="group-pose-grid"></div>
       </div>
+
+      <p id="preview-empty" style="font-size: 0.9rem; color: var(--muted); text-align: center; padding: 20px 0; line-height: 1.6;">
+        Enter your player's name in <strong style="color: var(--text);">Contact Info</strong> above and your watermarked previews will appear here. Previews are watermarked; purchased digitals are delivered clean.
+      </p>
     </div>
 
     <!-- ── Digital Package ── -->
@@ -1364,62 +1342,41 @@
       }
     }
 
-    async function doLookup() {
-      const first = document.getElementById('lookup-first').value.trim();
-      const last = document.getElementById('lookup-last').value.trim();
-      const jersey = document.getElementById('lookup-jersey').value.trim();
-      if (!first || !last || !jersey) {
-        showLookupStatus('⚠️ Please enter first name, last name, and jersey #.', 'error');
-        return;
-      }
-
-      const btn = document.getElementById('lookup-btn');
-      btn.disabled = true;
-      btn.textContent = 'Searching…';
+    // Load a player's gallery given a matched entry from window.__PLAYER_ENTRIES
+    async function doLookup(entry) {
+      if (!entry) return;
       showLookupStatus('Loading photos…', 'loading');
-
       try {
         const m = await loadManifest();
-        const key = slugify(first) + '_' + slugify(last) + '_' + slugify(jersey);
-        // Lookup table maps key → player id (handles multi-team & multi-jersey)
+        const key = slugify(entry.first) + '_' + slugify(entry.last) + '_' + slugify(entry.jersey);
         const playerId = m.lookups && m.lookups[key];
         const player = playerId ? m.players[playerId] : null;
         if (!player) {
-          showLookupStatus(`😕 We couldn't find photos for "${first} ${last}" #${jersey}. Double-check spelling and jersey number — or contact us if you think this is a mistake.`, 'error');
+          showLookupStatus(`😕 Couldn't find photos for ${entry.first} ${entry.last} #${entry.jersey}. Contact us if this looks wrong.`, 'error');
           document.getElementById('preview-section').classList.remove('visible');
+          document.getElementById('preview-empty').style.display = 'block';
           return;
         }
-        CURRENT_PLAYER = { key, id: playerId, lookupJersey: jersey, ...player };
+        CURRENT_PLAYER = { key, id: playerId, lookupJersey: entry.jersey, ...player };
         selectedPoses.player.clear();
         selectedPoses.group.clear();
         renderPreview();
-        const teamCount = (player.teams || []).length;
-        showLookupStatus(
-          `✓ Found photos for ${player.displayName}` +
-          (teamCount > 1 ? ` (${teamCount} teams).` : '.'),
-          'success'
-        );
+        document.getElementById('preview-empty').style.display = 'none';
+        showLookupStatus(`✓ Showing photos for ${player.displayName}.`, 'success');
 
-        // Auto-fill the contact-info section
+        // Autofill Contact Info from the canonical player record
         document.getElementById('player-name').value = player.displayName;
-        // Pick the team that matched this jersey lookup if possible, else first team
-        const matchTeam = (player.teams || []).find(t => String(t.jersey) === jersey) || (player.teams || [])[0];
+        document.getElementById('jersey').value = entry.jersey;
+        const matchTeam = (player.teams || []).find(t => String(t.jersey) === entry.jersey) || (player.teams || [])[0];
         if (matchTeam && matchTeam.name) {
           const teamSel = document.getElementById('team');
           for (const opt of teamSel.options) {
-            if (opt.value.toLowerCase().includes(matchTeam.name.toLowerCase()) ||
-                matchTeam.name.toLowerCase().includes(opt.value.toLowerCase())) {
-              teamSel.value = opt.value; break;
-            }
+            if (opt.value === matchTeam.name) { teamSel.value = opt.value; renderPlayerSuggestions(); break; }
           }
         }
-        document.getElementById('jersey').value = jersey;
       } catch (e) {
         console.error(e);
-        showLookupStatus('⚠️ Could not load photo gallery. Please try again or contact us.', 'error');
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Find Photos';
+        showLookupStatus('⚠️ Could not load photo gallery. Please try again.', 'error');
       }
     }
 
@@ -1563,12 +1520,7 @@
       document.getElementById('lightbox').classList.add('open');
     }
 
-    document.getElementById('lookup-btn').addEventListener('click', doLookup);
-    ['lookup-first', 'lookup-last', 'lookup-jersey'].forEach(id => {
-      document.getElementById(id).addEventListener('keydown', e => {
-        if (e.key === 'Enter') { e.preventDefault(); doLookup(); }
-      });
-    });
+    // (Old lookup form removed — Player Name in Contact Info drives everything now)
 
     // ── Combobox: populate datalist from manifest, autofill on selection ─────
     async function populatePlayerSuggestions() {
@@ -1630,48 +1582,25 @@
     // Run on load (don't block)
     populatePlayerSuggestions();
 
-    const pickEl = document.getElementById('lookup-player-pick');
-    pickEl.addEventListener('input', () => {
-      const raw = pickEl.value.trim();
-      if (!raw) return;
+    // ── Single player-name driver ──────────────────────
+    // Parent types in Player Name (Contact Info). On unique match: autofill everything + load gallery.
+    function findEntryFromInput(raw) {
       const entries = window.__PLAYER_ENTRIES || [];
       const selectedTeam = (document.getElementById('team')?.value || '').trim();
       const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
       const teamNorm = norm(selectedTeam);
-
-      // 1) Exact match against the datalist "Last, First #N (Team)" value (dropdown pick)
+      // Exact match against datalist entry (dropdown pick)
       let match = entries.find(e => e.value === raw);
-
-      // 2) Fuzzy — match any entry whose first/last name contains all typed tokens
-      if (!match) {
-        const q = norm(raw);
-        if (q.length >= 3) {
-          const candidates = entries.filter(e => {
-            const hay = norm(e.first + ' ' + e.last);
-            const teamOk = !selectedTeam || norm(e.teamName) === teamNorm;
-            return teamOk && hay.includes(q);
-          });
-          if (candidates.length === 1) match = candidates[0];
-        }
-      }
-
-      if (match) {
-        // Autofill lookup fields
-        document.getElementById('lookup-first').value = match.first;
-        document.getElementById('lookup-last').value = match.last;
-        document.getElementById('lookup-jersey').value = match.jersey;
-        // Also autofill Contact Info immediately (in case doLookup gallery load is delayed)
-        document.getElementById('player-name').value = `${match.first} ${match.last}`;
-        document.getElementById('jersey').value = match.jersey;
-        if (!document.getElementById('team').value && match.teamName) {
-          const teamSel = document.getElementById('team');
-          for (const opt of teamSel.options) {
-            if (opt.value === match.teamName) { teamSel.value = opt.value; break; }
-          }
-        }
-        doLookup();
-      }
-    });
+      if (match) return match;
+      const q = norm(raw);
+      if (q.length < 3) return null;
+      const candidates = entries.filter(e => {
+        const hay = norm(e.first + ' ' + e.last);
+        const teamOk = !selectedTeam || norm(e.teamName) === teamNorm;
+        return teamOk && hay.includes(q);
+      });
+      return candidates.length === 1 ? candidates[0] : null;
+    }
     pickEl.addEventListener('keydown', e => {
       if (e.key === 'Enter') { e.preventDefault(); doLookup(); }
     });
@@ -1696,51 +1625,32 @@
       document.getElementById(id)?.addEventListener('change', clearTopStatus);
     });
 
-    // If parent types in the Player Name field (Contact Info section),
-    // try to match against manifest players → autofill everything AND load previews
-    document.getElementById('player-name')?.addEventListener('input', () => {
-      const nameEl = document.getElementById('player-name');
+    // Single unified handler on Player Name: type or pick → load preview gallery
+    const nameEl = document.getElementById('player-name');
+    nameEl?.addEventListener('input', () => {
       const raw = nameEl.value.trim();
-      if (raw.length < 3) return;
-      const entries = window.__PLAYER_ENTRIES || [];
-      const selectedTeam = (document.getElementById('team')?.value || '').trim();
-      const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
-      const teamNorm = norm(selectedTeam);
-      const q = norm(raw);
-      const candidates = entries.filter(e => {
-        const hay = norm(e.first + ' ' + e.last);
-        const teamOk = !selectedTeam || norm(e.teamName) === teamNorm;
-        return teamOk && hay.includes(q);
-      });
-      if (candidates.length === 1) {
-        const m = candidates[0];
-        const canonical = `${m.first} ${m.last}`;
-        // Snap Player Name to canonical only when it's the whole match — avoids
-        // fighting the user mid-word for names like "Sidak" that match early
-        if (norm(raw) === norm(canonical) && raw !== canonical) {
-          nameEl.value = canonical;
-        }
-        document.getElementById('jersey').value = m.jersey;
-        if (m.teamName) {
-          const teamSel = document.getElementById('team');
-          for (const opt of teamSel.options) {
-            if (opt.value === m.teamName) { teamSel.value = opt.value; renderPlayerSuggestions(); break; }
-          }
-        }
-        if (!CURRENT_PLAYER || CURRENT_PLAYER.displayName !== canonical) {
-          document.getElementById('lookup-first').value = m.first;
-          document.getElementById('lookup-last').value = m.last;
-          document.getElementById('lookup-jersey').value = m.jersey;
-          document.getElementById('lookup-player-pick').value = m.value;
-          doLookup();
-        }
+      // Cleared → hide gallery, reset selections
+      if (!raw) {
+        CURRENT_PLAYER = null;
+        selectedPoses.player.clear();
+        selectedPoses.group.clear();
+        document.getElementById('preview-section').classList.remove('visible');
+        document.getElementById('preview-empty').style.display = 'block';
+        clearLookupStatus();
+        updateSummary();
+        return;
       }
+      if (raw.length < 3) return;
+      const match = findEntryFromInput(raw);
+      if (!match) return;
+      // Already loaded this same player? Skip re-load.
+      if (CURRENT_PLAYER && CURRENT_PLAYER.displayName === `${match.first} ${match.last}` &&
+          CURRENT_PLAYER.lookupJersey === match.jersey) return;
+      doLookup(match);
     });
 
-    // On blur, if the typed name matches a player fuzzy but isn't canonical form,
-    // snap to canonical
-    document.getElementById('player-name')?.addEventListener('blur', () => {
-      const nameEl = document.getElementById('player-name');
+    // On blur (leaving the field), snap to canonical + trigger load if needed
+    nameEl?.addEventListener('blur', () => {
       const raw = nameEl.value.trim();
       if (!raw) return;
       const entries = window.__PLAYER_ENTRIES || [];
@@ -1753,12 +1663,8 @@
       if (candidates.length === 1) {
         const m = candidates[0];
         nameEl.value = `${m.first} ${m.last}`;
-        document.getElementById('jersey').value = m.jersey;
-        if (m.teamName) {
-          const teamSel = document.getElementById('team');
-          for (const opt of teamSel.options) {
-            if (opt.value === m.teamName) { teamSel.value = opt.value; break; }
-          }
+        if (!CURRENT_PLAYER || CURRENT_PLAYER.displayName !== `${m.first} ${m.last}`) {
+          doLookup(m);
         }
       }
     });
