@@ -1546,6 +1546,8 @@
         entries.sort((a, b) => a.value.localeCompare(b.value));
         window.__PLAYER_ENTRIES = entries;
         renderPlayerSuggestions();
+        // Re-check the player-name field in case parent picked before manifest was ready
+        try { handlePlayerNameChange(); } catch(e) { /* handler defined later; ignore */ }
       } catch (e) {
         console.warn('Could not populate player suggestions:', e);
       }
@@ -1624,7 +1626,7 @@
 
     // Single unified handler on Player Name: type or pick → load preview gallery
     const nameEl = document.getElementById('player-name');
-    nameEl?.addEventListener('input', () => {
+    function handlePlayerNameChange() {
       const raw = nameEl.value.trim();
       // Cleared → hide gallery, reset selections
       if (!raw) {
@@ -1639,12 +1641,15 @@
       }
       if (raw.length < 3) return;
       const match = findEntryFromInput(raw);
+      console.log('[player-name change]', { raw, match, entriesReady: (window.__PLAYER_ENTRIES||[]).length });
       if (!match) return;
       // Already loaded this same player? Skip re-load.
       if (CURRENT_PLAYER && CURRENT_PLAYER.displayName === `${match.first} ${match.last}` &&
           CURRENT_PLAYER.lookupJersey === match.jersey) return;
       doLookup(match);
-    });
+    }
+    nameEl?.addEventListener('input', handlePlayerNameChange);
+    nameEl?.addEventListener('change', handlePlayerNameChange);
 
     // On blur (leaving the field), snap to canonical + trigger load if needed
     nameEl?.addEventListener('blur', () => {
