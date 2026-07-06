@@ -1580,7 +1580,7 @@
           const last = nameParts[nameParts.length - 1];
           const first = nameParts.slice(0, -1).join(' ');
           entries.push({
-            value: `${last}, ${first} #${jersey}${teamName ? ' (' + teamName + ')' : ''}`,
+            value: `${first} ${last} #${jersey}${teamName ? ' (' + teamName + ')' : ''}`,
             first, last, jersey, teamName,
           });
         }
