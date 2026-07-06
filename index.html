@@ -783,6 +783,12 @@
           <span class="count-hint" id="group-count-hint"></span>
         </div>
         <div class="pose-grid" id="group-pose-grid"></div>
+
+        <div class="pose-section-label" id="buddy-section-label" style="display: none;">
+          👯 Buddy Photos
+          <span class="count-hint" id="buddy-count-hint">$7 each · click to add</span>
+        </div>
+        <div class="pose-grid" id="buddy-pose-grid"></div>
       </div>
 
       <p id="preview-empty" style="font-size: 0.9rem; color: var(--muted); text-align: center; padding: 20px 0; line-height: 1.6;">
@@ -837,23 +843,11 @@
       </div>
     </div>
 
-    <!-- ── Buddy Add-On ── -->
+    <!-- ── Buddy Add-On (info only — selection happens in gallery above) ── -->
     <div class="card">
       <div class="card-title">👯 Buddy Photos</div>
-      <div class="addon-row">
-        <div class="addon-info">
-          <div class="addon-name">Digital Buddy Photo</div>
-          <div class="addon-desc">Siblings &amp; friends · $7 each</div>
-        </div>
-        <div class="stepper" data-price="7" data-name="buddy_photo" data-label="Digital Buddy Photo" data-type="buddy">
-          <button type="button" class="step-btn minus">−</button>
-          <span class="step-val">0</span>
-          <button type="button" class="step-btn plus">+</button>
-        </div>
-      </div>
-      <div class="field" style="margin-top: 14px; margin-bottom: 0;">
-        <label for="buddy-names">Buddy Photo Names (siblings / friends)</label>
-        <input type="text" id="buddy-names" name="buddyNames" placeholder="e.g. Jordan Lee, Maya Chen" />
+      <div style="background: var(--card2); border-left: 3px solid var(--teal); border-radius: 8px; padding: 14px 16px; font-size: 0.9rem; color: var(--muted); line-height: 1.6;">
+        Any buddy photos of <strong style="color: var(--text);">your player + a sibling or friend</strong> that we captured on Media Day will appear in the gallery above. <strong style="color: var(--text);">Click a buddy photo tile to add it — $7 each.</strong> Buddy names come along automatically.
       </div>
     </div>
 
@@ -1096,7 +1090,26 @@
       let keepsakeCount = 0;
       let buddySubtotal = 0;
 
+      // Buddy photos come from selected tiles now, not stepper
+      const buddyQty = selectedPoses.buddy.size;
+      const buddyPrice = 7;
+      if (buddyQty > 0) {
+        buddySubtotal = buddyQty * buddyPrice;
+        // Get the actual buddy names for label
+        const buddyLabels = CURRENT_PLAYER && CURRENT_PLAYER.buddyPhotos
+          ? Array.from(selectedPoses.buddy).map(id => {
+              const bp = CURRENT_PLAYER.buddyPhotos.find(b => b.id === id);
+              return bp ? bp.label : id;
+            })
+          : [];
+        lines.push({
+          label: `Buddy Photos${buddyLabels.length ? ' (' + buddyLabels.join('; ') + ')' : ''}`,
+          qty: buddyQty, price: buddyPrice, subtotal: buddySubtotal, kind: 'buddy'
+        });
+      }
+
       steppers.forEach(s => {
+        if (s.dataset.type === 'buddy') return;   // skip the old buddy stepper (kept for backward-compat but ignored)
         const qty = state[s.dataset.name] || 0;
         if (qty <= 0) return;
         const price = parseInt(s.dataset.price);
@@ -1106,8 +1119,6 @@
         if (type === 'keepsake') {
           keepsakeSubtotal += subtotal;
           keepsakeCount += qty;
-        } else if (type === 'buddy') {
-          buddySubtotal += subtotal;
         }
       });
 
@@ -1213,6 +1224,17 @@
         if (teamName) data.team = teamName;
         data.selectedPlayerPoses = Array.from(selectedPoses.player).join(', ');
         data.selectedGroupPhotos = Array.from(selectedPoses.group).join(', ');
+        data.selectedBuddyPhotos = Array.from(selectedPoses.buddy).join(', ');
+        // Auto-derive buddy names from selected photos
+        if (CURRENT_PLAYER.buddyPhotos && selectedPoses.buddy.size > 0) {
+          const names = new Set();
+          selectedPoses.buddy.forEach(id => {
+            const bp = CURRENT_PLAYER.buddyPhotos.find(b => b.id === id);
+            (bp?.buddies || []).forEach(n => names.add(n));
+          });
+          data.buddyNames = Array.from(names).join(', ');
+          data.buddy_photo = selectedPoses.buddy.size;
+        }
       }
       return data;
     }
@@ -1293,7 +1315,7 @@
     // ── Preview Gallery & Lookup ─────────────────────────────
     let MANIFEST = null;
     let CURRENT_PLAYER = null;
-    const selectedPoses = { player: new Set(), group: new Set() };
+    const selectedPoses = { player: new Set(), group: new Set(), buddy: new Set() };
 
     function slugify(s) {
       return s.toLowerCase().trim().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
@@ -1387,6 +1409,7 @@
 
       const teams = CURRENT_PLAYER.teams || [];
       const totalGroup = teams.reduce((acc, t) => acc + (t.groupPhotos || []).length, 0);
+      const buddyPhotos = CURRENT_PLAYER.buddyPhotos || [];
 
       // Player info banner — show all teams
       const teamTags = teams.map(t => `<span class="team-tag">${t.name} · #${t.jersey}</span>`).join(' ');
@@ -1429,6 +1452,20 @@
         gLabel.style.display = 'none';
       }
 
+      // Buddy photos — one big grid regardless of team
+      const bLabel = document.getElementById('buddy-section-label');
+      const bGrid = document.getElementById('buddy-pose-grid');
+      bGrid.innerHTML = '';
+      if (buddyPhotos.length > 0) {
+        bLabel.style.display = 'flex';
+        buddyPhotos.forEach(p => {
+          const tile = makeTile(p, 'buddy');
+          bGrid.appendChild(tile);
+        });
+      } else {
+        bLabel.style.display = 'none';
+      }
+
       updateCountHints();
     }
 
@@ -1452,9 +1489,18 @@
     }
 
     function togglePose(id, kind, tile) {
+      const set = selectedPoses[kind];
+      // Buddy photos: no package limit — always toggleable ($7 each)
+      if (kind === 'buddy') {
+        if (set.has(id)) { set.delete(id); tile.classList.remove('selected'); }
+        else { set.add(id); tile.classList.add('selected'); }
+        clearLookupStatus();
+        updateSummary();
+        return;
+      }
+      // Player poses & group photos: package-limited
       const rules = PACKAGE_RULES[getCurrentPackage()];
       const max = kind === 'player' ? rules.playerMax : rules.groupMax;
-      const set = selectedPoses[kind];
       if (max === 0) {
         showLookupStatus('⚠️ Select a package first to choose poses.', 'error');
         return;
@@ -1462,7 +1508,7 @@
       if (set.has(id)) {
         set.delete(id);
         tile.classList.remove('selected');
-        clearLookupStatus();  // "deselect one first" no longer applies
+        clearLookupStatus();
       } else {
         if (set.size >= max) {
           showLookupStatus(`⚠️ Your package allows up to ${max} ${kind === 'player' ? 'player pose' : 'group photo'}${max === 1 ? '' : 's'}. Deselect one first.`, 'error');
@@ -1470,7 +1516,7 @@
         }
         set.add(id);
         tile.classList.add('selected');
-        clearLookupStatus();  // successful selection clears prior warnings
+        clearLookupStatus();
       }
       updateCountHints();
       updateSummary();

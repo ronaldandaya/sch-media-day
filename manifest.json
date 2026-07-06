@@ -1,6 +1,6 @@
 {
   "season": "2026",
-  "generatedAt": "2026-07-03T17:20:52.971903",
+  "generatedAt": "2026-07-06T09:01:18.425873",
   "lookups": {
     "adniel_rajan_30": "adniel_rajan",
     "alel_santos_45": "alel_santos",
@@ -100,7 +100,8 @@
           "thumb": "./previews/players/adniel_rajan/pose4_thumb.jpg",
           "full": "./previews/players/adniel_rajan/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "alel_santos": {
       "displayName": "Alel Santos",
@@ -149,7 +150,8 @@
           "thumb": "./previews/players/alel_santos/pose4_thumb.jpg",
           "full": "./previews/players/alel_santos/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "andrew_sayson": {
       "displayName": "Andrew Sayson",
@@ -198,7 +200,8 @@
           "thumb": "./previews/players/andrew_sayson/pose4_thumb.jpg",
           "full": "./previews/players/andrew_sayson/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "anik_prakash": {
       "displayName": "Anik Prakash",
@@ -247,7 +250,8 @@
           "thumb": "./previews/players/anik_prakash/pose4_thumb.jpg",
           "full": "./previews/players/anik_prakash/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "aria_alvendia": {
       "displayName": "Aria Alvendia",
@@ -308,7 +312,8 @@
           "thumb": "./previews/players/aria_alvendia/pose6_thumb.jpg",
           "full": "./previews/players/aria_alvendia/pose6.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "arthur_sanez": {
       "displayName": "Arthur Sanez",
@@ -369,7 +374,8 @@
           "thumb": "./previews/players/arthur_sanez/pose6_thumb.jpg",
           "full": "./previews/players/arthur_sanez/pose6.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "audrey_romero": {
       "displayName": "Audrey Romero",
@@ -418,7 +424,8 @@
           "thumb": "./previews/players/audrey_romero/pose4_thumb.jpg",
           "full": "./previews/players/audrey_romero/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "benjamin_chen": {
       "displayName": "Benjamin Chen",
@@ -473,7 +480,8 @@
           "thumb": "./previews/players/benjamin_chen/pose4_thumb.jpg",
           "full": "./previews/players/benjamin_chen/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "brayden_tique": {
       "displayName": "Brayden Tique",
@@ -522,7 +530,8 @@
           "thumb": "./previews/players/brayden_tique/pose4_thumb.jpg",
           "full": "./previews/players/brayden_tique/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "cadence_aquino": {
       "displayName": "Cadence Aquino",
@@ -553,7 +562,8 @@
           "thumb": "./previews/players/cadence_aquino/pose1_thumb.jpg",
           "full": "./previews/players/cadence_aquino/pose1.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "chelsea_cheng": {
       "displayName": "Chelsea Cheng",
@@ -584,7 +594,8 @@
           "thumb": "./previews/players/chelsea_cheng/pose1_thumb.jpg",
           "full": "./previews/players/chelsea_cheng/pose1.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "chris_cheng": {
       "displayName": "Chris Cheng",
@@ -633,7 +644,8 @@
           "thumb": "./previews/players/chris_cheng/pose4_thumb.jpg",
           "full": "./previews/players/chris_cheng/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "curtis_huang": {
       "displayName": "Curtis Huang",
@@ -688,7 +700,8 @@
           "thumb": "./previews/players/curtis_huang/pose4_thumb.jpg",
           "full": "./previews/players/curtis_huang/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "devin_chiu": {
       "displayName": "Devin Chiu",
@@ -731,7 +744,8 @@
           "thumb": "./previews/players/devin_chiu/pose3_thumb.jpg",
           "full": "./previews/players/devin_chiu/pose3.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "doris_chen": {
       "displayName": "Doris Chen",
@@ -786,7 +800,8 @@
           "thumb": "./previews/players/doris_chen/pose5_thumb.jpg",
           "full": "./previews/players/doris_chen/pose5.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "ellycia_peralta": {
       "displayName": "Ellycia Peralta",
@@ -841,7 +856,8 @@
           "thumb": "./previews/players/ellycia_peralta/pose5_thumb.jpg",
           "full": "./previews/players/ellycia_peralta/pose5.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "emma_robertson": {
       "displayName": "Emma Robertson",
@@ -872,7 +888,8 @@
           "thumb": "./previews/players/emma_robertson/pose1_thumb.jpg",
           "full": "./previews/players/emma_robertson/pose1.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "ethan_lam": {
       "displayName": "Ethan Lam",
@@ -927,7 +944,8 @@
           "thumb": "./previews/players/ethan_lam/pose4_thumb.jpg",
           "full": "./previews/players/ethan_lam/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "ezequiel_leo_pena": {
       "displayName": "Ezequiel Leo Pena",
@@ -982,7 +1000,8 @@
           "thumb": "./previews/players/ezequiel_leo_pena/pose4_thumb.jpg",
           "full": "./previews/players/ezequiel_leo_pena/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "hanniel_rajan": {
       "displayName": "Hanniel Rajan",
@@ -1037,7 +1056,8 @@
           "thumb": "./previews/players/hanniel_rajan/pose4_thumb.jpg",
           "full": "./previews/players/hanniel_rajan/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "ivan_lam": {
       "displayName": "Ivan Lam",
@@ -1074,7 +1094,8 @@
           "thumb": "./previews/players/ivan_lam/pose1_thumb.jpg",
           "full": "./previews/players/ivan_lam/pose1.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "jayce_legaspi": {
       "displayName": "Jayce Legaspi",
@@ -1135,7 +1156,8 @@
           "thumb": "./previews/players/jayce_legaspi/pose6_thumb.jpg",
           "full": "./previews/players/jayce_legaspi/pose6.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "jeilani_young": {
       "displayName": "Jeilani Young",
@@ -1184,7 +1206,8 @@
           "thumb": "./previews/players/jeilani_young/pose4_thumb.jpg",
           "full": "./previews/players/jeilani_young/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "jeramy_dai": {
       "displayName": "Jeramy Dai",
@@ -1233,7 +1256,8 @@
           "thumb": "./previews/players/jeramy_dai/pose4_thumb.jpg",
           "full": "./previews/players/jeramy_dai/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "johnny_ngo": {
       "displayName": "Johnny Ngo",
@@ -1282,7 +1306,8 @@
           "thumb": "./previews/players/johnny_ngo/pose4_thumb.jpg",
           "full": "./previews/players/johnny_ngo/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "jonah_hanley": {
       "displayName": "Jonah Hanley",
@@ -1343,7 +1368,8 @@
           "thumb": "./previews/players/jonah_hanley/pose6_thumb.jpg",
           "full": "./previews/players/jonah_hanley/pose6.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "joshua_flores": {
       "displayName": "Joshua Flores",
@@ -1391,6 +1417,35 @@
           "label": "Pose 4",
           "thumb": "./previews/players/joshua_flores/pose4_thumb.jpg",
           "full": "./previews/players/joshua_flores/pose4.jpg"
+        }
+      ],
+      "buddyPhotos": [
+        {
+          "id": "buddy_joshua_flores__kameron_conyers__1",
+          "label": "with Kameron Conyers",
+          "thumb": "./previews/_buddies/joshua_flores__kameron_conyers__1_thumb.jpg",
+          "full": "./previews/_buddies/joshua_flores__kameron_conyers__1.jpg",
+          "buddies": [
+            "Kameron Conyers"
+          ]
+        },
+        {
+          "id": "buddy_joshua_flores__kameron_conyers__2",
+          "label": "with Kameron Conyers",
+          "thumb": "./previews/_buddies/joshua_flores__kameron_conyers__2_thumb.jpg",
+          "full": "./previews/_buddies/joshua_flores__kameron_conyers__2.jpg",
+          "buddies": [
+            "Kameron Conyers"
+          ]
+        },
+        {
+          "id": "buddy_joshua_flores__kameron_conyers__3",
+          "label": "with Kameron Conyers",
+          "thumb": "./previews/_buddies/joshua_flores__kameron_conyers__3_thumb.jpg",
+          "full": "./previews/_buddies/joshua_flores__kameron_conyers__3.jpg",
+          "buddies": [
+            "Kameron Conyers"
+          ]
         }
       ]
     },
@@ -1447,7 +1502,8 @@
           "thumb": "./previews/players/kaden_tran/pose4_thumb.jpg",
           "full": "./previews/players/kaden_tran/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "kai_yen": {
       "displayName": "Kai Yen",
@@ -1496,7 +1552,8 @@
           "thumb": "./previews/players/kai_yen/pose4_thumb.jpg",
           "full": "./previews/players/kai_yen/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "kameron_conyers": {
       "displayName": "Kameron Conyers",
@@ -1557,6 +1614,35 @@
           "thumb": "./previews/players/kameron_conyers/pose6_thumb.jpg",
           "full": "./previews/players/kameron_conyers/pose6.jpg"
         }
+      ],
+      "buddyPhotos": [
+        {
+          "id": "buddy_joshua_flores__kameron_conyers__1",
+          "label": "with Joshua Flores",
+          "thumb": "./previews/_buddies/joshua_flores__kameron_conyers__1_thumb.jpg",
+          "full": "./previews/_buddies/joshua_flores__kameron_conyers__1.jpg",
+          "buddies": [
+            "Joshua Flores"
+          ]
+        },
+        {
+          "id": "buddy_joshua_flores__kameron_conyers__2",
+          "label": "with Joshua Flores",
+          "thumb": "./previews/_buddies/joshua_flores__kameron_conyers__2_thumb.jpg",
+          "full": "./previews/_buddies/joshua_flores__kameron_conyers__2.jpg",
+          "buddies": [
+            "Joshua Flores"
+          ]
+        },
+        {
+          "id": "buddy_joshua_flores__kameron_conyers__3",
+          "label": "with Joshua Flores",
+          "thumb": "./previews/_buddies/joshua_flores__kameron_conyers__3_thumb.jpg",
+          "full": "./previews/_buddies/joshua_flores__kameron_conyers__3.jpg",
+          "buddies": [
+            "Joshua Flores"
+          ]
+        }
       ]
     },
     "khoa_ngo": {
@@ -1606,7 +1692,8 @@
           "thumb": "./previews/players/khoa_ngo/pose4_thumb.jpg",
           "full": "./previews/players/khoa_ngo/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "lionel_huang": {
       "displayName": "Lionel Huang",
@@ -1661,7 +1748,8 @@
           "thumb": "./previews/players/lionel_huang/pose4_thumb.jpg",
           "full": "./previews/players/lionel_huang/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "logan_chiu": {
       "displayName": "Logan Chiu",
@@ -1710,7 +1798,8 @@
           "thumb": "./previews/players/logan_chiu/pose4_thumb.jpg",
           "full": "./previews/players/logan_chiu/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "manley_brown": {
       "displayName": "Manley Brown",
@@ -1765,7 +1854,8 @@
           "thumb": "./previews/players/manley_brown/pose4_thumb.jpg",
           "full": "./previews/players/manley_brown/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "marco_smith": {
       "displayName": "Marco Smith",
@@ -1814,7 +1904,8 @@
           "thumb": "./previews/players/marco_smith/pose4_thumb.jpg",
           "full": "./previews/players/marco_smith/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "michael_corpuz": {
       "displayName": "Michael Corpuz",
@@ -1863,7 +1954,8 @@
           "thumb": "./previews/players/michael_corpuz/pose4_thumb.jpg",
           "full": "./previews/players/michael_corpuz/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "natalia_sanchez": {
       "displayName": "Natalia Sanchez",
@@ -1900,7 +1992,8 @@
           "thumb": "./previews/players/natalia_sanchez/pose2_thumb.jpg",
           "full": "./previews/players/natalia_sanchez/pose2.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "owen_chang": {
       "displayName": "Owen Chang",
@@ -1955,7 +2048,8 @@
           "thumb": "./previews/players/owen_chang/pose4_thumb.jpg",
           "full": "./previews/players/owen_chang/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "rohit_saggi": {
       "displayName": "Rohit Saggi",
@@ -2004,7 +2098,8 @@
           "thumb": "./previews/players/rohit_saggi/pose4_thumb.jpg",
           "full": "./previews/players/rohit_saggi/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "rory_nguyen": {
       "displayName": "Rory Nguyen",
@@ -2059,7 +2154,8 @@
           "thumb": "./previews/players/rory_nguyen/pose4_thumb.jpg",
           "full": "./previews/players/rory_nguyen/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "ryan_chiu": {
       "displayName": "Ryan Chiu",
@@ -2108,7 +2204,8 @@
           "thumb": "./previews/players/ryan_chiu/pose4_thumb.jpg",
           "full": "./previews/players/ryan_chiu/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "sean_mooney": {
       "displayName": "Sean Mooney",
@@ -2157,7 +2254,8 @@
           "thumb": "./previews/players/sean_mooney/pose4_thumb.jpg",
           "full": "./previews/players/sean_mooney/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "sidak_sethi": {
       "displayName": "Sidak Sethi",
@@ -2206,7 +2304,8 @@
           "thumb": "./previews/players/sidak_sethi/pose4_thumb.jpg",
           "full": "./previews/players/sidak_sethi/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "vegas_ventura": {
       "displayName": "Vegas Ventura",
@@ -2255,7 +2354,8 @@
           "thumb": "./previews/players/vegas_ventura/pose4_thumb.jpg",
           "full": "./previews/players/vegas_ventura/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "verena_saric": {
       "displayName": "Verena Saric",
@@ -2304,7 +2404,8 @@
           "thumb": "./previews/players/verena_saric/pose4_thumb.jpg",
           "full": "./previews/players/verena_saric/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "vincent_ha": {
       "displayName": "Vincent Ha",
@@ -2353,7 +2454,8 @@
           "thumb": "./previews/players/vincent_ha/pose4_thumb.jpg",
           "full": "./previews/players/vincent_ha/pose4.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "vivianne_llavore": {
       "displayName": "Vivianne Llavore",
@@ -2384,7 +2486,8 @@
           "thumb": "./previews/players/vivianne_llavore/pose1_thumb.jpg",
           "full": "./previews/players/vivianne_llavore/pose1.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "yamileth_hernandez": {
       "displayName": "Yamileth Hernandez",
@@ -2427,7 +2530,8 @@
           "thumb": "./previews/players/yamileth_hernandez/pose3_thumb.jpg",
           "full": "./previews/players/yamileth_hernandez/pose3.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     },
     "zayan_shreyom": {
       "displayName": "Zayan Shreyom",
@@ -2482,7 +2586,8 @@
           "thumb": "./previews/players/zayan_shreyom/pose5_thumb.jpg",
           "full": "./previews/players/zayan_shreyom/pose5.jpg"
         }
-      ]
+      ],
+      "buddyPhotos": []
     }
   }
 }
