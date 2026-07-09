@@ -1,0 +1,396 @@
+[
+  {
+    "stem": "anik_prakash__arthur_sanez__sidak_sethi__1",
+    "players": [
+      "anik_prakash",
+      "arthur_sanez",
+      "sidak_sethi"
+    ],
+    "displayNames": [
+      "Arthur Sanez",
+      "Anik Prakash",
+      "Sidak Sethi"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "audrey_romero__verena_saric__1",
+    "players": [
+      "audrey_romero",
+      "verena_saric"
+    ],
+    "displayNames": [
+      "Audrey Romero",
+      "Verena Saric"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "cadence_aquino__chelsea_cheng__1",
+    "players": [
+      "cadence_aquino",
+      "chelsea_cheng"
+    ],
+    "displayNames": [
+      "Cadence Aquino",
+      "Chelsea Cheng"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "cadence_aquino__chelsea_cheng__2",
+    "players": [
+      "cadence_aquino",
+      "chelsea_cheng"
+    ],
+    "displayNames": [
+      "Cadence Aquino",
+      "Chelsea Cheng"
+    ],
+    "pose": "2"
+  },
+  {
+    "stem": "cadence_aquino__chelsea_cheng__3",
+    "players": [
+      "cadence_aquino",
+      "chelsea_cheng"
+    ],
+    "displayNames": [
+      "Cadence Aquino",
+      "Chelsea Cheng"
+    ],
+    "pose": "3"
+  },
+  {
+    "stem": "chelsea_cheng__chris_cheng__1",
+    "players": [
+      "chelsea_cheng",
+      "chris_cheng"
+    ],
+    "displayNames": [
+      "Chelsea Cheng",
+      "Chris Cheng"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "chelsea_cheng__chris_cheng__2",
+    "players": [
+      "chelsea_cheng",
+      "chris_cheng"
+    ],
+    "displayNames": [
+      "Chelsea Cheng",
+      "Chris Cheng"
+    ],
+    "pose": "2"
+  },
+  {
+    "stem": "brayden_tique__devin_chiu__1",
+    "players": [
+      "brayden_tique",
+      "devin_chiu"
+    ],
+    "displayNames": [
+      "Devin Chiu",
+      "Brayden Tique"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "brayden_tique__devin_chiu__2",
+    "players": [
+      "brayden_tique",
+      "devin_chiu"
+    ],
+    "displayNames": [
+      "Devin Chiu",
+      "Brayden Tique"
+    ],
+    "pose": "2"
+  },
+  {
+    "stem": "brayden_tique__devin_chiu__3",
+    "players": [
+      "brayden_tique",
+      "devin_chiu"
+    ],
+    "displayNames": [
+      "Devin Chiu",
+      "Brayden Tique"
+    ],
+    "pose": "3"
+  },
+  {
+    "stem": "jayce_legaspi__jonah_hanley__kai_yen__1",
+    "players": [
+      "jayce_legaspi",
+      "jonah_hanley",
+      "kai_yen"
+    ],
+    "displayNames": [
+      "Jayce Legaspi",
+      "Kai Yen",
+      "Jonah Hanley"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "cadence_aquino__chelsea_cheng__jeilani_young__vivianne_llavore__1",
+    "players": [
+      "cadence_aquino",
+      "chelsea_cheng",
+      "jeilani_young",
+      "vivianne_llavore"
+    ],
+    "displayNames": [
+      "Jeilani Young",
+      "Chelsea Cheng",
+      "Vivianne Llavore",
+      "Cadence Aquino"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "cadence_aquino__chelsea_cheng__jeilani_young__vivianne_llavore__2",
+    "players": [
+      "cadence_aquino",
+      "chelsea_cheng",
+      "jeilani_young",
+      "vivianne_llavore"
+    ],
+    "displayNames": [
+      "Jeilani Young",
+      "Chelsea Cheng",
+      "Vivianne Llavore",
+      "Cadence Aquino"
+    ],
+    "pose": "2"
+  },
+  {
+    "stem": "jeilani_young__vivianne_llavore__1",
+    "players": [
+      "jeilani_young",
+      "vivianne_llavore"
+    ],
+    "displayNames": [
+      "Jeilani Young",
+      "Vivianne Llavore"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "jeilani_young__vivianne_llavore__2",
+    "players": [
+      "jeilani_young",
+      "vivianne_llavore"
+    ],
+    "displayNames": [
+      "Jeilani Young",
+      "Vivianne Llavore"
+    ],
+    "pose": "2"
+  },
+  {
+    "stem": "joshua_flores__kameron_conyers__1",
+    "players": [
+      "joshua_flores",
+      "kameron_conyers"
+    ],
+    "displayNames": [
+      "Kameron Conyers",
+      "Joshua Flores"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "joshua_flores__kameron_conyers__2",
+    "players": [
+      "joshua_flores",
+      "kameron_conyers"
+    ],
+    "displayNames": [
+      "Kameron Conyers",
+      "Joshua Flores"
+    ],
+    "pose": "2"
+  },
+  {
+    "stem": "joshua_flores__kameron_conyers__3",
+    "players": [
+      "joshua_flores",
+      "kameron_conyers"
+    ],
+    "displayNames": [
+      "Kameron Conyers",
+      "Joshua Flores"
+    ],
+    "pose": "3"
+  },
+  {
+    "stem": "joshua_flores__kameron_conyers__4",
+    "players": [
+      "joshua_flores",
+      "kameron_conyers"
+    ],
+    "displayNames": [
+      "Kameron Conyers",
+      "Joshua Flores"
+    ],
+    "pose": "4"
+  },
+  {
+    "stem": "joshua_flores__kameron_conyers__5",
+    "players": [
+      "joshua_flores",
+      "kameron_conyers"
+    ],
+    "displayNames": [
+      "Kameron Conyers",
+      "Joshua Flores"
+    ],
+    "pose": "5"
+  },
+  {
+    "stem": "joshua_flores__kameron_conyers__6",
+    "players": [
+      "joshua_flores",
+      "kameron_conyers"
+    ],
+    "displayNames": [
+      "Kameron Conyers",
+      "Joshua Flores"
+    ],
+    "pose": "6"
+  },
+  {
+    "stem": "joshua_flores__kameron_conyers__7",
+    "players": [
+      "joshua_flores",
+      "kameron_conyers"
+    ],
+    "displayNames": [
+      "Kameron Conyers",
+      "Joshua Flores"
+    ],
+    "pose": "7"
+  },
+  {
+    "stem": "audrey_romero__coach_charlize__jeilani_young__madison_garcia__vegas_ventura__verena_saric__1",
+    "players": [
+      "audrey_romero",
+      "jeilani_young",
+      "vegas_ventura",
+      "verena_saric"
+    ],
+    "displayNames": [
+      "Madison Garcia",
+      "Vegas Ventura",
+      "Verena Saric",
+      "Audrey Romero",
+      "Jeilani Young"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "audrey_romero__coach_charlize__madison_garcia__vegas_ventura__verena_saric__1",
+    "players": [
+      "audrey_romero",
+      "vegas_ventura",
+      "verena_saric"
+    ],
+    "displayNames": [
+      "Madison Garcia",
+      "Vegas Ventura",
+      "Verena Saric",
+      "Audrey Romero"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "audrey_romero__jeilani_young__madison_garcia__vegas_ventura__verena_saric__1",
+    "players": [
+      "audrey_romero",
+      "jeilani_young",
+      "vegas_ventura",
+      "verena_saric"
+    ],
+    "displayNames": [
+      "Madison Garcia",
+      "Vegas Ventura",
+      "Verena Saric",
+      "Audrey Romero",
+      "Jeilani Young"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "audrey_romero__madison_garcia__vegas_ventura__verena_saric__1",
+    "players": [
+      "audrey_romero",
+      "vegas_ventura",
+      "verena_saric"
+    ],
+    "displayNames": [
+      "Madison Garcia",
+      "Vegas Ventura",
+      "Verena Saric",
+      "Audrey Romero"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "audrey_romero__madison_garcia__vegas_ventura__verena_saric__2",
+    "players": [
+      "audrey_romero",
+      "vegas_ventura",
+      "verena_saric"
+    ],
+    "displayNames": [
+      "Madison Garcia",
+      "Vegas Ventura",
+      "Verena Saric",
+      "Audrey Romero"
+    ],
+    "pose": "2"
+  },
+  {
+    "stem": "audrey_romero__madison_garcia__vegas_ventura__verena_saric__3",
+    "players": [
+      "audrey_romero",
+      "vegas_ventura",
+      "verena_saric"
+    ],
+    "displayNames": [
+      "Madison Garcia",
+      "Vegas Ventura",
+      "Verena Saric",
+      "Audrey Romero"
+    ],
+    "pose": "3"
+  },
+  {
+    "stem": "ellycia_peralta__vivianne_llavore__1",
+    "players": [
+      "ellycia_peralta",
+      "vivianne_llavore"
+    ],
+    "displayNames": [
+      "Vivianne Llavore",
+      "Ellycia Peralta"
+    ],
+    "pose": "1"
+  },
+  {
+    "stem": "ellycia_peralta__vivianne_llavore__2",
+    "players": [
+      "ellycia_peralta",
+      "vivianne_llavore"
+    ],
+    "displayNames": [
+      "Vivianne Llavore",
+      "Ellycia Peralta"
+    ],
+    "pose": "2"
+  }
+]
