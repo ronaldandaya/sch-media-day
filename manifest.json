@@ -1,6 +1,6 @@
 {
   "season": "2026",
-  "generatedAt": "2026-07-09T16:36:48.582522",
+  "generatedAt": "2026-07-09T17:09:34.954462",
   "lookups": {
     "adniel_rajan_30": "adniel_rajan",
     "alel_santos_45": "alel_santos",
@@ -35,6 +35,7 @@
     "khoa_ngo_10": "khoa_ngo",
     "lionel_huang_4": "lionel_huang",
     "logan_chiu_5": "logan_chiu",
+    "madison_garcia_4": "madison_garcia",
     "manley_brown_3": "manley_brown",
     "marco_smith_13": "marco_smith",
     "michael_corpuz_8": "michael_corpuz",
@@ -2282,6 +2283,125 @@
         }
       ],
       "buddyPhotos": []
+    },
+    "madison_garcia": {
+      "displayName": "Madison Garcia",
+      "teams": [
+        {
+          "name": "JV Girls",
+          "jersey": "4",
+          "groupPhotos": [
+            {
+              "id": "g_jv_girls_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/jv_girls/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_1.jpg"
+            },
+            {
+              "id": "g_jv_girls_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/jv_girls/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/jv_girls/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/madison_garcia/pose1_thumb.jpg",
+          "full": "./previews/players/madison_garcia/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/madison_garcia/pose2_thumb.jpg",
+          "full": "./previews/players/madison_garcia/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/madison_garcia/pose3_thumb.jpg",
+          "full": "./previews/players/madison_garcia/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/madison_garcia/pose4_thumb.jpg",
+          "full": "./previews/players/madison_garcia/pose4.jpg"
+        }
+      ],
+      "buddyPhotos": [
+        {
+          "id": "buddy_audrey_romero__coach_charlize__jeilani_young__madison_garcia__vegas_ventura__verena_saric__1",
+          "label": "with Vegas Ventura, Verena Saric, Audrey Romero, Jeilani Young",
+          "thumb": "./previews/_buddies/audrey_romero__coach_charlize__jeilani_young__madison_garcia__vegas_ventura__verena_saric__1_thumb.jpg",
+          "full": "./previews/_buddies/audrey_romero__coach_charlize__jeilani_young__madison_garcia__vegas_ventura__verena_saric__1.jpg",
+          "buddies": [
+            "Vegas Ventura",
+            "Verena Saric",
+            "Audrey Romero",
+            "Jeilani Young"
+          ]
+        },
+        {
+          "id": "buddy_audrey_romero__coach_charlize__madison_garcia__vegas_ventura__verena_saric__1",
+          "label": "with Vegas Ventura, Verena Saric, Audrey Romero",
+          "thumb": "./previews/_buddies/audrey_romero__coach_charlize__madison_garcia__vegas_ventura__verena_saric__1_thumb.jpg",
+          "full": "./previews/_buddies/audrey_romero__coach_charlize__madison_garcia__vegas_ventura__verena_saric__1.jpg",
+          "buddies": [
+            "Vegas Ventura",
+            "Verena Saric",
+            "Audrey Romero"
+          ]
+        },
+        {
+          "id": "buddy_audrey_romero__jeilani_young__madison_garcia__vegas_ventura__verena_saric__1",
+          "label": "with Vegas Ventura, Verena Saric, Audrey Romero, Jeilani Young",
+          "thumb": "./previews/_buddies/audrey_romero__jeilani_young__madison_garcia__vegas_ventura__verena_saric__1_thumb.jpg",
+          "full": "./previews/_buddies/audrey_romero__jeilani_young__madison_garcia__vegas_ventura__verena_saric__1.jpg",
+          "buddies": [
+            "Vegas Ventura",
+            "Verena Saric",
+            "Audrey Romero",
+            "Jeilani Young"
+          ]
+        },
+        {
+          "id": "buddy_audrey_romero__madison_garcia__vegas_ventura__verena_saric__1",
+          "label": "with Vegas Ventura, Verena Saric, Audrey Romero",
+          "thumb": "./previews/_buddies/audrey_romero__madison_garcia__vegas_ventura__verena_saric__1_thumb.jpg",
+          "full": "./previews/_buddies/audrey_romero__madison_garcia__vegas_ventura__verena_saric__1.jpg",
+          "buddies": [
+            "Vegas Ventura",
+            "Verena Saric",
+            "Audrey Romero"
+          ]
+        },
+        {
+          "id": "buddy_audrey_romero__madison_garcia__vegas_ventura__verena_saric__2",
+          "label": "with Vegas Ventura, Verena Saric, Audrey Romero",
+          "thumb": "./previews/_buddies/audrey_romero__madison_garcia__vegas_ventura__verena_saric__2_thumb.jpg",
+          "full": "./previews/_buddies/audrey_romero__madison_garcia__vegas_ventura__verena_saric__2.jpg",
+          "buddies": [
+            "Vegas Ventura",
+            "Verena Saric",
+            "Audrey Romero"
+          ]
+        },
+        {
+          "id": "buddy_audrey_romero__madison_garcia__vegas_ventura__verena_saric__3",
+          "label": "with Vegas Ventura, Verena Saric, Audrey Romero",
+          "thumb": "./previews/_buddies/audrey_romero__madison_garcia__vegas_ventura__verena_saric__3_thumb.jpg",
+          "full": "./previews/_buddies/audrey_romero__madison_garcia__vegas_ventura__verena_saric__3.jpg",
+          "buddies": [
+            "Vegas Ventura",
+            "Verena Saric",
+            "Audrey Romero"
+          ]
+        }
+      ]
     },
     "manley_brown": {
       "displayName": "Manley Brown",
