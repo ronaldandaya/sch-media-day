@@ -1138,15 +1138,16 @@
         }
       });
 
-      // Discount tiers (apply to keepsakes only)
+      // Discount tiers (triggered by add-ons, applied to full order)
       let discountPct = 0;
       let discountLabel = '';
-      if (keepsakeSubtotal >= 100) { discountPct = 0.20; discountLabel = '20% off ($100+ keepsakes)'; }
-      else if (keepsakeCount >= 3) { discountPct = 0.15; discountLabel = '15% off (3+ keepsakes)'; }
-      else if (keepsakeCount >= 2) { discountPct = 0.10; discountLabel = '10% off (2+ keepsakes)'; }
+      if (keepsakeSubtotal >= 100) { discountPct = 0.20; discountLabel = '20% off order ($100+ in add-ons)'; }
+      else if (keepsakeCount >= 3) { discountPct = 0.15; discountLabel = '15% off order (3+ add-ons)'; }
+      else if (keepsakeCount >= 2) { discountPct = 0.10; discountLabel = '10% off order (2+ add-ons)'; }
 
-      const discountAmt = keepsakeSubtotal * discountPct;
-      const total = pkgPrice + buddySubtotal + keepsakeSubtotal - discountAmt;
+      const preDiscountTotal = pkgPrice + buddySubtotal + keepsakeSubtotal;
+      const discountAmt = preDiscountTotal * discountPct;
+      const total = preDiscountTotal - discountAmt;
 
       return { lines, pkgPrice, keepsakeSubtotal, keepsakeCount, buddySubtotal, discountPct, discountLabel, discountAmt, total };
     }
