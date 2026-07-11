@@ -1,6 +1,6 @@
 {
   "season": "2026",
-  "generatedAt": "2026-07-09T17:09:34.954462",
+  "generatedAt": "2026-07-11T11:39:54.228702",
   "lookups": {
     "adniel_rajan_30": "adniel_rajan",
     "alel_santos_45": "alel_santos",
@@ -20,6 +20,7 @@
     "ellycia_peralta_11": "ellycia_peralta",
     "emma_robertson_": "emma_robertson",
     "ethan_lam_1": "ethan_lam",
+    "evan_lam_0": "evan_lam",
     "ezequiel_leo_pena_p": "ezequiel_leo_pena",
     "hanniel_rajan_23": "hanniel_rajan",
     "ivan_lam_0": "ivan_lam",
@@ -1260,6 +1261,74 @@
       ],
       "buddyPhotos": []
     },
+    "evan_lam": {
+      "displayName": "Evan Lam",
+      "teams": [
+        {
+          "name": "Boys 4th Grade Under",
+          "jersey": "0",
+          "groupPhotos": [
+            {
+              "id": "g_4th_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/4th_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/4th_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_4th_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/4th_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/4th_boys/team_pose_2.jpg"
+            },
+            {
+              "id": "g_4th_boys_team_pose_3",
+              "label": "Team Pose 3",
+              "thumb": "./previews/_groups/4th_boys/team_pose_3_thumb.jpg",
+              "full": "./previews/_groups/4th_boys/team_pose_3.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/evan_lam/pose1_thumb.jpg",
+          "full": "./previews/players/evan_lam/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/evan_lam/pose2_thumb.jpg",
+          "full": "./previews/players/evan_lam/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/evan_lam/pose3_thumb.jpg",
+          "full": "./previews/players/evan_lam/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/evan_lam/pose4_thumb.jpg",
+          "full": "./previews/players/evan_lam/pose4.jpg"
+        },
+        {
+          "id": "pose5",
+          "label": "Pose 5",
+          "thumb": "./previews/players/evan_lam/pose5_thumb.jpg",
+          "full": "./previews/players/evan_lam/pose5.jpg"
+        },
+        {
+          "id": "pose6",
+          "label": "Pose 6",
+          "thumb": "./previews/players/evan_lam/pose6_thumb.jpg",
+          "full": "./previews/players/evan_lam/pose6.jpg"
+        }
+      ],
+      "buddyPhotos": []
+    },
     "ezequiel_leo_pena": {
       "displayName": "Ezequiel Leo Pena",
       "teams": [
@@ -1406,6 +1475,24 @@
           "label": "Pose 1",
           "thumb": "./previews/players/ivan_lam/pose1_thumb.jpg",
           "full": "./previews/players/ivan_lam/pose1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/ivan_lam/pose2_thumb.jpg",
+          "full": "./previews/players/ivan_lam/pose2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/ivan_lam/pose3_thumb.jpg",
+          "full": "./previews/players/ivan_lam/pose3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/ivan_lam/pose4_thumb.jpg",
+          "full": "./previews/players/ivan_lam/pose4.jpg"
         }
       ],
       "buddyPhotos": []
