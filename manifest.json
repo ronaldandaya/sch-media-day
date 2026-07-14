@@ -1,6 +1,6 @@
 {
   "season": "2026",
-  "generatedAt": "2026-07-13T18:04:30.199502",
+  "generatedAt": "2026-07-13T18:14:03.599860",
   "lookups": {
     "adniel_rajan_30": "adniel_rajan",
     "alel_santos_45": "alel_santos",
@@ -15,6 +15,7 @@
     "chelsea_cheng_8": "chelsea_cheng",
     "chris_cheng_17": "chris_cheng",
     "curtis_huang_11": "curtis_huang",
+    "darren_lajola_0": "darren_lajola",
     "devin_chiu_67": "devin_chiu",
     "doris_chen_18": "doris_chen",
     "ellycia_peralta_11": "ellycia_peralta",
@@ -83,28 +84,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/adniel_rajan/pose1_thumb.jpg",
           "full": "./previews/players/adniel_rajan/pose1.jpg",
-          "source": "Adniel Rajan - 1.jpg"
+          "source": "Adniel Rajan - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/adniel_rajan/pose2_thumb.jpg",
           "full": "./previews/players/adniel_rajan/pose2.jpg",
-          "source": "Adniel Rajan - 2.jpg"
+          "source": "Adniel Rajan - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/adniel_rajan/pose3_thumb.jpg",
           "full": "./previews/players/adniel_rajan/pose3.jpg",
-          "source": "Adniel Rajan - 3.jpg"
+          "source": "Adniel Rajan - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/adniel_rajan/pose4_thumb.jpg",
           "full": "./previews/players/adniel_rajan/pose4.jpg",
-          "source": "Adniel Rajan - 4.jpg"
+          "source": "Adniel Rajan - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -137,28 +138,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/alel_santos/pose1_thumb.jpg",
           "full": "./previews/players/alel_santos/pose1.jpg",
-          "source": "Alel Santos - 1.jpg"
+          "source": "Alel Santos - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/alel_santos/pose2_thumb.jpg",
           "full": "./previews/players/alel_santos/pose2.jpg",
-          "source": "Alel Santos - 2.jpg"
+          "source": "Alel Santos - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/alel_santos/pose3_thumb.jpg",
           "full": "./previews/players/alel_santos/pose3.jpg",
-          "source": "Alel Santos - 3.jpg"
+          "source": "Alel Santos - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/alel_santos/pose4_thumb.jpg",
           "full": "./previews/players/alel_santos/pose4.jpg",
-          "source": "Alel Santos - 4.jpg"
+          "source": "Alel Santos - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -191,28 +192,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/andrew_sayson/pose1_thumb.jpg",
           "full": "./previews/players/andrew_sayson/pose1.jpg",
-          "source": "Andrew Sayson - 1.jpg"
+          "source": "Andrew Sayson - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/andrew_sayson/pose2_thumb.jpg",
           "full": "./previews/players/andrew_sayson/pose2.jpg",
-          "source": "Andrew Sayson - 2.jpg"
+          "source": "Andrew Sayson - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/andrew_sayson/pose3_thumb.jpg",
           "full": "./previews/players/andrew_sayson/pose3.jpg",
-          "source": "Andrew Sayson - 3.jpg"
+          "source": "Andrew Sayson - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/andrew_sayson/pose4_thumb.jpg",
           "full": "./previews/players/andrew_sayson/pose4.jpg",
-          "source": "Andrew Sayson - 4.jpg"
+          "source": "Andrew Sayson - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -245,28 +246,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/anik_prakash/pose1_thumb.jpg",
           "full": "./previews/players/anik_prakash/pose1.jpg",
-          "source": "Anik Prakas - 1.jpg"
+          "source": "Anik Prakash - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/anik_prakash/pose2_thumb.jpg",
           "full": "./previews/players/anik_prakash/pose2.jpg",
-          "source": "Anik Prakas - 2.jpg"
+          "source": "Anik Prakash - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/anik_prakash/pose3_thumb.jpg",
           "full": "./previews/players/anik_prakash/pose3.jpg",
-          "source": "Anik Prakas - 3.jpg"
+          "source": "Anik Prakash - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/anik_prakash/pose4_thumb.jpg",
           "full": "./previews/players/anik_prakash/pose4.jpg",
-          "source": "Anik Prakas - 4.jpg"
+          "source": "Anik Prakash - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -310,42 +311,42 @@
           "label": "Pose 1",
           "thumb": "./previews/players/aria_alvendia/pose1_thumb.jpg",
           "full": "./previews/players/aria_alvendia/pose1.jpg",
-          "source": "Aria Alvendia - 1 (2).jpg"
+          "source": "Aria Alvendia - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/aria_alvendia/pose2_thumb.jpg",
           "full": "./previews/players/aria_alvendia/pose2.jpg",
-          "source": "Aria Alvendia - 1 (3).jpg"
+          "source": "Aria Alvendia - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/aria_alvendia/pose3_thumb.jpg",
           "full": "./previews/players/aria_alvendia/pose3.jpg",
-          "source": "Aria Alvendia - 1 (4).jpg"
+          "source": "Aria Alvendia - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/aria_alvendia/pose4_thumb.jpg",
           "full": "./previews/players/aria_alvendia/pose4.jpg",
-          "source": "Aria Alvendia - 1 (5).jpg"
+          "source": "Aria Alvendia - Pose 4.jpg"
         },
         {
           "id": "pose5",
           "label": "Pose 5",
           "thumb": "./previews/players/aria_alvendia/pose5_thumb.jpg",
           "full": "./previews/players/aria_alvendia/pose5.jpg",
-          "source": "Aria Alvendia - 1 (6).jpg"
+          "source": "Aria Alvendia - Pose 5.jpg"
         },
         {
           "id": "pose6",
           "label": "Pose 6",
           "thumb": "./previews/players/aria_alvendia/pose6_thumb.jpg",
           "full": "./previews/players/aria_alvendia/pose6.jpg",
-          "source": "Aria Alvendia - 1.jpg"
+          "source": "Aria Alvendia - Pose 6.jpg"
         }
       ],
       "buddyPhotos": []
@@ -378,42 +379,42 @@
           "label": "Pose 1",
           "thumb": "./previews/players/arthur_sanez/pose1_thumb.jpg",
           "full": "./previews/players/arthur_sanez/pose1.jpg",
-          "source": "Arthur Sanez - 1.jpg"
+          "source": "Arthur Sanez - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/arthur_sanez/pose2_thumb.jpg",
           "full": "./previews/players/arthur_sanez/pose2.jpg",
-          "source": "Arthur Sanez - 2.jpg"
+          "source": "Arthur Sanez - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/arthur_sanez/pose3_thumb.jpg",
           "full": "./previews/players/arthur_sanez/pose3.jpg",
-          "source": "Arthur Sanez - 3.jpg"
+          "source": "Arthur Sanez - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/arthur_sanez/pose4_thumb.jpg",
           "full": "./previews/players/arthur_sanez/pose4.jpg",
-          "source": "Arthur Sanez - 4.jpg"
+          "source": "Arthur Sanez - Pose 4.jpg"
         },
         {
           "id": "pose5",
           "label": "Pose 5",
           "thumb": "./previews/players/arthur_sanez/pose5_thumb.jpg",
           "full": "./previews/players/arthur_sanez/pose5.jpg",
-          "source": "Arthur Sanez - 5.jpg"
+          "source": "Arthur Sanez - Pose 5.jpg"
         },
         {
           "id": "pose6",
           "label": "Pose 6",
           "thumb": "./previews/players/arthur_sanez/pose6_thumb.jpg",
           "full": "./previews/players/arthur_sanez/pose6.jpg",
-          "source": "Arthur Sanez - 6.jpg"
+          "source": "Arthur Sanez - Pose 6.jpg"
         }
       ],
       "buddyPhotos": [
@@ -457,28 +458,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/audrey_romero/pose1_thumb.jpg",
           "full": "./previews/players/audrey_romero/pose1.jpg",
-          "source": "Audrey Romero - 1 (2).jpg"
+          "source": "Audrey Romero - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/audrey_romero/pose2_thumb.jpg",
           "full": "./previews/players/audrey_romero/pose2.jpg",
-          "source": "Audrey Romero - 1 (3).jpg"
+          "source": "Audrey Romero - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/audrey_romero/pose3_thumb.jpg",
           "full": "./previews/players/audrey_romero/pose3.jpg",
-          "source": "Audrey Romero - 1 (4).jpg"
+          "source": "Audrey Romero - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/audrey_romero/pose4_thumb.jpg",
           "full": "./previews/players/audrey_romero/pose4.jpg",
-          "source": "Audrey Romero - 1.jpg"
+          "source": "Audrey Romero - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -595,28 +596,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/benjamin_chen/pose1_thumb.jpg",
           "full": "./previews/players/benjamin_chen/pose1.jpg",
-          "source": "Benjamin Chen - 1 (2).jpg"
+          "source": "Benjamin Chen - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/benjamin_chen/pose2_thumb.jpg",
           "full": "./previews/players/benjamin_chen/pose2.jpg",
-          "source": "Benjamin Chen - 1 (3).jpg"
+          "source": "Benjamin Chen - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/benjamin_chen/pose3_thumb.jpg",
           "full": "./previews/players/benjamin_chen/pose3.jpg",
-          "source": "Benjamin Chen - 1 (4).jpg"
+          "source": "Benjamin Chen - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/benjamin_chen/pose4_thumb.jpg",
           "full": "./previews/players/benjamin_chen/pose4.jpg",
-          "source": "Benjamin Chen - 1.jpg"
+          "source": "Benjamin Chen - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -649,28 +650,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/brayden_tique/pose1_thumb.jpg",
           "full": "./previews/players/brayden_tique/pose1.jpg",
-          "source": "Brayen Tique - 1.jpg"
+          "source": "Brayden Tique - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/brayden_tique/pose2_thumb.jpg",
           "full": "./previews/players/brayden_tique/pose2.jpg",
-          "source": "Brayen Tique - 2.jpg"
+          "source": "Brayden Tique - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/brayden_tique/pose3_thumb.jpg",
           "full": "./previews/players/brayden_tique/pose3.jpg",
-          "source": "Brayen Tique - 3.jpg"
+          "source": "Brayden Tique - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/brayden_tique/pose4_thumb.jpg",
           "full": "./previews/players/brayden_tique/pose4.jpg",
-          "source": "Brayen Tique - 4.jpg"
+          "source": "Brayden Tique - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -731,28 +732,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/cadence_aquino/pose1_thumb.jpg",
           "full": "./previews/players/cadence_aquino/pose1.jpg",
-          "source": "Cadence Aquino (2).jpg"
+          "source": "Cadence Aquino - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/cadence_aquino/pose2_thumb.jpg",
           "full": "./previews/players/cadence_aquino/pose2.jpg",
-          "source": "Cadence Aquino (3).jpg"
+          "source": "Cadence Aquino - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/cadence_aquino/pose3_thumb.jpg",
           "full": "./previews/players/cadence_aquino/pose3.jpg",
-          "source": "Cadence Aquino - 1.jpg"
+          "source": "Cadence Aquino - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/cadence_aquino/pose4_thumb.jpg",
           "full": "./previews/players/cadence_aquino/pose4.jpg",
-          "source": "Cadence Aquino.jpg"
+          "source": "Cadence Aquino - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -835,28 +836,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/chelsea_cheng/pose1_thumb.jpg",
           "full": "./previews/players/chelsea_cheng/pose1.jpg",
-          "source": "Chelsea Cheng (2).jpg"
+          "source": "Chelsea Cheng - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/chelsea_cheng/pose2_thumb.jpg",
           "full": "./previews/players/chelsea_cheng/pose2.jpg",
-          "source": "Chelsea Cheng (3).jpg"
+          "source": "Chelsea Cheng - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/chelsea_cheng/pose3_thumb.jpg",
           "full": "./previews/players/chelsea_cheng/pose3.jpg",
-          "source": "Chelsea Cheng - 1.jpg"
+          "source": "Chelsea Cheng - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/chelsea_cheng/pose4_thumb.jpg",
           "full": "./previews/players/chelsea_cheng/pose4.jpg",
-          "source": "Chelsea Cheng.jpg"
+          "source": "Chelsea Cheng - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -957,28 +958,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/chris_cheng/pose1_thumb.jpg",
           "full": "./previews/players/chris_cheng/pose1.jpg",
-          "source": "Chris Cheng - 1.jpg"
+          "source": "Chris Cheng - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/chris_cheng/pose2_thumb.jpg",
           "full": "./previews/players/chris_cheng/pose2.jpg",
-          "source": "Chris Cheng - 2.jpg"
+          "source": "Chris Cheng - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/chris_cheng/pose3_thumb.jpg",
           "full": "./previews/players/chris_cheng/pose3.jpg",
-          "source": "Chris Cheng - 3.jpg"
+          "source": "Chris Cheng - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/chris_cheng/pose4_thumb.jpg",
           "full": "./previews/players/chris_cheng/pose4.jpg",
-          "source": "Chris Cheng - 4.jpg"
+          "source": "Chris Cheng - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -1036,28 +1037,82 @@
           "label": "Pose 1",
           "thumb": "./previews/players/curtis_huang/pose1_thumb.jpg",
           "full": "./previews/players/curtis_huang/pose1.jpg",
-          "source": "Curtis Huang - 1.jpg"
+          "source": "Curtis Huang - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/curtis_huang/pose2_thumb.jpg",
           "full": "./previews/players/curtis_huang/pose2.jpg",
-          "source": "Curtis Huang - 2.jpg"
+          "source": "Curtis Huang - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/curtis_huang/pose3_thumb.jpg",
           "full": "./previews/players/curtis_huang/pose3.jpg",
-          "source": "Curtis Huang - 3.jpg"
+          "source": "Curtis Huang - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/curtis_huang/pose4_thumb.jpg",
           "full": "./previews/players/curtis_huang/pose4.jpg",
-          "source": "Curtis Huang - 4.jpg"
+          "source": "Curtis Huang - Pose 4.jpg"
+        }
+      ],
+      "buddyPhotos": []
+    },
+    "darren_lajola": {
+      "displayName": "Darren Lajola",
+      "teams": [
+        {
+          "name": "JV Boys",
+          "jersey": "0",
+          "groupPhotos": [
+            {
+              "id": "g_jv_boys_team_pose_1",
+              "label": "Team Pose 1",
+              "thumb": "./previews/_groups/jv_boys/team_pose_1_thumb.jpg",
+              "full": "./previews/_groups/jv_boys/team_pose_1.jpg"
+            },
+            {
+              "id": "g_jv_boys_team_pose_2",
+              "label": "Team Pose 2",
+              "thumb": "./previews/_groups/jv_boys/team_pose_2_thumb.jpg",
+              "full": "./previews/_groups/jv_boys/team_pose_2.jpg"
+            }
+          ]
+        }
+      ],
+      "poses": [
+        {
+          "id": "pose1",
+          "label": "Pose 1",
+          "thumb": "./previews/players/darren_lajola/pose1_thumb.jpg",
+          "full": "./previews/players/darren_lajola/pose1.jpg",
+          "source": "Darren Lajola - Pose 1.jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/darren_lajola/pose2_thumb.jpg",
+          "full": "./previews/players/darren_lajola/pose2.jpg",
+          "source": "Darren Lajola - Pose 2.jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/darren_lajola/pose3_thumb.jpg",
+          "full": "./previews/players/darren_lajola/pose3.jpg",
+          "source": "Darren Lajola - Pose 3.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/darren_lajola/pose4_thumb.jpg",
+          "full": "./previews/players/darren_lajola/pose4.jpg",
+          "source": "Darren Lajola - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1090,21 +1145,21 @@
           "label": "Pose 1",
           "thumb": "./previews/players/devin_chiu/pose1_thumb.jpg",
           "full": "./previews/players/devin_chiu/pose1.jpg",
-          "source": "Devin Chiu - 1.jpg"
+          "source": "Devin Chiu - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/devin_chiu/pose2_thumb.jpg",
           "full": "./previews/players/devin_chiu/pose2.jpg",
-          "source": "Devin Chiu - 2.jpg"
+          "source": "Devin Chiu - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/devin_chiu/pose3_thumb.jpg",
           "full": "./previews/players/devin_chiu/pose3.jpg",
-          "source": "Devin Chiu - 4.jpg"
+          "source": "Devin Chiu - Pose 3.jpg"
         }
       ],
       "buddyPhotos": [
@@ -1165,35 +1220,35 @@
           "label": "Pose 1",
           "thumb": "./previews/players/doris_chen/pose1_thumb.jpg",
           "full": "./previews/players/doris_chen/pose1.jpg",
-          "source": "Doris Chen - 1 (2).jpg"
+          "source": "Doris Chen - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/doris_chen/pose2_thumb.jpg",
           "full": "./previews/players/doris_chen/pose2.jpg",
-          "source": "Doris Chen - 1 (3).jpg"
+          "source": "Doris Chen - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/doris_chen/pose3_thumb.jpg",
           "full": "./previews/players/doris_chen/pose3.jpg",
-          "source": "Doris Chen - 1 (4).jpg"
+          "source": "Doris Chen - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/doris_chen/pose4_thumb.jpg",
           "full": "./previews/players/doris_chen/pose4.jpg",
-          "source": "Doris Chen - 1 (5).jpg"
+          "source": "Doris Chen - Pose 4.jpg"
         },
         {
           "id": "pose5",
           "label": "Pose 5",
           "thumb": "./previews/players/doris_chen/pose5_thumb.jpg",
           "full": "./previews/players/doris_chen/pose5.jpg",
-          "source": "Doris Chen - 1.jpg"
+          "source": "Doris Chen - Pose 5.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1226,35 +1281,35 @@
           "label": "Pose 1",
           "thumb": "./previews/players/ellycia_peralta/pose1_thumb.jpg",
           "full": "./previews/players/ellycia_peralta/pose1.jpg",
-          "source": "Ellycia Peralta - 1 (2).jpg"
+          "source": "Ellycia Peralta - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/ellycia_peralta/pose2_thumb.jpg",
           "full": "./previews/players/ellycia_peralta/pose2.jpg",
-          "source": "Ellycia Peralta - 1 (3).jpg"
+          "source": "Ellycia Peralta - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/ellycia_peralta/pose3_thumb.jpg",
           "full": "./previews/players/ellycia_peralta/pose3.jpg",
-          "source": "Ellycia Peralta - 1 (4).jpg"
+          "source": "Ellycia Peralta - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/ellycia_peralta/pose4_thumb.jpg",
           "full": "./previews/players/ellycia_peralta/pose4.jpg",
-          "source": "Ellycia Peralta - 1 (5).jpg"
+          "source": "Ellycia Peralta - Pose 4.jpg"
         },
         {
           "id": "pose5",
           "label": "Pose 5",
           "thumb": "./previews/players/ellycia_peralta/pose5_thumb.jpg",
           "full": "./previews/players/ellycia_peralta/pose5.jpg",
-          "source": "Ellycia Peralta - 1.jpg"
+          "source": "Ellycia Peralta - Pose 5.jpg"
         }
       ],
       "buddyPhotos": [
@@ -1306,28 +1361,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/emma_robertson/pose1_thumb.jpg",
           "full": "./previews/players/emma_robertson/pose1.jpg",
-          "source": "Emma robertson (2).jpg"
+          "source": "Emma Robertson - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/emma_robertson/pose2_thumb.jpg",
           "full": "./previews/players/emma_robertson/pose2.jpg",
-          "source": "Emma robertson (3).jpg"
+          "source": "Emma Robertson - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/emma_robertson/pose3_thumb.jpg",
           "full": "./previews/players/emma_robertson/pose3.jpg",
-          "source": "Emma robertson - 1.jpg"
+          "source": "Emma Robertson - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/emma_robertson/pose4_thumb.jpg",
           "full": "./previews/players/emma_robertson/pose4.jpg",
-          "source": "Emma robertson.jpg"
+          "source": "Emma Robertson - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1366,28 +1421,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/ethan_lam/pose1_thumb.jpg",
           "full": "./previews/players/ethan_lam/pose1.jpg",
-          "source": "Ethan Lam - 1 (2).jpg"
+          "source": "Ethan Lam - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/ethan_lam/pose2_thumb.jpg",
           "full": "./previews/players/ethan_lam/pose2.jpg",
-          "source": "Ethan Lam - 1 (3).jpg"
+          "source": "Ethan Lam - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/ethan_lam/pose3_thumb.jpg",
           "full": "./previews/players/ethan_lam/pose3.jpg",
-          "source": "Ethan Lam - 1 (4).jpg"
+          "source": "Ethan Lam - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/ethan_lam/pose4_thumb.jpg",
           "full": "./previews/players/ethan_lam/pose4.jpg",
-          "source": "Ethan Lam - 1.jpg"
+          "source": "Ethan Lam - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1426,42 +1481,42 @@
           "label": "Pose 1",
           "thumb": "./previews/players/evan_lam/pose1_thumb.jpg",
           "full": "./previews/players/evan_lam/pose1.jpg",
-          "source": "Evan Lam - 1.jpg"
+          "source": "Evan Lam - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/evan_lam/pose2_thumb.jpg",
           "full": "./previews/players/evan_lam/pose2.jpg",
-          "source": "Evan Lam - 2.jpg"
+          "source": "Evan Lam - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/evan_lam/pose3_thumb.jpg",
           "full": "./previews/players/evan_lam/pose3.jpg",
-          "source": "Evan Lam - 3.jpg"
+          "source": "Evan Lam - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/evan_lam/pose4_thumb.jpg",
           "full": "./previews/players/evan_lam/pose4.jpg",
-          "source": "Evan Lam - 4.jpg"
+          "source": "Evan Lam - Pose 4.jpg"
         },
         {
           "id": "pose5",
           "label": "Pose 5",
           "thumb": "./previews/players/evan_lam/pose5_thumb.jpg",
           "full": "./previews/players/evan_lam/pose5.jpg",
-          "source": "Evan Lam - 5.jpg"
+          "source": "Evan Lam - Pose 5.jpg"
         },
         {
           "id": "pose6",
           "label": "Pose 6",
           "thumb": "./previews/players/evan_lam/pose6_thumb.jpg",
           "full": "./previews/players/evan_lam/pose6.jpg",
-          "source": "Evan Lam - 6.jpg"
+          "source": "Evan Lam - Pose 6.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1500,28 +1555,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/ezequiel_leo_pena/pose1_thumb.jpg",
           "full": "./previews/players/ezequiel_leo_pena/pose1.jpg",
-          "source": "Ezequiel “Leo” Peña - 1 (2).jpg"
+          "source": "Ezequiel “Leo” Peña - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/ezequiel_leo_pena/pose2_thumb.jpg",
           "full": "./previews/players/ezequiel_leo_pena/pose2.jpg",
-          "source": "Ezequiel “Leo” Peña - 1 (3).jpg"
+          "source": "Ezequiel “Leo” Peña - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/ezequiel_leo_pena/pose3_thumb.jpg",
           "full": "./previews/players/ezequiel_leo_pena/pose3.jpg",
-          "source": "Ezequiel “Leo” Peña - 1 (4).jpg"
+          "source": "Ezequiel “Leo” Peña - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/ezequiel_leo_pena/pose4_thumb.jpg",
           "full": "./previews/players/ezequiel_leo_pena/pose4.jpg",
-          "source": "Ezequiel “Leo” Peña - 1.jpg"
+          "source": "Ezequiel “Leo” Peña - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1560,28 +1615,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/hanniel_rajan/pose1_thumb.jpg",
           "full": "./previews/players/hanniel_rajan/pose1.jpg",
-          "source": "Hanniel Rajan - 01.jpg"
+          "source": "Hanniel Rajan - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/hanniel_rajan/pose2_thumb.jpg",
           "full": "./previews/players/hanniel_rajan/pose2.jpg",
-          "source": "Hanniel Rajan - 02.jpg"
+          "source": "Hanniel Rajan - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/hanniel_rajan/pose3_thumb.jpg",
           "full": "./previews/players/hanniel_rajan/pose3.jpg",
-          "source": "Hanniel Rajan - 03.jpg"
+          "source": "Hanniel Rajan - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/hanniel_rajan/pose4_thumb.jpg",
           "full": "./previews/players/hanniel_rajan/pose4.jpg",
-          "source": "Hanniel Rajan - 04.jpg"
+          "source": "Hanniel Rajan - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1620,28 +1675,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/ivan_lam/pose1_thumb.jpg",
           "full": "./previews/players/ivan_lam/pose1.jpg",
-          "source": "Ivan Lam (2).jpg"
+          "source": "Ivan Lam - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/ivan_lam/pose2_thumb.jpg",
           "full": "./previews/players/ivan_lam/pose2.jpg",
-          "source": "Ivan Lam (3).jpg"
+          "source": "Ivan Lam - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/ivan_lam/pose3_thumb.jpg",
           "full": "./previews/players/ivan_lam/pose3.jpg",
-          "source": "Ivan Lam - 1.jpg"
+          "source": "Ivan Lam - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/ivan_lam/pose4_thumb.jpg",
           "full": "./previews/players/ivan_lam/pose4.jpg",
-          "source": "Ivan Lam.jpg"
+          "source": "Ivan Lam - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1674,42 +1729,42 @@
           "label": "Pose 1",
           "thumb": "./previews/players/jayce_legaspi/pose1_thumb.jpg",
           "full": "./previews/players/jayce_legaspi/pose1.jpg",
-          "source": "Jayce Legaspi - 1.jpg"
+          "source": "Jayce Legaspi - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/jayce_legaspi/pose2_thumb.jpg",
           "full": "./previews/players/jayce_legaspi/pose2.jpg",
-          "source": "Jayce Legaspi - 2.jpg"
+          "source": "Jayce Legaspi - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/jayce_legaspi/pose3_thumb.jpg",
           "full": "./previews/players/jayce_legaspi/pose3.jpg",
-          "source": "Jayce Legaspi - 3.jpg"
+          "source": "Jayce Legaspi - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/jayce_legaspi/pose4_thumb.jpg",
           "full": "./previews/players/jayce_legaspi/pose4.jpg",
-          "source": "Jayce Legaspi - 4.jpg"
+          "source": "Jayce Legaspi - Pose 4.jpg"
         },
         {
           "id": "pose5",
           "label": "Pose 5",
           "thumb": "./previews/players/jayce_legaspi/pose5_thumb.jpg",
           "full": "./previews/players/jayce_legaspi/pose5.jpg",
-          "source": "Jayce Legaspi - 5.jpg"
+          "source": "Jayce Legaspi - Pose 5.jpg"
         },
         {
           "id": "pose6",
           "label": "Pose 6",
           "thumb": "./previews/players/jayce_legaspi/pose6_thumb.jpg",
           "full": "./previews/players/jayce_legaspi/pose6.jpg",
-          "source": "Jayce Legaspi - 6.jpg"
+          "source": "Jayce Legaspi - Pose 6.jpg"
         }
       ],
       "buddyPhotos": [
@@ -1753,28 +1808,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/jeilani_young/pose1_thumb.jpg",
           "full": "./previews/players/jeilani_young/pose1.jpg",
-          "source": "Jeilani Young - 1.jpg"
+          "source": "Jeilani Young - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/jeilani_young/pose2_thumb.jpg",
           "full": "./previews/players/jeilani_young/pose2.jpg",
-          "source": "Jeilani Young - 2.jpg"
+          "source": "Jeilani Young - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/jeilani_young/pose3_thumb.jpg",
           "full": "./previews/players/jeilani_young/pose3.jpg",
-          "source": "Jeilani Young - 3.jpg"
+          "source": "Jeilani Young - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/jeilani_young/pose4_thumb.jpg",
           "full": "./previews/players/jeilani_young/pose4.jpg",
-          "source": "Jeilani Young - 4.jpg"
+          "source": "Jeilani Young - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -1872,28 +1927,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/jeramy_dai/pose1_thumb.jpg",
           "full": "./previews/players/jeramy_dai/pose1.jpg",
-          "source": "Jeramy Dai - 1.jpg"
+          "source": "Jeramy Dai - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/jeramy_dai/pose2_thumb.jpg",
           "full": "./previews/players/jeramy_dai/pose2.jpg",
-          "source": "Jeramy Dai - 2.jpg"
+          "source": "Jeramy Dai - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/jeramy_dai/pose3_thumb.jpg",
           "full": "./previews/players/jeramy_dai/pose3.jpg",
-          "source": "Jeramy Dai - 3.jpg"
+          "source": "Jeramy Dai - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/jeramy_dai/pose4_thumb.jpg",
           "full": "./previews/players/jeramy_dai/pose4.jpg",
-          "source": "Jeramy Dai - 4.jpg"
+          "source": "Jeramy Dai - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1926,28 +1981,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/johnny_ngo/pose1_thumb.jpg",
           "full": "./previews/players/johnny_ngo/pose1.jpg",
-          "source": "Johnny Ngo - 1.jpg"
+          "source": "Johnny Ngo - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/johnny_ngo/pose2_thumb.jpg",
           "full": "./previews/players/johnny_ngo/pose2.jpg",
-          "source": "Johnny Ngo - 2.jpg"
+          "source": "Johnny Ngo - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/johnny_ngo/pose3_thumb.jpg",
           "full": "./previews/players/johnny_ngo/pose3.jpg",
-          "source": "Johnny Ngo - 3.jpg"
+          "source": "Johnny Ngo - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/johnny_ngo/pose4_thumb.jpg",
           "full": "./previews/players/johnny_ngo/pose4.jpg",
-          "source": "Johnny Ngo - 4.jpg"
+          "source": "Johnny Ngo - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -1980,42 +2035,42 @@
           "label": "Pose 1",
           "thumb": "./previews/players/jonah_hanley/pose1_thumb.jpg",
           "full": "./previews/players/jonah_hanley/pose1.jpg",
-          "source": "Jonah Hanley - 1.jpg"
+          "source": "Jonah Hanley - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/jonah_hanley/pose2_thumb.jpg",
           "full": "./previews/players/jonah_hanley/pose2.jpg",
-          "source": "Jonah Hanley - 2.jpg"
+          "source": "Jonah Hanley - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/jonah_hanley/pose3_thumb.jpg",
           "full": "./previews/players/jonah_hanley/pose3.jpg",
-          "source": "Jonah Hanley - 3.jpg"
+          "source": "Jonah Hanley - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/jonah_hanley/pose4_thumb.jpg",
           "full": "./previews/players/jonah_hanley/pose4.jpg",
-          "source": "Jonah Hanley - 4.jpg"
+          "source": "Jonah Hanley - Pose 4.jpg"
         },
         {
           "id": "pose5",
           "label": "Pose 5",
           "thumb": "./previews/players/jonah_hanley/pose5_thumb.jpg",
           "full": "./previews/players/jonah_hanley/pose5.jpg",
-          "source": "Jonah Hanley - 5.jpg"
+          "source": "Jonah Hanley - Pose 5.jpg"
         },
         {
           "id": "pose6",
           "label": "Pose 6",
           "thumb": "./previews/players/jonah_hanley/pose6_thumb.jpg",
           "full": "./previews/players/jonah_hanley/pose6.jpg",
-          "source": "Jonah Hanley - 6.jpg"
+          "source": "Jonah Hanley - Pose 6.jpg"
         }
       ],
       "buddyPhotos": [
@@ -2059,28 +2114,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/joshua_flores/pose1_thumb.jpg",
           "full": "./previews/players/joshua_flores/pose1.jpg",
-          "source": "Joshua Flores - 1.jpg"
+          "source": "Joshua Flores - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/joshua_flores/pose2_thumb.jpg",
           "full": "./previews/players/joshua_flores/pose2.jpg",
-          "source": "Joshua Flores - 2.jpg"
+          "source": "Joshua Flores - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/joshua_flores/pose3_thumb.jpg",
           "full": "./previews/players/joshua_flores/pose3.jpg",
-          "source": "Joshua Flores - 3.jpg"
+          "source": "Joshua Flores - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/joshua_flores/pose4_thumb.jpg",
           "full": "./previews/players/joshua_flores/pose4.jpg",
-          "source": "Joshua Flores - 4.jpg"
+          "source": "Joshua Flores - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -2183,28 +2238,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/kaden_tran/pose1_thumb.jpg",
           "full": "./previews/players/kaden_tran/pose1.jpg",
-          "source": "Kaden Tran - 1.jpg"
+          "source": "Kaden Tran - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/kaden_tran/pose2_thumb.jpg",
           "full": "./previews/players/kaden_tran/pose2.jpg",
-          "source": "Kaden Tran - 2.jpg"
+          "source": "Kaden Tran - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/kaden_tran/pose3_thumb.jpg",
           "full": "./previews/players/kaden_tran/pose3.jpg",
-          "source": "Kaden Tran - 3.jpg"
+          "source": "Kaden Tran - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/kaden_tran/pose4_thumb.jpg",
           "full": "./previews/players/kaden_tran/pose4.jpg",
-          "source": "Kaden Tran - 4.jpg"
+          "source": "Kaden Tran - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -2237,28 +2292,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/kai_yen/pose1_thumb.jpg",
           "full": "./previews/players/kai_yen/pose1.jpg",
-          "source": "Kai Yen - 1.jpg"
+          "source": "Kai Yen - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/kai_yen/pose2_thumb.jpg",
           "full": "./previews/players/kai_yen/pose2.jpg",
-          "source": "Kai Yen - 2.jpg"
+          "source": "Kai Yen - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/kai_yen/pose3_thumb.jpg",
           "full": "./previews/players/kai_yen/pose3.jpg",
-          "source": "Kai Yen - 3.jpg"
+          "source": "Kai Yen - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/kai_yen/pose4_thumb.jpg",
           "full": "./previews/players/kai_yen/pose4.jpg",
-          "source": "Kai Yen - 4.jpg"
+          "source": "Kai Yen - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -2302,42 +2357,42 @@
           "label": "Pose 1",
           "thumb": "./previews/players/kameron_conyers/pose1_thumb.jpg",
           "full": "./previews/players/kameron_conyers/pose1.jpg",
-          "source": "Kameron Conyers - 1.jpg"
+          "source": "Kameron Conyers - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/kameron_conyers/pose2_thumb.jpg",
           "full": "./previews/players/kameron_conyers/pose2.jpg",
-          "source": "Kameron Conyers - 2.jpg"
+          "source": "Kameron Conyers - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/kameron_conyers/pose3_thumb.jpg",
           "full": "./previews/players/kameron_conyers/pose3.jpg",
-          "source": "Kameron Conyers - 3.jpg"
+          "source": "Kameron Conyers - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/kameron_conyers/pose4_thumb.jpg",
           "full": "./previews/players/kameron_conyers/pose4.jpg",
-          "source": "Kameron Conyers - 4.jpg"
+          "source": "Kameron Conyers - Pose 4.jpg"
         },
         {
           "id": "pose5",
           "label": "Pose 5",
           "thumb": "./previews/players/kameron_conyers/pose5_thumb.jpg",
           "full": "./previews/players/kameron_conyers/pose5.jpg",
-          "source": "Kameron Conyers - 5.jpg"
+          "source": "Kameron Conyers - Pose 5.jpg"
         },
         {
           "id": "pose6",
           "label": "Pose 6",
           "thumb": "./previews/players/kameron_conyers/pose6_thumb.jpg",
           "full": "./previews/players/kameron_conyers/pose6.jpg",
-          "source": "Kameron Conyers - 6.jpg"
+          "source": "Kameron Conyers - Pose 6.jpg"
         }
       ],
       "buddyPhotos": [
@@ -2434,28 +2489,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/khoa_ngo/pose1_thumb.jpg",
           "full": "./previews/players/khoa_ngo/pose1.jpg",
-          "source": "Khoa Ngo - 1.jpg"
+          "source": "Khoa Ngo - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/khoa_ngo/pose2_thumb.jpg",
           "full": "./previews/players/khoa_ngo/pose2.jpg",
-          "source": "Khoa Ngo - 2.jpg"
+          "source": "Khoa Ngo - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/khoa_ngo/pose3_thumb.jpg",
           "full": "./previews/players/khoa_ngo/pose3.jpg",
-          "source": "Khoa Ngo - 3.jpg"
+          "source": "Khoa Ngo - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/khoa_ngo/pose4_thumb.jpg",
           "full": "./previews/players/khoa_ngo/pose4.jpg",
-          "source": "Khoa Ngo - 4.jpg"
+          "source": "Khoa Ngo - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -2494,28 +2549,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/lionel_huang/pose1_thumb.jpg",
           "full": "./previews/players/lionel_huang/pose1.jpg",
-          "source": "Lionel Huang - 1.jpg"
+          "source": "Lionel Huang - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/lionel_huang/pose2_thumb.jpg",
           "full": "./previews/players/lionel_huang/pose2.jpg",
-          "source": "Lionel Huang - 2.jpg"
+          "source": "Lionel Huang - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/lionel_huang/pose3_thumb.jpg",
           "full": "./previews/players/lionel_huang/pose3.jpg",
-          "source": "Lionel Huang - 3.jpg"
+          "source": "Lionel Huang - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/lionel_huang/pose4_thumb.jpg",
           "full": "./previews/players/lionel_huang/pose4.jpg",
-          "source": "Lionel Huang - 4.jpg"
+          "source": "Lionel Huang - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -2548,28 +2603,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/logan_chiu/pose1_thumb.jpg",
           "full": "./previews/players/logan_chiu/pose1.jpg",
-          "source": "Logan Chiu - 1.jpg"
+          "source": "Logan Chiu - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/logan_chiu/pose2_thumb.jpg",
           "full": "./previews/players/logan_chiu/pose2.jpg",
-          "source": "Logan Chiu - 2.jpg"
+          "source": "Logan Chiu - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/logan_chiu/pose3_thumb.jpg",
           "full": "./previews/players/logan_chiu/pose3.jpg",
-          "source": "Logan Chiu - 3.jpg"
+          "source": "Logan Chiu - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/logan_chiu/pose4_thumb.jpg",
           "full": "./previews/players/logan_chiu/pose4.jpg",
-          "source": "Logan Chiu - 4.jpg"
+          "source": "Logan Chiu - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -2602,28 +2657,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/madison_garcia/pose1_thumb.jpg",
           "full": "./previews/players/madison_garcia/pose1.jpg",
-          "source": "Madison Garcia - 1 (2).jpg"
+          "source": "Madison Garcia - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/madison_garcia/pose2_thumb.jpg",
           "full": "./previews/players/madison_garcia/pose2.jpg",
-          "source": "Madison Garcia - 1 (3).jpg"
+          "source": "Madison Garcia - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/madison_garcia/pose3_thumb.jpg",
           "full": "./previews/players/madison_garcia/pose3.jpg",
-          "source": "Madison Garcia - 1 (4).jpg"
+          "source": "Madison Garcia - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/madison_garcia/pose4_thumb.jpg",
           "full": "./previews/players/madison_garcia/pose4.jpg",
-          "source": "Madison Garcia - 1.jpg"
+          "source": "Madison Garcia - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -2731,28 +2786,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/manley_brown/pose1_thumb.jpg",
           "full": "./previews/players/manley_brown/pose1.jpg",
-          "source": "Manley Brown - 1.jpg"
+          "source": "Manley Brown - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/manley_brown/pose2_thumb.jpg",
           "full": "./previews/players/manley_brown/pose2.jpg",
-          "source": "Manley Brown- 1 (2).jpg"
+          "source": "Manley Brown - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/manley_brown/pose3_thumb.jpg",
           "full": "./previews/players/manley_brown/pose3.jpg",
-          "source": "Manley Brown- 1 (3).jpg"
+          "source": "Manley Brown - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/manley_brown/pose4_thumb.jpg",
           "full": "./previews/players/manley_brown/pose4.jpg",
-          "source": "Manley Brown- 1.jpg"
+          "source": "Manley Brown - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -2785,28 +2840,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/marco_smith/pose1_thumb.jpg",
           "full": "./previews/players/marco_smith/pose1.jpg",
-          "source": "Marco Smith - 1.jpg"
+          "source": "Marco Smith - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/marco_smith/pose2_thumb.jpg",
           "full": "./previews/players/marco_smith/pose2.jpg",
-          "source": "Marco Smith - 2.jpg"
+          "source": "Marco Smith - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/marco_smith/pose3_thumb.jpg",
           "full": "./previews/players/marco_smith/pose3.jpg",
-          "source": "Marco Smith - 3.jpg"
+          "source": "Marco Smith - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/marco_smith/pose4_thumb.jpg",
           "full": "./previews/players/marco_smith/pose4.jpg",
-          "source": "Marco Smith - 4.jpg"
+          "source": "Marco Smith - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -2839,28 +2894,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/michael_corpuz/pose1_thumb.jpg",
           "full": "./previews/players/michael_corpuz/pose1.jpg",
-          "source": "Michael Corpuz - 1.jpg"
+          "source": "Michael Corpuz - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/michael_corpuz/pose2_thumb.jpg",
           "full": "./previews/players/michael_corpuz/pose2.jpg",
-          "source": "Michael Corpuz - 2.jpg"
+          "source": "Michael Corpuz - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/michael_corpuz/pose3_thumb.jpg",
           "full": "./previews/players/michael_corpuz/pose3.jpg",
-          "source": "Michael Corpuz - 3.jpg"
+          "source": "Michael Corpuz - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/michael_corpuz/pose4_thumb.jpg",
           "full": "./previews/players/michael_corpuz/pose4.jpg",
-          "source": "Michael Corpuz - 4.jpg"
+          "source": "Michael Corpuz - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -2893,28 +2948,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/natalia_sanchez/pose1_thumb.jpg",
           "full": "./previews/players/natalia_sanchez/pose1.jpg",
-          "source": "Natalia Sanchez (2).jpg"
+          "source": "Natalia Sanchez - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/natalia_sanchez/pose2_thumb.jpg",
           "full": "./previews/players/natalia_sanchez/pose2.jpg",
-          "source": "Natalia Sanchez - 1 (2).jpg"
+          "source": "Natalia Sanchez - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/natalia_sanchez/pose3_thumb.jpg",
           "full": "./previews/players/natalia_sanchez/pose3.jpg",
-          "source": "Natalia Sanchez - 1.jpg"
+          "source": "Natalia Sanchez - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/natalia_sanchez/pose4_thumb.jpg",
           "full": "./previews/players/natalia_sanchez/pose4.jpg",
-          "source": "Natalia Sanchez.jpg"
+          "source": "Natalia Sanchez - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -2953,28 +3008,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/owen_chang/pose1_thumb.jpg",
           "full": "./previews/players/owen_chang/pose1.jpg",
-          "source": "Owen Chang -1 (2).jpg"
+          "source": "Owen Chang - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/owen_chang/pose2_thumb.jpg",
           "full": "./previews/players/owen_chang/pose2.jpg",
-          "source": "Owen Chang -1 (3).jpg"
+          "source": "Owen Chang - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/owen_chang/pose3_thumb.jpg",
           "full": "./previews/players/owen_chang/pose3.jpg",
-          "source": "Owen Chang -1 (4).jpg"
+          "source": "Owen Chang - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/owen_chang/pose4_thumb.jpg",
           "full": "./previews/players/owen_chang/pose4.jpg",
-          "source": "Owen Chang -1.jpg"
+          "source": "Owen Chang - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -3007,28 +3062,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/rohit_saggi/pose1_thumb.jpg",
           "full": "./previews/players/rohit_saggi/pose1.jpg",
-          "source": "Rohit Saggi - 1.jpg"
+          "source": "Rohit Saggi - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/rohit_saggi/pose2_thumb.jpg",
           "full": "./previews/players/rohit_saggi/pose2.jpg",
-          "source": "Rohit Saggi - 2.jpg"
+          "source": "Rohit Saggi - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/rohit_saggi/pose3_thumb.jpg",
           "full": "./previews/players/rohit_saggi/pose3.jpg",
-          "source": "Rohit Saggi - 3.jpg"
+          "source": "Rohit Saggi - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/rohit_saggi/pose4_thumb.jpg",
           "full": "./previews/players/rohit_saggi/pose4.jpg",
-          "source": "Rohit Saggi - 4.jpg"
+          "source": "Rohit Saggi - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -3067,28 +3122,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/rory_nguyen/pose1_thumb.jpg",
           "full": "./previews/players/rory_nguyen/pose1.jpg",
-          "source": "Rory Nguyen - 1.jpg"
+          "source": "Rory Nguyen - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/rory_nguyen/pose2_thumb.jpg",
           "full": "./previews/players/rory_nguyen/pose2.jpg",
-          "source": "Rory Nguyen - 2.jpg"
+          "source": "Rory Nguyen - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/rory_nguyen/pose3_thumb.jpg",
           "full": "./previews/players/rory_nguyen/pose3.jpg",
-          "source": "Rory Nguyen - 3.jpg"
+          "source": "Rory Nguyen - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/rory_nguyen/pose4_thumb.jpg",
           "full": "./previews/players/rory_nguyen/pose4.jpg",
-          "source": "Rory Nguyen - 4.jpg"
+          "source": "Rory Nguyen - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -3121,28 +3176,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/ryan_chiu/pose1_thumb.jpg",
           "full": "./previews/players/ryan_chiu/pose1.jpg",
-          "source": "Ryan Chiu - 1.jpg"
+          "source": "Ryan Chiu - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/ryan_chiu/pose2_thumb.jpg",
           "full": "./previews/players/ryan_chiu/pose2.jpg",
-          "source": "Ryan Chiu - 2.jpg"
+          "source": "Ryan Chiu - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/ryan_chiu/pose3_thumb.jpg",
           "full": "./previews/players/ryan_chiu/pose3.jpg",
-          "source": "Ryan Chiu - 3.jpg"
+          "source": "Ryan Chiu - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/ryan_chiu/pose4_thumb.jpg",
           "full": "./previews/players/ryan_chiu/pose4.jpg",
-          "source": "Ryan Chiu - 4.jpg"
+          "source": "Ryan Chiu - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -3175,28 +3230,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/sean_mooney/pose1_thumb.jpg",
           "full": "./previews/players/sean_mooney/pose1.jpg",
-          "source": "Sean Mooney - 1.jpg"
+          "source": "Sean Mooney - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/sean_mooney/pose2_thumb.jpg",
           "full": "./previews/players/sean_mooney/pose2.jpg",
-          "source": "Sean Mooney - 2.jpg"
+          "source": "Sean Mooney - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/sean_mooney/pose3_thumb.jpg",
           "full": "./previews/players/sean_mooney/pose3.jpg",
-          "source": "Sean Mooney - 3.jpg"
+          "source": "Sean Mooney - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/sean_mooney/pose4_thumb.jpg",
           "full": "./previews/players/sean_mooney/pose4.jpg",
-          "source": "Sean Mooney - 4.jpg"
+          "source": "Sean Mooney - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -3229,28 +3284,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/sidak_sethi/pose1_thumb.jpg",
           "full": "./previews/players/sidak_sethi/pose1.jpg",
-          "source": "Sidak Sethi - 1 (2).jpg"
+          "source": "Sidak Sethi - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/sidak_sethi/pose2_thumb.jpg",
           "full": "./previews/players/sidak_sethi/pose2.jpg",
-          "source": "Sidak Sethi - 1 (3).jpg"
+          "source": "Sidak Sethi - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/sidak_sethi/pose3_thumb.jpg",
           "full": "./previews/players/sidak_sethi/pose3.jpg",
-          "source": "Sidak Sethi - 1 (4).jpg"
+          "source": "Sidak Sethi - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/sidak_sethi/pose4_thumb.jpg",
           "full": "./previews/players/sidak_sethi/pose4.jpg",
-          "source": "Sidak Sethi - 1.jpg"
+          "source": "Sidak Sethi - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -3294,28 +3349,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/vegas_ventura/pose1_thumb.jpg",
           "full": "./previews/players/vegas_ventura/pose1.jpg",
-          "source": "Vegas Ventura - 1.jpg"
+          "source": "Vegas Ventura - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/vegas_ventura/pose2_thumb.jpg",
           "full": "./previews/players/vegas_ventura/pose2.jpg",
-          "source": "Vegas Ventura 1 (2).jpg"
+          "source": "Vegas Ventura - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/vegas_ventura/pose3_thumb.jpg",
           "full": "./previews/players/vegas_ventura/pose3.jpg",
-          "source": "Vegas Ventura 1 (3).jpg"
+          "source": "Vegas Ventura - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/vegas_ventura/pose4_thumb.jpg",
           "full": "./previews/players/vegas_ventura/pose4.jpg",
-          "source": "Vegas Ventura 1.jpg"
+          "source": "Vegas Ventura - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -3417,28 +3472,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/verena_saric/pose1_thumb.jpg",
           "full": "./previews/players/verena_saric/pose1.jpg",
-          "source": "Verena Saric - 1 (2).jpg"
+          "source": "Verena Saric - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/verena_saric/pose2_thumb.jpg",
           "full": "./previews/players/verena_saric/pose2.jpg",
-          "source": "Verena Saric - 1 (3).jpg"
+          "source": "Verena Saric - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/verena_saric/pose3_thumb.jpg",
           "full": "./previews/players/verena_saric/pose3.jpg",
-          "source": "Verena Saric - 1 (4).jpg"
+          "source": "Verena Saric - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/verena_saric/pose4_thumb.jpg",
           "full": "./previews/players/verena_saric/pose4.jpg",
-          "source": "Verena Saric - 1.jpg"
+          "source": "Verena Saric - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -3549,28 +3604,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/vincent_ha/pose1_thumb.jpg",
           "full": "./previews/players/vincent_ha/pose1.jpg",
-          "source": "Vincent  Ha - 1.jpg"
+          "source": "Vincent Ha - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/vincent_ha/pose2_thumb.jpg",
           "full": "./previews/players/vincent_ha/pose2.jpg",
-          "source": "Vincent  Ha - 2.jpg"
+          "source": "Vincent Ha - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/vincent_ha/pose3_thumb.jpg",
           "full": "./previews/players/vincent_ha/pose3.jpg",
-          "source": "Vincent  Ha - 3.jpg"
+          "source": "Vincent Ha - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/vincent_ha/pose4_thumb.jpg",
           "full": "./previews/players/vincent_ha/pose4.jpg",
-          "source": "Vincent  Ha - 4.jpg"
+          "source": "Vincent Ha - Pose 4.jpg"
         }
       ],
       "buddyPhotos": []
@@ -3603,28 +3658,28 @@
           "label": "Pose 1",
           "thumb": "./previews/players/vivianne_llavore/pose1_thumb.jpg",
           "full": "./previews/players/vivianne_llavore/pose1.jpg",
-          "source": "Vivianne Llavore (2).jpg"
+          "source": "Vivianne Llavore - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/vivianne_llavore/pose2_thumb.jpg",
           "full": "./previews/players/vivianne_llavore/pose2.jpg",
-          "source": "Vivianne Llavore (3).jpg"
+          "source": "Vivianne Llavore - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/vivianne_llavore/pose3_thumb.jpg",
           "full": "./previews/players/vivianne_llavore/pose3.jpg",
-          "source": "Vivianne Llavore - 1.jpg"
+          "source": "Vivianne Llavore - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/vivianne_llavore/pose4_thumb.jpg",
           "full": "./previews/players/vivianne_llavore/pose4.jpg",
-          "source": "Vivianne Llavore.jpg"
+          "source": "Vivianne Llavore - Pose 4.jpg"
         }
       ],
       "buddyPhotos": [
@@ -3716,21 +3771,21 @@
           "label": "Pose 1",
           "thumb": "./previews/players/yamileth_hernandez/pose1_thumb.jpg",
           "full": "./previews/players/yamileth_hernandez/pose1.jpg",
-          "source": "Yamileth Hernandez - 1 (2).jpg"
+          "source": "Yamileth Hernandez - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/yamileth_hernandez/pose2_thumb.jpg",
           "full": "./previews/players/yamileth_hernandez/pose2.jpg",
-          "source": "Yamileth Hernandez - 1 (3).jpg"
+          "source": "Yamileth Hernandez - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/yamileth_hernandez/pose3_thumb.jpg",
           "full": "./previews/players/yamileth_hernandez/pose3.jpg",
-          "source": "Yamileth Hernandez - 1.jpg"
+          "source": "Yamileth Hernandez - Pose 3.jpg"
         }
       ],
       "buddyPhotos": []
@@ -3763,35 +3818,35 @@
           "label": "Pose 1",
           "thumb": "./previews/players/zayan_shreyom/pose1_thumb.jpg",
           "full": "./previews/players/zayan_shreyom/pose1.jpg",
-          "source": "Zayan Shreyom - 1.jpg"
+          "source": "Zayan Shreyom - Pose 1.jpg"
         },
         {
           "id": "pose2",
           "label": "Pose 2",
           "thumb": "./previews/players/zayan_shreyom/pose2_thumb.jpg",
           "full": "./previews/players/zayan_shreyom/pose2.jpg",
-          "source": "Zayan Shreyom - 2.jpg"
+          "source": "Zayan Shreyom - Pose 2.jpg"
         },
         {
           "id": "pose3",
           "label": "Pose 3",
           "thumb": "./previews/players/zayan_shreyom/pose3_thumb.jpg",
           "full": "./previews/players/zayan_shreyom/pose3.jpg",
-          "source": "Zayan Shreyom - 3.jpg"
+          "source": "Zayan Shreyom - Pose 3.jpg"
         },
         {
           "id": "pose4",
           "label": "Pose 4",
           "thumb": "./previews/players/zayan_shreyom/pose4_thumb.jpg",
           "full": "./previews/players/zayan_shreyom/pose4.jpg",
-          "source": "Zayan Shreyom - 4 (2).jpg"
+          "source": "Zayan Shreyom - Pose 4.jpg"
         },
         {
           "id": "pose5",
           "label": "Pose 5",
           "thumb": "./previews/players/zayan_shreyom/pose5_thumb.jpg",
           "full": "./previews/players/zayan_shreyom/pose5.jpg",
-          "source": "Zayan Shreyom - 4.jpg"
+          "source": "Zayan Shreyom - Pose 5.jpg"
         }
       ],
       "buddyPhotos": []
