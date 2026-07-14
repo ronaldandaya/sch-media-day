@@ -1,6 +1,6 @@
 {
   "season": "2026",
-  "generatedAt": "2026-07-13T17:48:59.524543",
+  "generatedAt": "2026-07-13T18:01:44.536011",
   "lookups": {
     "adniel_rajan_30": "adniel_rajan",
     "alel_santos_45": "alel_santos",
@@ -732,6 +732,27 @@
           "thumb": "./previews/players/cadence_aquino/pose1_thumb.jpg",
           "full": "./previews/players/cadence_aquino/pose1.jpg",
           "source": "Cadence Aquino (2).jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/cadence_aquino/pose2_thumb.jpg",
+          "full": "./previews/players/cadence_aquino/pose2.jpg",
+          "source": "Cadence Aquino (3).jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/cadence_aquino/pose3_thumb.jpg",
+          "full": "./previews/players/cadence_aquino/pose3.jpg",
+          "source": "Cadence Aquino - 1.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/cadence_aquino/pose4_thumb.jpg",
+          "full": "./previews/players/cadence_aquino/pose4.jpg",
+          "source": "Cadence Aquino.jpg"
         }
       ],
       "buddyPhotos": [
@@ -815,6 +836,27 @@
           "thumb": "./previews/players/chelsea_cheng/pose1_thumb.jpg",
           "full": "./previews/players/chelsea_cheng/pose1.jpg",
           "source": "Chelsea Cheng (2).jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/chelsea_cheng/pose2_thumb.jpg",
+          "full": "./previews/players/chelsea_cheng/pose2.jpg",
+          "source": "Chelsea Cheng (3).jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/chelsea_cheng/pose3_thumb.jpg",
+          "full": "./previews/players/chelsea_cheng/pose3.jpg",
+          "source": "Chelsea Cheng - 1.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/chelsea_cheng/pose4_thumb.jpg",
+          "full": "./previews/players/chelsea_cheng/pose4.jpg",
+          "source": "Chelsea Cheng.jpg"
         }
       ],
       "buddyPhotos": [
@@ -1265,6 +1307,27 @@
           "thumb": "./previews/players/emma_robertson/pose1_thumb.jpg",
           "full": "./previews/players/emma_robertson/pose1.jpg",
           "source": "Emma robertson (2).jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/emma_robertson/pose2_thumb.jpg",
+          "full": "./previews/players/emma_robertson/pose2.jpg",
+          "source": "Emma robertson (3).jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/emma_robertson/pose3_thumb.jpg",
+          "full": "./previews/players/emma_robertson/pose3.jpg",
+          "source": "Emma robertson - 1.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/emma_robertson/pose4_thumb.jpg",
+          "full": "./previews/players/emma_robertson/pose4.jpg",
+          "source": "Emma robertson.jpg"
         }
       ],
       "buddyPhotos": []
@@ -2838,6 +2901,20 @@
           "thumb": "./previews/players/natalia_sanchez/pose2_thumb.jpg",
           "full": "./previews/players/natalia_sanchez/pose2.jpg",
           "source": "Natalia Sanchez - 1 (2).jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/natalia_sanchez/pose3_thumb.jpg",
+          "full": "./previews/players/natalia_sanchez/pose3.jpg",
+          "source": "Natalia Sanchez - 1.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/natalia_sanchez/pose4_thumb.jpg",
+          "full": "./previews/players/natalia_sanchez/pose4.jpg",
+          "source": "Natalia Sanchez.jpg"
         }
       ],
       "buddyPhotos": []
@@ -3527,6 +3604,27 @@
           "thumb": "./previews/players/vivianne_llavore/pose1_thumb.jpg",
           "full": "./previews/players/vivianne_llavore/pose1.jpg",
           "source": "Vivianne Llavore (2).jpg"
+        },
+        {
+          "id": "pose2",
+          "label": "Pose 2",
+          "thumb": "./previews/players/vivianne_llavore/pose2_thumb.jpg",
+          "full": "./previews/players/vivianne_llavore/pose2.jpg",
+          "source": "Vivianne Llavore (3).jpg"
+        },
+        {
+          "id": "pose3",
+          "label": "Pose 3",
+          "thumb": "./previews/players/vivianne_llavore/pose3_thumb.jpg",
+          "full": "./previews/players/vivianne_llavore/pose3.jpg",
+          "source": "Vivianne Llavore - 1.jpg"
+        },
+        {
+          "id": "pose4",
+          "label": "Pose 4",
+          "thumb": "./previews/players/vivianne_llavore/pose4_thumb.jpg",
+          "full": "./previews/players/vivianne_llavore/pose4.jpg",
+          "source": "Vivianne Llavore.jpg"
         }
       ],
       "buddyPhotos": [
