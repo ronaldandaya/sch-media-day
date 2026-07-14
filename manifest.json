@@ -1,6 +1,6 @@
 {
   "season": "2026",
-  "generatedAt": "2026-07-13T18:01:44.536011",
+  "generatedAt": "2026-07-13T18:04:30.199502",
   "lookups": {
     "adniel_rajan_30": "adniel_rajan",
     "alel_santos_45": "alel_santos",
@@ -18,7 +18,7 @@
     "devin_chiu_67": "devin_chiu",
     "doris_chen_18": "doris_chen",
     "ellycia_peralta_11": "ellycia_peralta",
-    "emma_robertson_": "emma_robertson",
+    "emma_robertson_10": "emma_robertson",
     "ethan_lam_1": "ethan_lam",
     "evan_lam_22": "evan_lam",
     "ezequiel_leo_pena_p": "ezequiel_leo_pena",
@@ -40,7 +40,7 @@
     "manley_brown_3": "manley_brown",
     "marco_smith_13": "marco_smith",
     "michael_corpuz_8": "michael_corpuz",
-    "natalia_sanchez_p": "natalia_sanchez",
+    "natalia_sanchez_": "natalia_sanchez",
     "owen_chang_0": "owen_chang",
     "rohit_saggi_11": "rohit_saggi",
     "rory_nguyen_30": "rory_nguyen",
@@ -1283,7 +1283,7 @@
       "teams": [
         {
           "name": "Girls 5th Grade",
-          "jersey": "?",
+          "jersey": "10",
           "groupPhotos": [
             {
               "id": "g_5th_girls_team_pose_1",
@@ -2870,7 +2870,7 @@
       "teams": [
         {
           "name": "Girls 5th Grade",
-          "jersey": "P",
+          "jersey": "",
           "groupPhotos": [
             {
               "id": "g_5th_girls_team_pose_1",
