@@ -190,17 +190,50 @@
       }
     }
 
+    let MANIFEST = null;   // loaded once for pose → source filename lookup
+
     async function loadOrders() {
       if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
         throw new Error('Apps Script URL not configured yet. Edit admin.html.');
       }
       const url = APPS_SCRIPT_URL + '?key=' + encodeURIComponent(ADMIN_KEY);
-      const res = await fetch(url, { cache: 'no-cache' });
-      if (!res.ok) throw new Error('Fetch failed: HTTP ' + res.status);
-      const data = await res.json();
+      const [ordersRes, manifestRes] = await Promise.all([
+        fetch(url, { cache: 'no-cache' }),
+        fetch('manifest.json', { cache: 'no-cache' }).catch(() => null),
+      ]);
+      if (!ordersRes.ok) throw new Error('Fetch failed: HTTP ' + ordersRes.status);
+      const data = await ordersRes.json();
       if (!data.ok) throw new Error(data.error || 'Unauthorized');
       ORDERS = data.orders || [];
+      if (manifestRes && manifestRes.ok) MANIFEST = await manifestRes.json();
       render();
+    }
+
+    // Given a player display name and a pose ID like "pose3", return the original Drive filename.
+    function poseSource(playerName, poseId) {
+      if (!MANIFEST || !playerName) return null;
+      const name = String(playerName).trim().toLowerCase();
+      // Try matching against each player's displayName
+      for (const [slug, p] of Object.entries(MANIFEST.players || {})) {
+        if ((p.displayName || '').toLowerCase() === name) {
+          const pose = (p.poses || []).find(x => x.id === poseId);
+          return pose ? pose.source : null;
+        }
+      }
+      return null;
+    }
+
+    // Render a "pose1, pose3" list with source filenames appended, e.g.
+    //   pose1 → Evan Lam - 1.jpg
+    //   pose3 → Evan Lam - 3.jpg
+    function renderPoseList(csv, playerName) {
+      if (!csv) return '';
+      const ids = String(csv).split(/[,\s]+/).filter(Boolean);
+      return ids.map(id => {
+        const src = poseSource(playerName, id);
+        if (src) return `<div><b>${id}</b> <span style="color:var(--muted)">→</span> <code style="color:var(--teal-light);font-size:0.85em;">${src}</code></div>`;
+        return `<div><b>${id}</b></div>`;
+      }).join('');
     }
 
     function render() {
@@ -269,6 +302,9 @@
           if (c === 'Timestamp' && v) {
             const d = new Date(v);
             return `<td>${d.toLocaleDateString()} ${d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</td>`;
+          }
+          if (c === 'Player Poses Selected' && v) {
+            return `<td>${renderPoseList(v, o['Player Name'])}</td>`;
           }
           return `<td>${String(v).replace(/[<>&"]/g, s => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'})[s])}</td>`;
         }).join('') + '</tr>';
