@@ -143,38 +143,66 @@ def resolve_files(order: dict, manifest: dict) -> tuple[list[Path], list[str]]:
 
     # ── Buddy photos ──
     buddy_ids = [b.strip() for b in str(order.get("Buddy Photos Selected", "")).split(",") if b.strip()]
+    buddy_qty = int(order.get("Buddy Photos Qty", 0) or 0)
+    buddy_names_field = str(order.get("Buddy Names", "")).strip()
     buddy_dir = DRIVE_ROOT / "Partner_Fun_Photos"
-    if buddy_ids:
-        # For each buddy_id, look up the source filename from manifest
-        if slug:
-            player_buddies = manifest["players"][slug].get("buddyPhotos", [])
-            for bid in buddy_ids:
-                bp = next((b for b in player_buddies if b["id"] == bid), None)
-                if not bp:
-                    warnings.append(f"⚠ Buddy photo not in manifest: {bid}")
-                    continue
-                # bp['full'] path — extract filename, look in Partner_Fun_Photos root (unwatermarked)
-                fname = Path(bp["full"]).name
-                candidate = buddy_dir / fname
-                # Buddy filenames in repo are like "sidak_sethi__anik_prakash__1.jpg"
-                # But Drive Partner_Fun_Photos names them like "Sidak Sethi + Anik Prakash - 1.jpg"
-                # Fallback: search buddy_dir for a file containing all the buddy names
-                if candidate.exists():
-                    files.append(candidate)
-                else:
-                    # Try to find by buddy name matching
-                    buddy_names = bp.get("buddies", [])
-                    for f in buddy_dir.glob("*"):
-                        if f.is_file() and all(n.split()[0] in f.stem for n in buddy_names):
-                            files.append(f)
+
+    # LEGACY FALLBACK: for orders placed before the "Buddy Photos Selected" column
+    # existed, resolve IDs from the Buddy Names field by matching against the
+    # player's buddy photos in the manifest.
+    if not buddy_ids and buddy_qty > 0 and slug:
+        expected = {n.strip() for n in buddy_names_field.split(",") if n.strip()}
+        candidates = [
+            bp for bp in manifest["players"][slug].get("buddyPhotos", [])
+            if set(bp.get("buddies", [])) == expected
+        ]
+        if len(candidates) == buddy_qty:
+            buddy_ids = [bp["id"] for bp in candidates]
+            warnings.append(
+                f"ℹ Auto-resolved {buddy_qty} buddy photo(s) from names "
+                f"(exact match): {[bp['id'] for bp in candidates]}"
+            )
+        elif candidates:
+            warnings.append(
+                f"⚠ Ambiguous buddy photos: order says qty={buddy_qty} with "
+                f"names {sorted(expected)}, but {len(candidates)} match. Candidates:"
+            )
+            for bp in candidates:
+                warnings.append(f"    {bp['id']}  ({bp['label']})")
+            warnings.append(
+                f"    → To fix, put the correct IDs in the sheet's "
+                f"'Buddy Photos Selected' column and re-run."
+            )
+        else:
+            warnings.append(
+                f"⚠ Order has {buddy_qty} buddy photo(s) but no IDs stored and "
+                f"no matches for names {sorted(expected)}. Manually add IDs to sheet."
+            )
+
+    if buddy_ids and slug:
+        player_entry = manifest["players"][slug]
+        player_buddies = player_entry.get("buddyPhotos", [])
+        for bid in buddy_ids:
+            bp = next((b for b in player_buddies if b["id"] == bid), None)
+            if not bp:
+                warnings.append(f"⚠ Buddy photo not in manifest: {bid}")
+                continue
+            # Drive Partner_Fun_Photos uses human names like "Evan Lam + Kaden Tran - 1.jpg"
+            all_names = [player_entry["displayName"]] + bp.get("buddies", [])
+            all_names = [n for n in all_names if n and not n.lower().startswith("coach")]
+            found = None
+            # Look in Partner_Fun_Photos root (unwatermarked) first
+            if buddy_dir.is_dir():
+                for f in sorted(buddy_dir.iterdir()):
+                    if f.is_file() and f.suffix.lower() in (".png", ".jpg", ".jpeg"):
+                        # All player last names must appear in filename
+                        if all(n.split()[0] in f.stem or n in f.stem for n in all_names):
+                            found = f
                             break
-                    else:
-                        warnings.append(f"⚠ Buddy photo file not found for {bid} ({', '.join(buddy_names)})")
-    elif int(order.get("Buddy Photos Qty", 0) or 0) > 0:
-        warnings.append(
-            f"⚠ Order has {order['Buddy Photos Qty']} buddy photo(s) but no IDs stored. "
-            f"Manually pick from Partner_Fun_Photos. Buddy Names: {order.get('Buddy Names', '')}"
-        )
+            if found:
+                files.append(found)
+            else:
+                warnings.append(f"⚠ Buddy photo file not found for {bid} (looking for: {', '.join(all_names)})")
 
     return files, warnings
 

@@ -34,12 +34,13 @@ const HEADERS = [
   'Player Name','Team','Jersey #',
   'Package','Package Price',
   'Player Poses Selected','Group Photos Selected',
-  'Buddy Photos Qty','Buddy Names','Buddy Photos Selected','Buddy Subtotal',
+  'Buddy Photos Qty','Buddy Names','Buddy Subtotal',
   'Slam Shirt',
   'Round Keychain','Rectangle Keychain','Mug','Tumbler','Mouse Pad',
   'Magnet','Can Sleeve','Metal Sign','Shot Glass','Ornament','Car Coasters',
   'Keepsake Subtotal','Discount %','Discount Amount','Order Total',
-  'Payment Method','Notes','Delivery Folder','Delivered At'
+  'Payment Method','Notes',
+  'Buddy Photos Selected','Delivery Folder','Delivered At'  // ← new columns appended (safe: no shift)
 ];
 
 // ──────────────────── ENTRY POINTS ────────────────────
@@ -109,7 +110,7 @@ function buildRow(d, orderId) {
     s('playerName'), s('team'), s('jerseyNumber'),
     s('package'), n('packagePrice'),
     s('selectedPlayerPoses'), s('selectedGroupPhotos'),
-    n('buddy_photo'), s('buddyNames'), s('selectedBuddyPhotos'), n('buddySubtotal'),
+    n('buddy_photo'), s('buddyNames'), n('buddySubtotal'),
     n('slam_shirt'),
     n('round_keychain'), n('rect_keychain'), n('mug_11oz'),
     n('tumbler_20oz'), n('mouse_pad'), n('magnet'),
@@ -118,7 +119,10 @@ function buildRow(d, orderId) {
     n('keepsakeSubtotal'), Number((n('discountPct')*100).toFixed(0)) + '%',
     n('discountAmt'), n('orderTotal'),
     s('payment'), s('notes'),
-    '', ''  // Delivery Folder + Delivered At — filled in by delivery script
+    // ─── new columns appended safely at the end ───
+    s('selectedBuddyPhotos'),  // Buddy Photos Selected
+    '',                        // Delivery Folder — filled by delivery script
+    ''                         // Delivered At    — filled by delivery script
   ];
 }
 
