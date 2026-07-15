@@ -46,6 +46,24 @@ TEAM_TO_FOLDER = {
     "JV Girls":             "JV_Girls",
 }
 
+# Sheet column → (label for maker, unit price) for physical/keepsake items
+KEEPSAKE_ITEMS = [
+    ("Slam Shirt",         "Player Slam Shirt (custom, sizes TBD by customer)", 30),
+    ("Round Keychain",     "Round Keychain (double-sided, set of 2)",           12),
+    ("Rectangle Keychain", "Rectangle Keychain (double-sided, set of 2)",       12),
+    ("Mug",                "11 oz White Mug",                                   12),
+    ("Tumbler",            "20 oz Sublimation Tumbler",                         18),
+    ("Mouse Pad",          "Mouse Pad",                                         18),
+    ("Magnet",             "Magnet",                                             8),
+    ("Can Sleeve",         "Neoprene Can Sleeve",                               16),
+    ("Metal Sign",         "Metal Sign",                                        30),
+    ("Shot Glass",         "Frosted Shot Glass",                                12),
+    ("Ornament",           "Christmas Ornament",                                 8),
+    ("Car Coasters",       "Car Coasters (set of 2)",                           12),
+]
+
+MAKER_EMAIL = "MAKER_EMAIL_HERE@example.com"   # ← update with your keepsake maker's email
+
 # ─── HELPERS ───────────────────────────────────────────────────────────────
 def fetch_json(url: str) -> dict:
     req = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
@@ -226,6 +244,100 @@ def resolve_files(order: dict, manifest: dict) -> tuple[list[Path], list[str]]:
 
     return files, warnings
 
+def collect_keepsakes(order: dict) -> list:
+    """Return list of (label, qty, unit_price) for physical items in this order."""
+    out = []
+    for col, label, price in KEEPSAKE_ITEMS:
+        qty = int(order.get(col, 0) or 0)
+        if qty > 0:
+            out.append((label, qty, price))
+    return out
+
+def resolve_keepsake_photo(order: dict, files: list) -> Path | None:
+    """Which photo should go on the keepsakes? Prefer the first player pose file.
+    Parents can override via the Notes field (script surfaces this for coach's judgment)."""
+    # Prefer .png (unwatermarked hi-res) player poses; fall back to first file
+    for f in files:
+        if f.suffix.lower() == ".png" and "Pose" in f.stem and "Group" not in f.stem:
+            return f
+    return files[0] if files else None
+
+def prepare_maker_packet(order: dict, delivery_folder: Path, keepsakes: list,
+                          photo: Path | None, dry_run: bool) -> None:
+    """Create Maker/ subfolder with photo + order.txt for the keepsake maker."""
+    order_id     = order.get("Order ID", "UNKNOWN")
+    player_name  = order.get("Player Name", "Unknown")
+    parent_name  = order.get("Parent Name", "")
+    parent_email = order.get("Parent Email", "")
+    parent_phone = order.get("Parent Phone", "")
+    notes        = order.get("Notes", "") or "(none)"
+    jersey       = order.get("Jersey #", "")
+    team         = order.get("Team", "")
+
+    maker_dir = delivery_folder / "Maker"
+    total_items = sum(qty for _, qty, _ in keepsakes)
+    total_value = sum(qty*price for _, qty, price in keepsakes)
+
+    print("\n" + "─"*70)
+    print(f"🛠️  MAKER PACKET  ({total_items} item{'s' if total_items!=1 else ''}, ${total_value} value)")
+    print("─"*70)
+    print(f"  Folder: {maker_dir}")
+    print(f"  Photo:  {photo.name if photo else '⚠ no photo resolved!'}")
+    print(f"  Items:")
+    for label, qty, price in keepsakes:
+        print(f"    {qty}× {label:45s}  ${qty*price}")
+    if notes and notes != "(none)":
+        print(f"  ⚠ Parent note: \"{notes}\"  ← check this before making!")
+
+    order_txt = f"""SHARK CITY HOOPS — 2026 Media Day Keepsake Order
+{"="*60}
+
+Order ID:      {order_id}
+Player:        {player_name}  #{jersey}  ({team})
+Parent:        {parent_name}
+Email:         {parent_email}
+Phone:         {parent_phone}
+
+Photo to use:  {photo.name if photo else 'NONE — coach to provide'}
+Parent note:   {notes}
+
+Items ({total_items} total, ${total_value} value):
+{chr(10).join(f"  {qty}x  {label}   —   ${qty*price}" for label, qty, price in keepsakes)}
+
+────────────────────────────────────────────────────────────
+Ship the finished items to Coach Ron for handoff to parent,
+or contact the parent directly if you handle shipping.
+"""
+
+    if dry_run:
+        print("\n[DRY RUN — no maker files copied]")
+        return
+
+    maker_dir.mkdir(parents=True, exist_ok=True)
+    if photo:
+        shutil.copy2(photo, maker_dir / photo.name)
+    (maker_dir / "order.txt").write_text(order_txt)
+    print(f"\n  ✅ Wrote {maker_dir}/order.txt")
+    print(f"     ✅ Copied {photo.name if photo else '(no photo)'}")
+
+    # Email draft for maker
+    print("\n  📧 MAKER EMAIL DRAFT:")
+    print(f"  To:      {MAKER_EMAIL}   ← update MAKER_EMAIL in script config")
+    print(f"  Subject: SCH keepsake order — {player_name} ({order_id})")
+    print()
+    print(f"  Hi,")
+    print()
+    print(f"  New keepsake order — see attached folder / share link for the photo + spec.")
+    print()
+    for label, qty, price in keepsakes:
+        print(f"    {qty}x {label}")
+    if notes and notes != "(none)":
+        print(f"\n  Parent note: {notes}")
+    print(f"\n  Player: {player_name}  #{jersey}  ({team})")
+    print(f"  Order ID: {order_id}")
+    print(f"\n  Thanks!")
+    print(f"  — Coach Ron")
+
 def prepare_delivery(order: dict, manifest: dict, dry_run: bool = False) -> None:
     """Copy files to delivery folder and print summary + email draft."""
     order_id     = order.get("Order ID", "UNKNOWN")
@@ -303,7 +415,14 @@ def prepare_delivery(order: dict, manifest: dict, dry_run: bool = False) -> None
     print()
     print("— Coach Ron & the SCH Staff")
     print(f"  {REPLY_TO}")
-    print("═"*70 + "\n")
+    print("═"*70)
+
+    # ── MAKER PACKET (physical keepsakes) ──
+    keepsakes = collect_keepsakes(order)
+    if keepsakes:
+        photo = resolve_keepsake_photo(order, files)
+        prepare_maker_packet(order, delivery_folder, keepsakes, photo, dry_run)
+    print()
 
 # ─── CLI ───────────────────────────────────────────────────────────────────
 def main():
