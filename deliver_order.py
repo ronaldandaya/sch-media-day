@@ -20,6 +20,8 @@ After a delivery:
     4. (Optional) Mark order "Delivered" in admin dashboard
 """
 
+from __future__ import annotations   # lazy type hints — makes str | None work on Python 3.7+
+
 import argparse, json, os, re, shutil, sys, urllib.parse, urllib.request
 from datetime import datetime
 from pathlib import Path
@@ -182,27 +184,45 @@ def resolve_files(order: dict, manifest: dict) -> tuple[list[Path], list[str]]:
     if buddy_ids and slug:
         player_entry = manifest["players"][slug]
         player_buddies = player_entry.get("buddyPhotos", [])
+        # Candidate folders to search: unwatermarked root first, then Watermark subfolder
+        buddy_search_dirs = [buddy_dir, buddy_dir / "Watermark"]
         for bid in buddy_ids:
             bp = next((b for b in player_buddies if b["id"] == bid), None)
             if not bp:
                 warnings.append(f"⚠ Buddy photo not in manifest: {bid}")
                 continue
-            # Drive Partner_Fun_Photos uses human names like "Evan Lam + Kaden Tran - 1.jpg"
+            # All players in this buddy shot (including the ordering player, excluding coaches)
             all_names = [player_entry["displayName"]] + bp.get("buddies", [])
             all_names = [n for n in all_names if n and not n.lower().startswith("coach")]
+            # Extract pose number from buddy ID (trailing __N)
+            m = re.search(r"__(\d+)$", bid)
+            pose_num = m.group(1) if m else None
+
             found = None
-            # Look in Partner_Fun_Photos root (unwatermarked) first
-            if buddy_dir.is_dir():
-                for f in sorted(buddy_dir.iterdir()):
-                    if f.is_file() and f.suffix.lower() in (".png", ".jpg", ".jpeg"):
-                        # All player last names must appear in filename
-                        if all(n.split()[0] in f.stem or n in f.stem for n in all_names):
-                            found = f
-                            break
+            source_label = ""
+            for search_dir in buddy_search_dirs:
+                if not search_dir.is_dir():
+                    continue
+                for f in sorted(search_dir.iterdir()):
+                    if not (f.is_file() and f.suffix.lower() in (".png", ".jpg", ".jpeg")):
+                        continue
+                    # All names must appear in filename (last name is most reliable)
+                    if not all(n.split()[-1] in f.stem for n in all_names):
+                        continue
+                    # Pose number must match (file ends with " - {N}")
+                    if pose_num and not re.search(rf"[-\s]\s*{pose_num}\s*$", f.stem):
+                        continue
+                    found = f
+                    source_label = " (watermarked — no unwatermarked export)" if "Watermark" in str(search_dir) else ""
+                    break
+                if found:
+                    break
             if found:
                 files.append(found)
+                if source_label:
+                    warnings.append(f"⚠ Buddy {bid}: using watermarked (no unwatermarked yet)")
             else:
-                warnings.append(f"⚠ Buddy photo file not found for {bid} (looking for: {', '.join(all_names)})")
+                warnings.append(f"❌ Buddy photo file not found for {bid} (looking for: {', '.join(all_names)}, pose {pose_num})")
 
     return files, warnings
 
