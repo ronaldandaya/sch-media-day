@@ -21,12 +21,37 @@
 // ──────────────────── CONFIG ────────────────────
 const SHEET_ID       = 'PASTE_SHEET_ID_HERE';
 const SHEET_TAB      = 'Orders';
+const MAKER_SHEET_TAB= 'Maker Orders';                     // ← NEW
 const NOTIFY_EMAIL   = 'coachron@sharkcityhoops.com';
 const REPLY_TO       = 'info@sharkcityhoops.com';
+const MAKER_EMAIL    = 'krisharae.young@gmail.com';        // ← NEW  (Krisha Rae Young — keepsake maker)
 const ADMIN_KEY      = 'CHANGE_ME_TO_A_LONG_RANDOM_STRING';
 const ZELLE_ADDRESS  = 'sharkcityhoops@gmail.com';
 const DELIVERY_ETA   = 'within 1 week of payment confirmation';
 // ────────────────────────────────────────────────
+
+// Physical keepsake items: [ Orders-tab-column-name, form-field-key, unit-price, label-for-maker ]
+const KEEPSAKE_META = [
+  ['Slam Shirt',         'slam_shirt',     30, 'Player Slam Shirt'],
+  ['Round Keychain',     'round_keychain', 12, 'Round Keychain (double-sided, set of 2)'],
+  ['Rectangle Keychain', 'rect_keychain',  12, 'Rectangle Keychain (double-sided, set of 2)'],
+  ['Mug',                'mug_11oz',       12, '11 oz White Mug'],
+  ['Tumbler',            'tumbler_20oz',   18, '20 oz Sublimation Tumbler'],
+  ['Mouse Pad',          'mouse_pad',      18, 'Mouse Pad'],
+  ['Magnet',             'magnet',          8, 'Magnet'],
+  ['Can Sleeve',         'can_sleeve',     16, 'Neoprene Can Sleeve'],
+  ['Metal Sign',         'metal_sign',     30, 'Metal Sign'],
+  ['Shot Glass',         'shot_glass',     12, 'Frosted Shot Glass'],
+  ['Ornament',           'ornament',        8, 'Christmas Ornament'],
+  ['Car Coasters',       'car_coasters',   12, 'Car Coasters (set of 2)'],
+];
+
+const MAKER_HEADERS = [
+  'Timestamp','Order ID','Player Name','Team','Parent Name','Parent Email',
+  'Item','Qty','Unit Price','Line Total',
+  'Photo Filename','Photo Notes',
+  'Status','Sent to Maker','Ready Date','Delivered Date','Maker Notes'
+];
 
 const HEADERS = [
   'Timestamp','Order ID','Status',
@@ -47,9 +72,18 @@ const HEADERS = [
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
+
+    // ROUTING: delivery action from deliver_order.py
+    if (data.action === 'deliver') {
+      if (data.key !== ADMIN_KEY) return json({ ok: false, error: 'unauthorized' });
+      return handleDeliver(data);
+    }
+
+    // Default: new customer order from the form
     const orderId = 'SCH-' + Utilities.formatDate(new Date(), 'America/Los_Angeles', 'yyMMdd-HHmmss');
     const row = buildRow(data, orderId);
     appendRow(row);
+    appendMakerRows(data, orderId);        // ← NEW: extract per-item rows
     sendParentReceipt(data, orderId);
     sendCoachNotification(data, orderId);
     return json({ ok: true, orderId });
@@ -218,6 +252,261 @@ function escapeHtml(s) {
   return String(s || '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//   MAKER ORDERS (physical keepsake fulfillment)
+// ══════════════════════════════════════════════════════════════════════
+
+function getMakerSheet() {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  let sheet = ss.getSheetByName(MAKER_SHEET_TAB);
+  if (!sheet) {
+    sheet = ss.insertSheet(MAKER_SHEET_TAB);
+    sheet.getRange(1, 1, 1, MAKER_HEADERS.length).setValues([MAKER_HEADERS]).setFontWeight('bold');
+    sheet.setFrozenRows(1);
+  }
+  // Ensure headers exist (recover if row 1 got corrupted)
+  const firstRow = sheet.getRange(1, 1, 1, MAKER_HEADERS.length).getValues()[0];
+  if (firstRow[0] !== MAKER_HEADERS[0]) {
+    sheet.getRange(1, 1, 1, MAKER_HEADERS.length).setValues([MAKER_HEADERS]).setFontWeight('bold');
+  }
+  return sheet;
+}
+
+/** Called from doPost when a new customer order lands: adds one Maker Orders
+ *  row per physical item type with qty > 0. */
+function appendMakerRows(d, orderId) {
+  const sheet = getMakerSheet();
+  const rows = [];
+  const notes = String(d.notes || '');
+  for (const [_colName, key, price, label] of KEEPSAKE_META) {
+    const qty = Number(d[key] || 0);
+    if (qty > 0) {
+      rows.push([
+        new Date(), orderId, d.playerName || '', d.team || '',
+        d.parentName || '', d.email || '',
+        label, qty, price, qty * price,
+        '',       // Photo Filename — filled by delivery script
+        notes,    // Photo Notes (copied from parent note)
+        'New', '', '', '', ''    // Status + date fields
+      ]);
+    }
+  }
+  if (rows.length) {
+    sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, rows[0].length).setValues(rows);
+  }
+}
+
+/** Backfill Maker Orders rows for existing orders that were placed before
+ *  this feature existed. RUN ONCE from the editor after deploying. Safe to
+ *  re-run — skips orders that already have maker rows. */
+function backfillMakerOrders() {
+  const ordersSheet = getSheet();
+  const values = ordersSheet.getDataRange().getValues();
+  const headers = values[0];
+  const idxOf = name => headers.indexOf(name);
+
+  const makerSheet = getMakerSheet();
+  const existingOrderIds = new Set(
+    makerSheet.getDataRange().getValues().slice(1).map(r => String(r[1]))
+  );
+
+  let addedRows = 0;
+  const newRows = [];
+  for (const row of values.slice(1)) {
+    const orderId = String(row[idxOf('Order ID')] || '');
+    if (!orderId || existingOrderIds.has(orderId)) continue;
+    const notes = String(row[idxOf('Notes')] || '');
+    for (const [colName, _key, price, label] of KEEPSAKE_META) {
+      const idx = idxOf(colName);
+      if (idx < 0) continue;
+      const qty = Number(row[idx] || 0);
+      if (qty > 0) {
+        newRows.push([
+          row[idxOf('Timestamp')] || new Date(), orderId,
+          row[idxOf('Player Name')] || '', row[idxOf('Team')] || '',
+          row[idxOf('Parent Name')] || '', row[idxOf('Parent Email')] || '',
+          label, qty, price, qty * price,
+          '', notes, 'New', '', '', '', ''
+        ]);
+        addedRows++;
+      }
+    }
+  }
+  if (newRows.length) {
+    makerSheet.getRange(makerSheet.getLastRow() + 1, 1, newRows.length, newRows[0].length)
+              .setValues(newRows);
+  }
+  Logger.log(`Backfilled ${addedRows} maker rows.`);
+  return addedRows;
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//   DELIVERY (called by deliver_order.py after files are copied)
+// ══════════════════════════════════════════════════════════════════════
+
+/** Handle action=deliver POST. Sends emails, updates statuses. */
+function handleDeliver(data) {
+  const orderId       = String(data.orderId || '').trim();
+  const deliveryUrl   = String(data.deliveryUrl || '').trim();
+  const makerUrl      = String(data.makerUrl || '').trim();
+  const photoFilename = String(data.photoFilename || '').trim();
+
+  if (!orderId)     return json({ ok: false, error: 'orderId required' });
+  if (!deliveryUrl) return json({ ok: false, error: 'deliveryUrl required' });
+
+  const order = findOrderById(orderId);
+  if (!order) return json({ ok: false, error: `order ${orderId} not found` });
+
+  // Send parent email + mark order Delivered
+  sendParentDelivery(order, deliveryUrl);
+  updateOrderDelivered(orderId, deliveryUrl);
+
+  // If order has keepsake rows and maker URL was provided → email Krisha
+  let makerItemCount = 0;
+  if (makerUrl) {
+    const makerRows = findMakerRowsByOrderId(orderId);
+    if (makerRows.length) {
+      sendMakerEmail(order, makerRows, makerUrl, photoFilename);
+      updateMakerRowsSent(orderId, photoFilename);
+      makerItemCount = makerRows.length;
+    }
+  }
+  return json({ ok: true, orderId, delivered: true, makerItems: makerItemCount });
+}
+
+function findOrderById(orderId) {
+  const values = getSheet().getDataRange().getValues();
+  const headers = values[0];
+  for (const row of values.slice(1)) {
+    if (String(row[headers.indexOf('Order ID')]) === orderId) {
+      return Object.fromEntries(headers.map((h, i) => [h, row[i]]));
+    }
+  }
+  return null;
+}
+
+function findMakerRowsByOrderId(orderId) {
+  const sheet = getMakerSheet();
+  const values = sheet.getDataRange().getValues();
+  const headers = values[0];
+  return values.slice(1)
+    .filter(r => String(r[1]) === orderId)  // col B = Order ID
+    .map(r => Object.fromEntries(headers.map((h, i) => [h, r[i]])));
+}
+
+function updateOrderDelivered(orderId, deliveryUrl) {
+  const sheet = getSheet();
+  const values = sheet.getDataRange().getValues();
+  const headers = values[0];
+  const statusCol  = headers.indexOf('Status') + 1;
+  const folderCol  = headers.indexOf('Delivery Folder') + 1;
+  const deliveredCol = headers.indexOf('Delivered At') + 1;
+  for (let i = 1; i < values.length; i++) {
+    if (String(values[i][headers.indexOf('Order ID')]) === orderId) {
+      if (statusCol)    sheet.getRange(i+1, statusCol).setValue('Delivered');
+      if (folderCol)    sheet.getRange(i+1, folderCol).setValue(deliveryUrl);
+      if (deliveredCol) sheet.getRange(i+1, deliveredCol).setValue(new Date());
+      return;
+    }
+  }
+}
+
+function updateMakerRowsSent(orderId, photoFilename) {
+  const sheet = getMakerSheet();
+  const values = sheet.getDataRange().getValues();
+  const headers = values[0];
+  const idxOf = name => headers.indexOf(name);
+  const now = new Date();
+  for (let i = 1; i < values.length; i++) {
+    if (String(values[i][1]) === orderId) {  // col B = Order ID
+      if (photoFilename && idxOf('Photo Filename') >= 0) {
+        sheet.getRange(i+1, idxOf('Photo Filename')+1).setValue(photoFilename);
+      }
+      sheet.getRange(i+1, idxOf('Status')+1).setValue('Sent to Maker');
+      sheet.getRange(i+1, idxOf('Sent to Maker')+1).setValue(now);
+    }
+  }
+}
+
+function sendParentDelivery(order, url) {
+  const to = String(order['Parent Email'] || '').trim();
+  if (!to.includes('@')) return;
+  const firstName = String(order['Parent Name'] || 'there').split(' ')[0];
+  const player    = order['Player Name'] || '';
+  const pkg       = order['Package'] || '';
+  const html = `
+    <div style="font-family:Segoe UI,system-ui,sans-serif;max-width:600px;margin:0 auto;color:#222;">
+      <div style="background:#0d2a30;padding:24px;text-align:center;border-radius:12px 12px 0 0;">
+        <div style="color:#fff;font-size:1.6rem;font-weight:900;letter-spacing:2px;">
+          SHARK CITY <span style="color:#00b4c8">HOOPS</span>
+        </div>
+        <div style="color:#00d4ea;letter-spacing:4px;text-transform:uppercase;font-size:0.75rem;margin-top:4px;">
+          Media Day Photos — Ready!
+        </div>
+      </div>
+      <div style="padding:24px;background:#fff;border:1px solid #eee;border-top:none;">
+        <p>Hi ${escapeHtml(firstName)},</p>
+        <p>Your <strong>${escapeHtml(pkg)}</strong> package photos for <strong>${escapeHtml(player)}</strong> are ready to download.</p>
+        <p style="text-align:center;margin:24px 0;">
+          <a href="${escapeHtml(url)}" style="display:inline-block;background:#00b4c8;color:#ffffff;text-decoration:none;font-weight:800;padding:14px 28px;border-radius:8px;">
+            📁 Download Your Photos
+          </a>
+        </p>
+        <p style="font-size:0.85rem;color:#666;">
+          Direct link: <a href="${escapeHtml(url)}">${escapeHtml(url)}</a>
+        </p>
+        <p>Photos are yours to print, share, and enjoy. Reply if anything's missing or the link doesn't work.</p>
+        <p style="margin-top:24px;">Thanks for supporting Shark City Hoops! 🦈<br><strong>— Coach Ron &amp; the SCH Staff</strong></p>
+      </div>
+    </div>`;
+  MailApp.sendEmail({
+    to,
+    subject: `Your Media Day Photos are Ready — ${player}`,
+    htmlBody: html,
+    replyTo: REPLY_TO,
+    name: 'Shark City Hoops',
+  });
+}
+
+function sendMakerEmail(order, makerRows, url, photoFilename) {
+  const player = order['Player Name'] || '';
+  const jersey = order['Jersey #'] || '';
+  const team   = order['Team'] || '';
+  const orderId = order['Order ID'] || '';
+  const notes  = order['Notes'] || '';
+
+  const itemsHtml = makerRows.map(r =>
+    `<tr>
+       <td style="padding:6px 10px 6px 0;">${r.Qty}×</td>
+       <td style="padding:6px 0;">${escapeHtml(r.Item)}</td>
+     </tr>`
+  ).join('');
+  const totalItems = makerRows.reduce((s, r) => s + Number(r.Qty || 0), 0);
+
+  const html = `
+    <div style="font-family:Segoe UI,system-ui,sans-serif;max-width:600px;margin:0 auto;color:#222;">
+      <h2 style="color:#0d2a30;">🛠️ New SCH Keepsake Order</h2>
+      <p><strong>Order ID:</strong> ${escapeHtml(orderId)}</p>
+      <p><strong>Player:</strong> ${escapeHtml(player)} #${escapeHtml(String(jersey))} (${escapeHtml(team)})</p>
+      ${photoFilename ? `<p><strong>Photo to use:</strong> ${escapeHtml(photoFilename)}</p>` : ''}
+      ${notes ? `<p style="background:#fff8ec;border-left:4px solid #f0a500;padding:12px 16px;"><strong>Parent note:</strong> ${escapeHtml(notes)}</p>` : ''}
+      <p><strong>Photo + spec folder:</strong> <a href="${escapeHtml(url)}">${escapeHtml(url)}</a></p>
+      <h3>Items (${totalItems} total):</h3>
+      <table>${itemsHtml}</table>
+      <p style="font-size:0.85rem;color:#666;margin-top:20px;">
+        Ping me when they're ready and I'll pass them to the family. Thanks Krisha!<br>
+        — Coach Ron
+      </p>
+    </div>`;
+  MailApp.sendEmail({
+    to: MAKER_EMAIL,
+    subject: `SCH keepsake order — ${player} (${orderId})`,
+    htmlBody: html,
+    replyTo: NOTIFY_EMAIL,
+    name: 'Shark City Hoops',
+  });
 }
 
 // ──────────────────── UTILITY (run once from editor if needed) ────────────────────
