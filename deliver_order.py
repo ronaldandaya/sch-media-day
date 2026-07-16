@@ -62,7 +62,7 @@ KEEPSAKE_ITEMS = [
     ("Car Coasters",       "Car Coasters (set of 2)",                           12),
 ]
 
-MAKER_EMAIL = "MAKER_EMAIL_HERE@example.com"   # ← update with your keepsake maker's email
+MAKER_EMAIL = "krisharae.young@gmail.com"   # Krisha Rae Young (SCH keepsake maker)
 
 # ─── HELPERS ───────────────────────────────────────────────────────────────
 def fetch_json(url: str) -> dict:
@@ -338,6 +338,34 @@ or contact the parent directly if you handle shipping.
     print(f"\n  Thanks!")
     print(f"  — Coach Ron")
 
+def confirm_delivery(order_id: str, delivery_url: str, maker_url: str = "",
+                       photo_filename: str = "") -> None:
+    """POST to Apps Script to send emails + update sheet status."""
+    payload = {
+        "action": "deliver",
+        "key": ADMIN_KEY,
+        "orderId": order_id,
+        "deliveryUrl": delivery_url,
+        "makerUrl": maker_url,
+        "photoFilename": photo_filename,
+    }
+    body = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(APPS_SCRIPT_URL, data=body, method="POST")
+    print(f"→ POST deliver: {order_id}")
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            resp = json.loads(r.read().decode())
+        if resp.get("ok"):
+            print(f"✅ Parent emailed, sheet updated (Status → Delivered)")
+            if resp.get("makerItems", 0) > 0:
+                print(f"✅ Maker emailed ({resp['makerItems']} keepsake row(s) marked Sent to Maker)")
+            elif maker_url:
+                print(f"ℹ  No maker rows for this order (nothing to email Krisha)")
+        else:
+            print(f"❌ Failed: {resp.get('error')}")
+    except Exception as e:
+        print(f"❌ Request failed: {e}")
+
 def prepare_delivery(order: dict, manifest: dict, dry_run: bool = False) -> None:
     """Copy files to delivery folder and print summary + email draft."""
     order_id     = order.get("Order ID", "UNKNOWN")
@@ -389,6 +417,9 @@ def prepare_delivery(order: dict, manifest: dict, dry_run: bool = False) -> None
             shutil.copy2(f, dst)
         print(f"\n✅ Copied {len(files)} file(s) to Drive Deliveries folder")
         print(f"   → Wait ~30s for Drive Desktop to sync, then right-click the folder in Drive to share.")
+        print(f"\n💡 After you share the folder and copy the link, run:")
+        print(f"   python3 deliver_order.py --confirm {order_id} --url \"<PASTE_URL_HERE>\" [--maker-url \"<MAKER_URL>\"]")
+        print(f"   That triggers the parent email + sheet status update automatically.")
 
     # Email draft
     print("\n" + "─"*70)
@@ -432,8 +463,20 @@ def main():
     g.add_argument("--order",      metavar="ID",        help="Deliver a single order by ID")
     g.add_argument("--all-new",    action="store_true", help="Deliver all orders not yet marked Delivered")
     g.add_argument("--all-paid",   action="store_true", help="Deliver all orders with Status=Paid")
+    g.add_argument("--confirm",    metavar="ID",        help="Send parent+maker emails and mark order Delivered (after sharing folder)")
+    ap.add_argument("--url",       help="Drive share URL for parent delivery folder (with --confirm)")
+    ap.add_argument("--maker-url", default="", help="Drive share URL for Maker/ subfolder (with --confirm)")
+    ap.add_argument("--photo",     default="", help="Photo filename that will go on keepsakes (with --confirm)")
     ap.add_argument("--dry-run",   action="store_true", help="Show what would happen, don't copy files")
     args = ap.parse_args()
+
+    # --confirm doesn't need to load orders/manifest — it just POSTs
+    if args.confirm:
+        if not args.url:
+            print("❌ --confirm requires --url")
+            sys.exit(1)
+        confirm_delivery(args.confirm, args.url, args.maker_url, args.photo)
+        return
 
     print("Loading orders + manifest…")
     orders = load_orders()
