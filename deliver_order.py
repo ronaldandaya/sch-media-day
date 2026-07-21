@@ -64,6 +64,8 @@ KEEPSAKE_ITEMS = [
 
 MAKER_EMAIL = "krisharae.young@gmail.com"   # Krisha Rae Young (SCH keepsake maker)
 
+args_no_send = False  # module-level flag set from CLI args
+
 # ─── HELPERS ───────────────────────────────────────────────────────────────
 def fetch_json(url: str) -> dict:
     req = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
@@ -418,11 +420,7 @@ def prepare_delivery(order: dict, manifest: dict, dry_run: bool = False) -> None
             if dst.exists() and dst.stat().st_size == f.stat().st_size:
                 continue  # already there
             shutil.copy2(f, dst)
-        print(f"\n✅ Copied {len(files)} file(s) to Drive Deliveries folder")
-        print(f"   → Wait ~30s for Drive Desktop to sync, then right-click the folder in Drive to share.")
-        print(f"\n💡 After you share the folder and copy the link, run:")
-        print(f"   python3 deliver_order.py --confirm {order_id} --url \"<PASTE_URL_HERE>\" [--maker-url \"<MAKER_URL>\"]")
-        print(f"   That triggers the parent email + sheet status update automatically.")
+        print(f"\n✅ Copied {len(files)} file(s) → {delivery_folder.name}/")
 
     # Email draft
     print("\n" + "─"*70)
@@ -453,10 +451,55 @@ def prepare_delivery(order: dict, manifest: dict, dry_run: bool = False) -> None
 
     # ── MAKER PACKET (physical keepsakes) ──
     keepsakes = collect_keepsakes(order)
+    photo = None
+    maker_folder_name = None
     if keepsakes:
         photo = resolve_keepsake_photo(order, files)
         prepare_maker_packet(order, delivery_folder, keepsakes, photo, dry_run)
+        maker_folder_name = f"Maker_{delivery_folder.name}"
     print()
+
+    # ── INTERACTIVE PROMPTS to finish delivery ──
+    if not dry_run and not args_no_send:
+        print("─"*70)
+        print("READY TO SEND")
+        print("─"*70)
+        print(f"  Parent folder to share:  Deliveries/{delivery_folder.name}/")
+        if maker_folder_name:
+            print(f"  Maker folder to share:   Deliveries/{maker_folder_name}/  (with {MAKER_EMAIL})")
+        print()
+        print("  In Google Drive:")
+        print("    1. Right-click the parent folder → Share → 'Anyone with link' → Copy link")
+        if maker_folder_name:
+            print(f"    2. Right-click the Maker folder → Share with {MAKER_EMAIL} → Copy link")
+        print()
+        parent_url = _prompt_url("Paste PARENT folder link (or press Enter to skip sending)")
+        if not parent_url:
+            print("Skipped sending emails. Run --confirm later when ready.")
+            return
+        maker_url = ""
+        if maker_folder_name:
+            maker_url = _prompt_url(f"Paste MAKER folder link (or press Enter to skip Krisha email)")
+        photo_fname = photo.name if photo else ""
+        confirm_delivery(order_id, parent_url, maker_url, photo_fname)
+
+def _prompt_url(prompt_text: str) -> str:
+    """Read a URL from input(); accept 'c' or 'clip' to read from clipboard (macOS pbpaste)."""
+    print(f"\n{prompt_text}")
+    print("  (paste + Enter, or type 'c' to read from clipboard, or Enter alone to skip)")
+    val = input("> ").strip()
+    if val.lower() in ("c", "clip", "clipboard"):
+        try:
+            import subprocess
+            val = subprocess.check_output(["pbpaste"], text=True).strip()
+            print(f"  clipboard → {val[:60]}{'…' if len(val) > 60 else ''}")
+        except Exception as e:
+            print(f"  ⚠ clipboard read failed: {e}")
+            return ""
+    if val and not val.startswith("http"):
+        print(f"  ⚠ Doesn't look like a URL: {val!r}. Skipping.")
+        return ""
+    return val
 
 # ─── CLI ───────────────────────────────────────────────────────────────────
 def main():
@@ -471,7 +514,11 @@ def main():
     ap.add_argument("--maker-url", default="", help="Drive share URL for Maker/ subfolder (with --confirm)")
     ap.add_argument("--photo",     default="", help="Photo filename that will go on keepsakes (with --confirm)")
     ap.add_argument("--dry-run",   action="store_true", help="Show what would happen, don't copy files")
+    ap.add_argument("--no-send",   action="store_true", help="Copy files only; don't prompt for URLs")
     args = ap.parse_args()
+    # Make args_no_send available inside prepare_delivery (module-level for simplicity)
+    global args_no_send
+    args_no_send = args.no_send or args.dry_run
 
     # --confirm doesn't need to load orders/manifest — it just POSTs
     if args.confirm:
