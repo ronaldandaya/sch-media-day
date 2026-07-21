@@ -264,7 +264,9 @@ def resolve_keepsake_photo(order: dict, files: list) -> Path | None:
 
 def prepare_maker_packet(order: dict, delivery_folder: Path, keepsakes: list,
                           photo: Path | None, dry_run: bool) -> None:
-    """Create Maker/ subfolder with photo + order.txt for the keepsake maker."""
+    """Create separate Maker_ sibling folder with photo + order.txt for the
+    keepsake maker. IMPORTANT: sibling (not subfolder) so Drive share perms
+    don't leak the maker packet to the parent."""
     order_id     = order.get("Order ID", "UNKNOWN")
     player_name  = order.get("Player Name", "Unknown")
     parent_name  = order.get("Parent Name", "")
@@ -274,7 +276,8 @@ def prepare_maker_packet(order: dict, delivery_folder: Path, keepsakes: list,
     jersey       = order.get("Jersey #", "")
     team         = order.get("Team", "")
 
-    maker_dir = delivery_folder / "Maker"
+    # Sibling folder — NOT inside delivery_folder — to isolate share permissions
+    maker_dir = delivery_folder.parent / f"Maker_{delivery_folder.name}"
     total_items = sum(qty for _, qty, _ in keepsakes)
     total_value = sum(qty*price for _, qty, price in keepsakes)
 
