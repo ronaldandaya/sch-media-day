@@ -515,6 +515,7 @@ def main():
     ap.add_argument("--photo",     default="", help="Photo filename that will go on keepsakes (with --confirm)")
     ap.add_argument("--dry-run",   action="store_true", help="Show what would happen, don't copy files")
     ap.add_argument("--no-send",   action="store_true", help="Copy files only; don't prompt for URLs")
+    ap.add_argument("--all",       action="store_true", help="With --list, show delivered orders too")
     args = ap.parse_args()
     # Make args_no_send available inside prepare_delivery (module-level for simplicity)
     global args_no_send
@@ -534,14 +535,19 @@ def main():
     print(f"  {len(orders)} orders, {len(manifest.get('players', {}))} players in manifest\n")
 
     if args.list:
+        # Hide Delivered orders by default (use --all to show everything)
+        visible = orders if args.all else [o for o in orders if o.get("Status") != "Delivered"]
+        hidden = len(orders) - len(visible)
         print(f"{'Order ID':22s} {'Status':10s} {'Player':25s} {'Total':>8s}  Parent")
         print("─"*100)
-        for o in orders:
+        for o in visible:
             print(f"{o.get('Order ID',''):22s} "
                   f"{o.get('Status',''):10s} "
                   f"{o.get('Player Name',''):25s} "
                   f"${o.get('Order Total','0'):>7} "
                   f"{o.get('Parent Name','')} <{o.get('Parent Email','')}>")
+        if hidden:
+            print(f"\n({hidden} delivered order{'s' if hidden!=1 else ''} hidden — use --all to see them)")
         return
 
     if args.order:
