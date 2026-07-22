@@ -485,21 +485,37 @@ def prepare_delivery(order: dict, manifest: dict, dry_run: bool = False) -> None
 
 def _prompt_url(prompt_text: str) -> str:
     """Read a URL from input(); accept 'c' or 'clip' to read from clipboard (macOS pbpaste)."""
-    print(f"\n{prompt_text}")
-    print("  (paste + Enter, or type 'c' to read from clipboard, or Enter alone to skip)")
-    val = input("> ").strip()
-    if val.lower() in ("c", "clip", "clipboard"):
-        try:
-            import subprocess
-            val = subprocess.check_output(["pbpaste"], text=True).strip()
-            print(f"  clipboard → {val[:60]}{'…' if len(val) > 60 else ''}")
-        except Exception as e:
-            print(f"  ⚠ clipboard read failed: {e}")
+    while True:
+        print(f"\n{prompt_text}")
+        print("  Options: paste URL + Enter  |  type 'c' + Enter to read clipboard  |  Enter alone to skip")
+        val = input("> ").strip()
+
+        if not val:
+            print("  → skipped")
             return ""
-    if val and not val.startswith("http"):
-        print(f"  ⚠ Doesn't look like a URL: {val!r}. Skipping.")
-        return ""
-    return val
+
+        if val.lower() in ("c", "clip", "clipboard"):
+            try:
+                import subprocess
+                clip = subprocess.check_output(["pbpaste"], text=True).strip()
+            except Exception as e:
+                print(f"  ⚠ clipboard read failed: {e}")
+                continue  # re-prompt
+            if not clip:
+                print("  ⚠ Clipboard is empty. Copy the Drive link first, then type 'c' again.")
+                continue  # re-prompt
+            if not clip.startswith("http"):
+                print(f"  ⚠ Clipboard doesn't look like a URL: {clip[:80]!r}")
+                print("     (Make sure you copied the folder's share link, not the folder name)")
+                continue  # re-prompt
+            print(f"  ✅ Got URL from clipboard: {clip[:70]}{'…' if len(clip) > 70 else ''}")
+            return clip
+
+        if not val.startswith("http"):
+            print(f"  ⚠ Doesn't look like a URL: {val[:80]!r}")
+            print("     Try again, or press Enter to skip.")
+            continue
+        return val
 
 # ─── CLI ───────────────────────────────────────────────────────────────────
 def main():
