@@ -483,39 +483,63 @@ def prepare_delivery(order: dict, manifest: dict, dry_run: bool = False) -> None
         photo_fname = photo.name if photo else ""
         confirm_delivery(order_id, parent_url, maker_url, photo_fname)
 
+_URL_RE = re.compile(r"https?://\S+")
+
+def _extract_url(text: str) -> str:
+    """Pull an http(s) URL out of arbitrary text (handles bracketed-paste escape
+    sequences, leading/trailing whitespace or brackets, etc.)."""
+    if not text:
+        return ""
+    m = _URL_RE.search(text)
+    return m.group(0).rstrip(">]),.;'\"") if m else ""
+
 def _prompt_url(prompt_text: str) -> str:
     """Read a URL from input(); accept 'c' or 'clip' to read from clipboard (macOS pbpaste)."""
+    attempts = 0
     while True:
+        attempts += 1
+        if attempts > 5:
+            print("  → too many retries; skipping")
+            return ""
         print(f"\n{prompt_text}")
-        print("  Options: paste URL + Enter  |  type 'c' + Enter to read clipboard  |  Enter alone to skip")
-        val = input("> ").strip()
+        print("  Options: paste URL + Enter  |  type 'c' + Enter to read clipboard  |  type 's' + Enter to skip")
+        try:
+            raw = input("> ")
+        except EOFError:
+            return ""
+        val = raw.strip()
 
-        if not val:
+        # explicit skip
+        if val.lower() in ("s", "skip", "q", "quit"):
             print("  → skipped")
             return ""
+        if not val:
+            # empty enter — offer explicit choice
+            print("  (empty input — press Ctrl+C to abort, or type 's' to explicitly skip)")
+            continue
 
+        # clipboard mode
         if val.lower() in ("c", "clip", "clipboard"):
             try:
                 import subprocess
-                clip = subprocess.check_output(["pbpaste"], text=True).strip()
+                clip = subprocess.check_output(["pbpaste"], text=True)
             except Exception as e:
                 print(f"  ⚠ clipboard read failed: {e}")
-                continue  # re-prompt
-            if not clip:
-                print("  ⚠ Clipboard is empty. Copy the Drive link first, then type 'c' again.")
-                continue  # re-prompt
-            if not clip.startswith("http"):
-                print(f"  ⚠ Clipboard doesn't look like a URL: {clip[:80]!r}")
-                print("     (Make sure you copied the folder's share link, not the folder name)")
-                continue  # re-prompt
-            print(f"  ✅ Got URL from clipboard: {clip[:70]}{'…' if len(clip) > 70 else ''}")
-            return clip
+                continue
+            url = _extract_url(clip)
+            if not url:
+                snippet = clip.strip()[:80]
+                print(f"  ⚠ No URL in clipboard. First 80 chars: {snippet!r}")
+                continue
+            print(f"  ✅ Got URL from clipboard: {url[:70]}{'…' if len(url) > 70 else ''}")
+            return url
 
-        if not val.startswith("http"):
-            print(f"  ⚠ Doesn't look like a URL: {val[:80]!r}")
-            print("     Try again, or press Enter to skip.")
+        # direct paste — extract URL from whatever the terminal delivered
+        url = _extract_url(val)
+        if not url:
+            print(f"  ⚠ Couldn't find a URL in: {val[:80]!r}")
             continue
-        return val
+        return url
 
 # ─── CLI ───────────────────────────────────────────────────────────────────
 def main():
